@@ -1,0 +1,14 @@
+{
+  "list" : [
+  {
+    "nickName":"张三",
+    "departureTime":"2018-10-27 19:00:00",
+    "body":"上地-四元桥-大望路-通州-燕郊",
+    "vacancy":4
+  },{
+    "nickName": "李四",
+    "departureTime": "2018-10-27 20:00:00",
+    "body": "上地-四元桥-大望路-通州-燕郊",
+    "vacancy": 2
+  }]
+}
