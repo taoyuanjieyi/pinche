@@ -21,11 +21,12 @@ page {
 
 .index-top {
   width: 100%;
-  padding: 0 5%;
+  padding: 20rpx 5%;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1rpx solid #f0f0f0;
 }
 
 .index-release {
@@ -61,7 +62,7 @@ page {
   box-sizing: border-box;
   display: flex;
   /* align-items: center; */
-  border-bottom: 1rpx solid #eaeaea;
+  border-bottom: 1rpx solid #f0f0f0;
 }
 
 .content-left-avatar {
