@@ -65,8 +65,8 @@ page {
 }
 
 .content-left-avatar {
-  width: 100rpx;
-  height: 100rpx;
+  width: 90rpx;
+  height: 90rpx;
   border-radius: 50%;
 }
 
@@ -76,14 +76,20 @@ page {
   margin: 0 20rpx;
 }
 
+.content-center-top {
+  font-size: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-center-bottom {
+  font-size: 26rpx;
+}
+
 .content-center-message {
   color: #666;
   margin-left: 20rpx;
-}
-
-.index-content-right {
-  font-size: 26rpx;
-  text-align: center;
 }
 
 .content-right-btn {

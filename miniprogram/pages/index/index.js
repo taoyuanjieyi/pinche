@@ -1,5 +1,5 @@
 //index.js
-var time = require('../../utils/dateUtil.js');
+var dateUtil = require('../../utils/dateUtil.js');
 //获取应用实例
 const app = getApp()
 
@@ -72,6 +72,36 @@ Page({
           title: '查询记录失败'
         })
         console.error('[数据库] [查询记录] 失败：', err)
+      }
+    })
+  },
+  onAdd: function () {
+    const db = wx.cloud.database()
+    var timestamp = Date.parse(new Date());
+    var time = dateUtil.formatTime(new Date())
+    db.collection('travel_lines').add({
+      data: {
+        count: 1,
+        body:"三元桥-国贸-大望路-通州-香河",
+        departureTime: time,
+        nickname:"MikeG",
+        vacancy:3,
+        id:timestamp
+      },
+      success: res => {
+        // 在返回结果中会包含新创建的记录的 _id
+        this.onQuery()
+        wx.showToast({
+          title: '新增记录成功',
+        })
+        console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '新增记录失败'
+        })
+        console.error('[数据库] [新增记录] 失败：', err)
       }
     })
   },
