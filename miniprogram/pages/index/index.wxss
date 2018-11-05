@@ -17,33 +17,43 @@ page {
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
   -webkit-touch-callout: none;
+  background: #eaeaea;
 }
 
 .index-top {
-  width: 100%;
+  width: 90%;
   padding: 20rpx 5%;
-  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1rpx solid #f0f0f0;
+  background: #379ff8;
 }
 
-.index-release {
-  font-size: 26rpx;
-  padding: 6rpx 10rpx;
-  border: 1rpx solid blue;
-  border-radius: 4rpx;
+.index-top-back {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.search {
+  width: 80%;
+  position: relative;
+  background: #fff;
+  border-radius: 30rpx;
 }
 
 .index-search {
-  width: 100rpx;
   height: 50rpx;
   font-size: 26rpx;
-  border: 1rpx solid #ccc;
-  padding: 4rpx 0;
-  border-radius: 30rpx;
+  padding: 4rpx 20rpx;
   display: block;
+}
+
+.search-icon {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .index-search:focus {
@@ -56,19 +66,25 @@ page {
 }
 
 .inddex-content {
-  width: 90%;
-  padding: 20rpx 0;
-  margin: 0 5%;
+  width: 94%;
+  margin: 30rpx auto;
   box-sizing: border-box;
   display: flex;
-  /* align-items: center; */
-  border-bottom: 1rpx solid #f0f0f0;
+  background: #fff;
+  position: relative;
+}
+
+.index-content-left {
+  position: absolute;
+  left: -14rpx;
+  top: -14rpx;
 }
 
 .content-left-avatar {
   width: 90rpx;
   height: 90rpx;
   border-radius: 50%;
+  border: 6rpx solid #fff;
 }
 
 .index-content-center {
@@ -78,14 +94,20 @@ page {
 }
 
 .content-center-top {
+  margin: 0 10rpx 0 80rpx;
+  padding: 10rpx 0;
+  box-sizing: border-box;
   font-size: 24rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1rpx dashed #d2d2d2;
 }
 
 .content-center-bottom {
   font-size: 26rpx;
+  color: #585858;
+  padding: 20rpx 10rpx 20rpx 10rpx;
 }
 
 .content-center-message {
@@ -94,16 +116,14 @@ page {
 }
 
 .content-right-btn {
-  color: blue;
-  border: 2rpx solid blue;
   border-radius: 4rpx;
   padding: 6rpx;
   margin-bottom: 10rpx;
 }
 
 .content-right-btn-color {
-  color: red;
-  border: 2rpx solid red;
+  color: #fff;
+  background: #379ff8;
 }
 
 /*index-bottom*/

@@ -12,9 +12,9 @@
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#21292c",
     "navigationBarTitleText": "闲 座",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "selectedColor": "#d9583a",
@@ -24,6 +24,12 @@
         "text": "首页",
         "iconPath": "images/home_default.png",
         "selectedIconPath": "images/home_pressed.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "发布",
+        "iconPath": "images/me_default.png",
+        "selectedIconPath": "images/me_pressed.png"
       },
       {
         "pagePath": "pages/me/me",

@@ -1,10 +1,30 @@
 <!--index.wxml-->
 <view class='index'>
   <view class='index-top'>
-    <view class='index-release' bindtap="onAdd">发布拼车</view>
-    <input class='index-search' placeholder='search'></input>
+    <image class='index-top-back' mode='aspectFit' src='../images/back-white.svg'></image>
+    <!-- <view class='index-release' bindtap="onAdd">发布拼车</view> -->
+    <view class='search'>
+      <input class='index-search' placeholder='search'></input>
+      <image class='search-icon' src='../images/search-icon.jpg' mode='aspectFit'></image>
+    </view>
+
   </view>
   <view class='inddex-view'>
+    <view class='inddex-content'>
+      <view class='index-content-left'>
+        <image class='content-left-avatar' mode='aspectFill' src='http://www.chinadaily.com.cn/language_tips/images/attachement/jpg/site1/20070814/001125254635082b41be0a.jpg'></image>
+      </view>
+      <view class='index-content-center'>
+        <view class='content-center-top'>
+          <view>
+            <text>车主</text>
+            <text class='content-center-message'>(2018/10/27 下午6点)</text>
+          </view>
+          <view class='content-right-btn content-right-btn-color'>已预订√</view>
+        </view>
+        <view class='content-center-bottom'>中关村到顺义南法信中关村到顺义南法信中关村到顺义南法信</view>
+      </view>
+    </view>
     <view class='inddex-content'>
       <view class='index-content-left'>
         <image class='content-left-avatar' mode='aspectFill' src='http://www.chinadaily.com.cn/language_tips/images/attachement/jpg/site1/20070814/001125254635082b41be0a.jpg'></image>
