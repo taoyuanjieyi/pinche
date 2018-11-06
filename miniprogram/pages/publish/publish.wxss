@@ -1,0 +1,43 @@
+page {
+  background: #eaeaea;
+}
+
+.publish {
+  width: 95%;
+  margin: 20rpx auto;
+  background: #fff;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.publish-list {
+  font-size: 30rpx;
+  color: #21292c;
+  margin: 0 10rpx;
+  padding: 20rpx 10rpx;
+  display: flex;
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+.publish-list-title {
+  line-height: 80rpx;
+  white-space: normal;
+}
+
+.publish-list-content {
+  flex: 1;
+  min-height: 60rpx;
+}
+
+.publish-btn {
+  width: 95%;
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #379ff8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30rpx auto;
+  background: #eaeaea;
+  border-radius: 4rpx;
+}

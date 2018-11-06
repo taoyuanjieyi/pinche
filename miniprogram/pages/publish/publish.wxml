@@ -1,0 +1,35 @@
+<view class='publish'>
+  <view class='publish-list'>
+    <text class='publish-list-title'>称呼：</text>
+    <textarea class='publish-list-content' auto-height></textarea>
+  </view>
+  <view class='publish-list'>
+    <text class='publish-list-title'>起点：</text>
+    <textarea class='publish-list-content' auto-height></textarea>
+  </view>
+  <view class='publish-list'>
+    <text class='publish-list-title'>终点：</text>
+    <textarea class='publish-list-content' auto-height></textarea>
+  </view>
+  <view class='publish-list'>
+    <text class='publish-list-title'>途径：</text>
+    <textarea class='publish-list-content' auto-height></textarea>
+  </view>
+  <view class='publish-list'>
+    <text class='publish-list-title'>剩余座位：</text>
+    <textarea class='publish-list-content' auto-height></textarea>
+  </view>
+  <view class='publish-list'>
+    <text class='publish-list-title'>出发时间：</text>
+    <textarea class='publish-list-content' auto-height></textarea>
+  </view>
+  <view class='publish-list'>
+    <text class='publish-list-title'>车辆信息：</text>
+    <textarea class='publish-list-content' auto-height></textarea>
+  </view>
+  <view class='publish-list'>
+    <text class='publish-list-title'>备注：</text>
+    <textarea class='publish-list-content' auto-height></textarea>
+  </view>
+  <view class='publish-btn'>发布</view>
+</view>
