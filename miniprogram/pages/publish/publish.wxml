@@ -1,35 +1,38 @@
+<form bindsubmit="formBindsubmit">
 <view class='publish'>
   <view class='publish-list'>
     <text class='publish-list-title'>称呼：</text>
-    <textarea class='publish-list-content' auto-height></textarea>
+    <textarea name='nickname' class='publish-list-content' auto-height></textarea>
   </view>
   <view class='publish-list'>
     <text class='publish-list-title'>起点：</text>
-    <textarea class='publish-list-content' auto-height></textarea>
+    <textarea name='start' class='publish-list-content' auto-height></textarea>
   </view>
   <view class='publish-list'>
     <text class='publish-list-title'>终点：</text>
-    <textarea class='publish-list-content' auto-height></textarea>
+    <textarea name='end' class='publish-list-content' auto-height></textarea>
   </view>
   <view class='publish-list'>
     <text class='publish-list-title'>途径：</text>
-    <textarea class='publish-list-content' auto-height></textarea>
+    <textarea name='body' class='publish-list-content' auto-height></textarea>
   </view>
   <view class='publish-list'>
     <text class='publish-list-title'>剩余座位：</text>
-    <textarea class='publish-list-content' auto-height></textarea>
+    <textarea name='vacancy' class='publish-list-content' auto-height></textarea>
   </view>
   <view class='publish-list'>
     <text class='publish-list-title'>出发时间：</text>
-    <textarea class='publish-list-content' auto-height></textarea>
+    <textarea name='departureTime' class='publish-list-content' auto-height></textarea>
   </view>
   <view class='publish-list'>
     <text class='publish-list-title'>车辆信息：</text>
-    <textarea class='publish-list-content' auto-height></textarea>
+    <textarea name='carinfo' class='publish-list-content' auto-height></textarea>
   </view>
   <view class='publish-list'>
     <text class='publish-list-title'>备注：</text>
-    <textarea class='publish-list-content' auto-height></textarea>
+    <textarea name='remark' class='publish-list-content' auto-height></textarea>
   </view>
   <button class='publish-btn'>发布</button>
+  <button style="width:30%;" formType="submit" >保存</button>
 </view>
+</form>
