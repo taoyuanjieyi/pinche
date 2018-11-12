@@ -41,3 +41,7 @@ page {
   background: #eaeaea;
   border-radius: 4rpx;
 }
+
+.publish-btn:active {
+  background: #ccc;
+}

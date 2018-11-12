@@ -31,5 +31,5 @@
     <text class='publish-list-title'>备注：</text>
     <textarea class='publish-list-content' auto-height></textarea>
   </view>
-  <view class='publish-btn'>发布</view>
+  <button class='publish-btn'>发布</button>
 </view>
