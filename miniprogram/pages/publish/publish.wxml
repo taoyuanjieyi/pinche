@@ -1,21 +1,21 @@
 <form bindsubmit="formBindsubmit">
 <view class='publish'>
-  <view class='publish-list'>
+  <!-- <view class='publish-list'>
     <text class='publish-list-title'>称呼：</text>
     <textarea name='nickname' class='publish-list-content' auto-height></textarea>
-  </view>
+  </view> -->
   <view class='publish-list'>
-    <text class='publish-list-title'>起点：</text>
+    <text class='publish-list-title'>路程：</text>
     <textarea name='start' class='publish-list-content' auto-height></textarea>
   </view>
-  <view class='publish-list'>
+  <!-- <view class='publish-list'>
     <text class='publish-list-title'>终点：</text>
     <textarea name='end' class='publish-list-content' auto-height></textarea>
   </view>
   <view class='publish-list'>
     <text class='publish-list-title'>途径：</text>
     <textarea name='body' class='publish-list-content' auto-height></textarea>
-  </view>
+  </view> -->
   <view class='publish-list'>
     <text class='publish-list-title'>剩余座位：</text>
     <textarea name='vacancy' class='publish-list-content' auto-height></textarea>
