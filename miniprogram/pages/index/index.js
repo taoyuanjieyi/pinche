@@ -60,6 +60,7 @@ Page({
     })
   },
   onShow: function () {
+    wx.cloud.init();
     const db = wx.cloud.database()
     // 查询当前用户所有的 counters
     db.collection('travel_lines').orderBy('id', 'desc').get({
@@ -80,5 +81,5 @@ Page({
       }
     })
   },
-  
+
 })

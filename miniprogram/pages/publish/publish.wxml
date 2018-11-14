@@ -33,7 +33,6 @@
       <text class='publish-list-title'>备注：</text>
       <textarea name='remark' class='publish-list-content' auto-height></textarea>
     </view>
-    <button class='publish-btn'>发布</button>
-    <button class='publish-btn' formType="submit">保存</button>
+    <button class='publish-btn' formType="submit">发布</button>
   </view>
 </form>
