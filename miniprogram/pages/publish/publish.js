@@ -66,19 +66,40 @@ Page({
 
   formBindsubmit: function (e) {
     if (e.detail.value.nickname === null || e.detail.value.nickname === ''){
-
+      wx.showToast({
+        icon: 'none',
+        title: '昵称不能为空！'
+      })
     } else if (e.detail.value.start === null || e.detail.value.start === ''){
-
+      wx.showToast({
+        icon: 'none',
+        title: '起点不能为空！'
+      })
     } else if (e.detail.value.end === null || e.detail.value.end === '') {
-
+      wx.showToast({
+        icon: 'none',
+        title: '终点不能为空！'
+      })
     } else if (e.detail.value.body === null || e.detail.value.body === '') {
-
+      wx.showToast({
+        icon: 'none',
+        title: '途经站点不能为空！'
+      })
     } else if (e.detail.value.vacancy === null || e.detail.value.vacancy === '') {
-
+      wx.showToast({
+        icon: 'none',
+        title: '空余座位数量不能为空！'
+      })
     } else if (e.detail.value.departureTime === null || e.detail.value.departureTime === '') {
-
+      wx.showToast({
+        icon: 'none',
+        title: '出发时间不能为空！'
+      })
     } else if (e.detail.value.carinfo === null || e.detail.value.carinfo === '') {
-
+      wx.showToast({
+        icon: 'none',
+        title: '汽车信息不能为空！'
+      })
     }else{
       // console.log(e.detail.value.nickname);
       // console.log(e.detail.value.start);
