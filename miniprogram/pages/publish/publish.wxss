@@ -14,19 +14,23 @@ page {
   font-size: 30rpx;
   color: #21292c;
   margin: 0 10rpx;
-  padding: 20rpx 10rpx;
+  padding: 30rpx 10rpx;
   display: flex;
   border-bottom: 1rpx solid #eaeaea;
 }
 
+.publish-list>picker {
+  width: 100%;
+}
+
 .publish-list-title {
-  line-height: 80rpx;
+  /* line-height: 80rpx; */
   white-space: normal;
 }
 
 .publish-list-content {
   flex: 1;
-  min-height: 60rpx;
+  /* min-height: 60rpx; */
 }
 
 .publish-btn {
