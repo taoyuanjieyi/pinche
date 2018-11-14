@@ -1,38 +1,39 @@
 <form bindsubmit="formBindsubmit">
-<view class='publish'>
-  <view class='publish-list'>
-    <text class='publish-list-title'>称呼：</text>
-    <textarea name='nickname' class='publish-list-content' auto-height></textarea>
+  <view class='publish'>
+    <view class='publish-list'>
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <view class="picker">
+          出发日期: {{date}}
+        </view>
+      </picker>
+    </view>
+    <view class='publish-list'>
+      <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+        <view class="picker">
+          出发时间: {{time}}
+        </view>
+      </picker>
+    </view>
+    <view class='publish-list'>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          剩余座位：{{array[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class='publish-list'>
+      <text class='publish-list-title'>行程内容：</text>
+      <textarea name='start' class='publish-list-content' auto-height></textarea>
+    </view>
+    <view class='publish-list'>
+      <text class='publish-list-title'>车辆信息：</text>
+      <textarea name='carinfo' class='publish-list-content' auto-height></textarea>
+    </view>
+    <view class='publish-list'>
+      <text class='publish-list-title'>备注：</text>
+      <textarea name='remark' class='publish-list-content' auto-height></textarea>
+    </view>
+    <button class='publish-btn'>发布</button>
+    <button class='publish-btn' formType="submit">保存</button>
   </view>
-  <view class='publish-list'>
-    <text class='publish-list-title'>起点：</text>
-    <textarea name='start' class='publish-list-content' auto-height></textarea>
-  </view>
-  <view class='publish-list'>
-    <text class='publish-list-title'>终点：</text>
-    <textarea name='end' class='publish-list-content' auto-height></textarea>
-  </view>
-  <view class='publish-list'>
-    <text class='publish-list-title'>途径：</text>
-    <textarea name='body' class='publish-list-content' auto-height></textarea>
-  </view>
-  <view class='publish-list'>
-    <text class='publish-list-title'>剩余座位：</text>
-    <textarea name='vacancy' class='publish-list-content' auto-height></textarea>
-  </view>
-  <view class='publish-list'>
-    <text class='publish-list-title'>出发时间：</text>
-    <textarea name='departureTime' class='publish-list-content' auto-height></textarea>
-  </view>
-  <view class='publish-list'>
-    <text class='publish-list-title'>车辆信息：</text>
-    <textarea name='carinfo' class='publish-list-content' auto-height></textarea>
-  </view>
-  <view class='publish-list'>
-    <text class='publish-list-title'>备注：</text>
-    <textarea name='remark' class='publish-list-content' auto-height></textarea>
-  </view>
-  <view class='publish-btn'>发布</view>
-  <button style="width:30%;" formType="submit" >保存</button>
-</view>
 </form>
