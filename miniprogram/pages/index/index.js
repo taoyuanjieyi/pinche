@@ -1,5 +1,7 @@
 //index.js
 var dateUtil = require('../../utils/dateUtil.js');
+var commonUtil = require('../../common/common.js');
+
 //获取应用实例
 const app = getApp()
 
@@ -17,17 +19,8 @@ Page({
     })
   },
   onLoad: function () {
-    
+    commonUtil.onLogin();
     this.onShow();
-
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
   },
   onAdd: function () {
     const db = wx.cloud.database()

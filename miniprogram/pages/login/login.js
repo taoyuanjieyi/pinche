@@ -1,3 +1,5 @@
+var commonUtil = require('../../common/common.js');
+
 Page({
   data: {
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
@@ -12,11 +14,11 @@ Page({
           wx.getUserInfo({
             success: function(res) {
               //从数据库获取用户信息
-              that.queryUsreInfo();
+              //that.queryUserInfo();
               //用户已经授权过
-              wx.switchTab({
-                url: ''
-              })
+              // wx.switchTab({
+              //   url: ''
+              // })
             }
           });
         }
@@ -24,25 +26,28 @@ Page({
     })
   },
   bindGetUserInfo: function(e) {
+    console.info("=======",e.detail.userInfo);
     if (e.detail.userInfo) {
       //用户按了允许授权按钮
       var that = this;
       //插入登录的用户的相关信息到数据库
+      var session_id = commonUtil.getStorage("third_Session");
       wx.request({
-        url: getApp().globalData.urlPath + 'hstc_interface/insert_user',
+        url: "https://39.106.5.219/pinche/user/save",
+        method:"POST",
         data: {
-          openid: getApp().globalData.openid,
           nickName: e.detail.userInfo.nickName,
           avatarUrl: e.detail.userInfo.avatarUrl,
           province: e.detail.userInfo.province,
           city: e.detail.userInfo.city
         },
         header: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'sessionid':session_id
         },
         success: function(res) {
           //从数据库获取用户信息
-          that.queryUsreInfo();
+          that.queryUserInfo();
           console.log("插入小程序登录用户信息成功！");
         }
       });
@@ -66,9 +71,9 @@ Page({
     }
   },
   //获取用户信息接口
-  queryUsreInfo: function() {
+  queryUserInfo: function() {
     wx.request({
-      url: getApp().globalData.urlPath + 'hstc_interface/queryByOpenid',
+      url: "https://39.106.5.219/pinche/user/get",
       data: {
         openid: getApp().globalData.openid
       },
