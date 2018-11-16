@@ -1,19 +1,14 @@
 /**app.wxss**/
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-button {
-  margin: 0;
-  padding: 0;
-}
-
-button::after {
-  border: 0;
-  border-radius: 0;
-  background: none;
+page {
+  font-family: "San Francisco",
+                 "Segoe UI",
+                 "droid Sans",
+                 "Helvetica Neue",
+                 "Helvetica",
+                 "Hiragino Sans GB",
+                 "Microsoft YaHei",
+                 "Arial",
+                 "sans-serif";
+  -webkit-text-size-adjust: 100%;
 }

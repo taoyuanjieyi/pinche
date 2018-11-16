@@ -1,0 +1,81 @@
+page {
+  color: #333;
+  background: #f8f8f8;
+}
+
+.me-top {
+  width: 100%;
+  padding: 24rpx 40rpx;
+  background: #fff;
+  border-top: 1rpx solid #eaeaea;
+  border-bottom: 1rpx solid #eaeaea;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.me-avatar {
+  width: 114rpx;
+  height: 114rpx;
+  border-top-left-radius: 50%;
+  margin-right: 25rpx;
+}
+
+.me-name {
+  font-size: 30rpx;
+}
+
+.me-account {
+  font-size: 26rpx;
+  margin-top: 6rpx;
+}
+
+.me-account-message {
+  max-width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.me-list {
+  background: #fff;
+  margin-top: 10px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.me-list-content {
+  font-size: 32rpx;
+  height: 88rpx;
+  padding: 0 40rpx 0 0;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 40rpx;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.me-list-content:last-child {
+  border-bottom: 0;
+}
+
+.list-content-arrow {
+  font-size: 30rpx;
+  color: #9b9b9b;
+}
+
+/* .list-content-arrow::after {
+  margin-left: 30rpx;
+  right: 0;
+  content: " ";
+  display: inline-block;
+  height: 26rpx;
+  width: 16rpx;
+  position: relative;
+  border-radius: 0;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAaCAYAAAC+aNwHAAAAAXNSR0IArs4c6QAAAjJJREFUOBGNlM9L3EAUx2dGl+JFsHjwutA9L3WFTc7Fm6AealGwUilaq4gFQVAs/qIIYkEFFS0ttmBBDz2UQg89eEsiu/sfCP4BXgsVzIzft3FsZjZrdg6Zmffe55v3Zl7C2N0IgspLzysdKqW4tjUyN1MQ4EGAX7AUWGOpxjnnqhEBHgSl51Ky7whuigH7jlN424iIkJL3WjDpvEEmOzHBukvhOJ0j8B7ZEShj0vdLW7bd3gukGSLdV0KwPdupFJv2vPJH2x7fC9pQrcViF2pmm3FntFbvfL+8UWuPLFUB7XScrlmIrOq9nlHOLA57Xe/jc+Kde15ljjGZAPAPrltYSBWggCAoT+EMtvF24yWUITJ9r0UMpzbq2fcro4wp6k6jVCH4UrFYWKa4BwUogLpUSvkVy2rXki0aYtF1O9dSBSgYB9iHbj3F0hBBOfNGapFy7RNn8cSGoyjelpoBvtBpBNd0JHpnCw0486AA4AnAu9Hb/j8B7wKeJEtdAdT9Gjd4YF8jmE+Ax6h76woAHgH82b4+AEf03Wg4UQDwEOBvCfAx4GHAkkA9jBIAJ/1cEMtP8NkPAQ41qOd7AcCJdw34B+ABwDcais/VPkDf9+CuT+AwGgXwz0xGvagHkxA/P688C0P1Cz3/KK4M1+/29ta+XC53bdrNnQhDfgHTlWnmfzo6HvenwcQI1316ibkbfV0VwXyGtHuz2ew/Ckgb94eI31YBZay0tGQG8vn83zRQ+28BQA3Mj9aoXHAAAAAASUVORK5CYII=") no-repeat center center;
+  background-size: 16rpx;
+} */

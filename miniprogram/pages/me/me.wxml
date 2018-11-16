@@ -1,1 +1,36 @@
-
+<view class='me-top'>
+  <image class='me-avatar' src='../../images/logo.png'></image>
+  <view>
+    <view class='me-name'>liangjie</view>
+    <view class='me-account'>
+      <text>账号：</text>
+      <text class='me-account-message'>liangjie@139.comiangjie@139.comiangjie@139.comiangjie@139.comiangjie@139.com</text>
+    </view>
+  </view>
+</view>
+<view class='me-list'>
+  <view class='me-list-content'>
+    <text class='list-content-title'>手机号</text>
+    <text class='list-content-arrow'>13810825730</text>
+  </view>
+  <view class='me-list-content'>
+    <text class='list-content-title'>我的账号</text>
+    <text class='list-content-arrow'>已绑定</text>
+  </view>
+  <view class='me-list-content'>
+    <text class='list-content-title'>我的账号</text>
+    <text class='list-content-arrow'>已绑定</text>
+  </view>
+  <view class='me-list-content'>
+    <text class='list-content-title'>我的账号</text>
+    <text class='list-content-arrow'>已绑定</text>
+  </view>
+  <view class='me-list-content'>
+    <text class='list-content-title'>我的账号</text>
+    <text class='list-content-arrow'>已绑定</text>
+  </view>
+  <view class='me-list-content'>
+    <text class='list-content-title'>我的账号</text>
+    <text class='list-content-arrow'>已绑定</text>
+  </view>
+</view>

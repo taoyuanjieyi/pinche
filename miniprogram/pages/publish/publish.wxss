@@ -16,6 +16,7 @@ page {
   margin: 0 10rpx;
   padding: 30rpx 10rpx;
   display: flex;
+  align-items: flex-start;
   border-bottom: 1rpx solid #eaeaea;
 }
 
@@ -30,7 +31,8 @@ page {
 
 .publish-list-content {
   flex: 1;
-  /* min-height: 60rpx; */
+  min-height: 200rpx;
+  margin-top: -10rpx;
 }
 
 .publish-btn {

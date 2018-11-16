@@ -1,1 +1,5 @@
-{}
+{
+  "navigationBarTitleText": "我",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black"
+}

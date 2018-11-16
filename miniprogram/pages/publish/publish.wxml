@@ -23,16 +23,16 @@
     </view>
     <view class='publish-list'>
       <text class='publish-list-title'>行程内容：</text>
-      <textarea name='start' class='publish-list-content' auto-height></textarea>
+      <textarea name='start' class='publish-list-content' auto-height maxlength='200'></textarea>
     </view>
-    <view class='publish-list'>
+    <!-- <view class='publish-list'>
       <text class='publish-list-title'>车辆信息：</text>
       <textarea name='carinfo' class='publish-list-content' auto-height></textarea>
     </view>
     <view class='publish-list'>
       <text class='publish-list-title'>备注：</text>
       <textarea name='remark' class='publish-list-content' auto-height></textarea>
-    </view>
+    </view> -->
     <button class='publish-btn' formType="submit">发布</button>
   </view>
 </form>
