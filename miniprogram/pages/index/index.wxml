@@ -24,7 +24,7 @@
         <view class='content-center-bottom'>中关村到顺义南法信中关村到顺义南法信中关村到顺义南法信</view>
       </view>
     </view>
-    <view wx:for="{{queryResult}}" class='inddex-content'>
+    <view wx:for="{{queryResult}}" class='inddex-content' wx:key="key">
       <view class='index-content-left'>
         <image class='content-left-avatar' mode='aspectFill' src='http://www.chinadaily.com.cn/language_tips/images/attachement/jpg/site1/20070814/001125254635082b41be0a.jpg'></image>
       </view>

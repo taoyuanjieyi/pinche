@@ -1,7 +1,6 @@
 //index.js
 var dateUtil = require('../../utils/dateUtil.js');
-var commonUtil = require('../../common/common.js');
-
+var userRequest = require('../../http/userRequest.js');
 //获取应用实例
 const app = getApp()
 
@@ -19,7 +18,8 @@ Page({
     })
   },
   onLoad: function () {
-    commonUtil.onLogin();
+    // 检查是否登录
+    userRequest.userLogin();
     this.onShow();
   },
   onAdd: function () {

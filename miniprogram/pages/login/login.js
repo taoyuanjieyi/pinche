@@ -1,4 +1,5 @@
 var commonUtil = require('../../common/common.js');
+var userRequest = require('../../http/userRequest.js');
 
 Page({
   data: {
@@ -28,32 +29,16 @@ Page({
   bindGetUserInfo: function(e) {
     console.info("=======",e.detail.userInfo);
     if (e.detail.userInfo) {
+      wx.setStorage({
+        key: "wx_userInfo",
+        data: e.detail.userInfo
+      })
       //用户按了允许授权按钮
-      var that = this;
       //插入登录的用户的相关信息到数据库
-      var session_id = commonUtil.getStorage("third_Session");
-      wx.request({
-        url: "https://39.106.5.219/pinche/user/save",
-        method:"POST",
-        data: {
-          nickName: e.detail.userInfo.nickName,
-          avatarUrl: e.detail.userInfo.avatarUrl,
-          province: e.detail.userInfo.province,
-          city: e.detail.userInfo.city
-        },
-        header: {
-          'content-type': 'application/json',
-          'sessionid':session_id
-        },
-        success: function(res) {
-          //从数据库获取用户信息
-          that.queryUserInfo();
-          console.log("插入小程序登录用户信息成功！");
-        }
-      });
+      userRequest.saveUser(e.detail.userInfo);
       //授权成功后，跳转进入小程序首页
-      wx.switchTab({
-        url: ''
+      wx.redirectTo({
+        url: '/pages/verification/verification'
       })
     } else {
       //用户按了拒绝按钮
@@ -70,21 +55,6 @@ Page({
       })
     }
   },
-  //获取用户信息接口
-  queryUserInfo: function() {
-    wx.request({
-      url: "https://39.106.5.219/pinche/user/get",
-      data: {
-        openid: getApp().globalData.openid
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function(res) {
-        console.log(res.data);
-        getApp().globalData.userInfo = res.data;
-      }
-    });
-  },
+  
 
 })

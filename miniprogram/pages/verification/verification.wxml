@@ -1,0 +1,16 @@
+<form bindsubmit="formBindsubmit">
+  <view class='verification'>
+    <view class='verification-top'>
+      <image class='verification-top-logo' src='../../images/logo.png'></image>
+    </view>
+    <view class='verification-title'>手机号码登录</view>
+    <view class='verification-number'>
+      <input name='mobile' type='number' placeholder="请输入手机号" bindinput="mobileInput" />
+    </view>
+    <view class='verification-number' bindtap="getSmsCode">
+      <input type='number' name='smscode' bindinput="smsCodeInput"placeholder="请输入验证码" />
+      <text  class='verification-number-text' bindtap="getSmsCode">获取验证码</text>
+    </view>
+    <button class='verification-btn' formType="submit">绑定</button>
+  </view>
+</form>
