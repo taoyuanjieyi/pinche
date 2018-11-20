@@ -10,12 +10,15 @@ function userLogin() {
       console.info('存在登陆态');
       var session_id = commonUtil.getStorage("third_Session");
       var userInfo = commonUtil.getStorage("userInfo");
-
       if (session_id === null || session_id === "" || session_id === undefined){
+        console.info("当前登录会话ID[" + session_id + "],用户信息[" + userInfo + "]")
         onLogin()
       } else if (userInfo === null || userInfo === "" || userInfo === undefined){
         console.info("用户信息为空，重新查询用户信息！")
         queryUserInfo().then((res) => {
+          if(res===null||res===undefined||res===""){
+            onLogin();
+          }
           console.info("当前登录用户信息：", userInfo);
         })
       } else if (!userInfo.bindMobile){
@@ -43,7 +46,7 @@ function onLogin() {
       }
     },
     fail: function(res) {
-
+        console.error("onLogin is Error:",res);
     }
   })
 
@@ -52,7 +55,7 @@ function onLogin() {
 function login(loginCode) {
   //发起网络请求
   wx.request({
-    url: 'https://39.106.5.219/pinche/user/login',
+    url: 'http://39.106.5.219/pinche/user/login',
     data: {
       code: loginCode
     },
@@ -82,7 +85,7 @@ function login(loginCode) {
       }
     },
     fail: function(res) {
-
+      console.error("login is error:",res)
     }
   })
 }
@@ -90,7 +93,7 @@ function login(loginCode) {
 function saveUser(userInfo) {
   var session_id = commonUtil.getStorage("third_Session");
   wx.request({
-    url: "https://39.106.5.219/pinche/user/save",
+    url: "http://39.106.5.219/pinche/user/save",
     method: "POST",
     data: {
       nickName: userInfo.nickName,
@@ -116,7 +119,7 @@ function queryUserInfo() {
     console.info("queryUserInfo 当前会话ID:", session_id)
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "https://39.106.5.219/pinche/user/get",
+      url: "http://39.106.5.219/pinche/user/get",
       data: {},
       header: {
         'content-type': 'application/json',
