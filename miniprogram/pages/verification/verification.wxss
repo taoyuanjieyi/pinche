@@ -25,18 +25,21 @@
   position: relative;
   margin: 60rpx 0;
   padding-bottom: 10rpx;
+  display: flex;
+  align-items: center;
 }
 
 .verification-number>input {
   font-size: 28rpx;
 }
 
+.verification-number-verification {
+  flex: 1;
+}
+
 .verification-number-text {
   font-size: 28rpx;
   color: #379ff8;
-  position: absolute;
-  right: 0;
-  bottom: 10rpx;
 }
 
 .verification-btn {
