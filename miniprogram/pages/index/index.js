@@ -19,7 +19,7 @@ Page({
   },
   onLoad: function () {
     // 检查是否登录
-    userRequest.userLogin();
+    // userRequest.userLogin();
     this.onShow();
   },
   onAdd: function () {
