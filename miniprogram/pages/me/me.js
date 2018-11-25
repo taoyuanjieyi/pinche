@@ -1,9 +1,28 @@
+var userRequest = require('../../http/userRequest.js');
+var commonUtil = require('../../common/common.js');
 var app = getApp()
 Page({
   data: {
     tempFilePaths: ''
   },
-  onLoad: function() {},
+  onLoad: function() {
+    var userInfo = commonUtil.getStorage("userInfo");
+    if (userInfo === null || userInfo === "" || userInfo === undefined) {
+      console.info("用户信息为空，重新查询用户信息！")
+      userRequest.queryUserInfo().then((res) => {
+        if (res === null || res === undefined || res === "") {
+          onLogin();
+        }
+        userInfo = res;
+      })
+    }
+    console.info("当前登录用户信息：", userInfo);
+    this.setData({
+      nickName: userInfo.nickName,
+      avatarUrl:userInfo.avatarUrl,
+      mobile:userInfo.mobile
+    })
+  },
   chooseimage: function() {
     var _this = this;
     wx.chooseImage({

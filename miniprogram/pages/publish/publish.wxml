@@ -1,29 +1,29 @@
 <form bindsubmit="formBindsubmit">
   <view class='publish'>
     <view class='publish-list'>
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+      <picker mode="date" value="{{date}}" start="2018-11-01" end="2030-09-01" bindchange="bindDateChange">
         <view class="picker">
           出发日期: {{date}}
         </view>
       </picker>
     </view>
     <view class='publish-list'>
-      <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+      <picker mode="time" value="{{time}}" start="00:01" end="24:00" bindchange="bindTimeChange">
         <view class="picker">
           出发时间: {{time}}
         </view>
       </picker>
     </view>
     <view class='publish-list'>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker name="vacancy" bindchange="bindVacancyChange" value="{{vacancy}}" range="{{array}}">
         <view class="picker">
-          剩余座位：{{array[index]}}
+          剩余座位：{{array[vacancy]}}
         </view>
       </picker>
     </view>
     <view class='publish-list'>
       <text class='publish-list-title'>行程内容：</text>
-      <textarea name='start' class='publish-list-content' auto-height maxlength='200'></textarea>
+      <textarea name='body' class='publish-list-content' auto-height maxlength='200'></textarea>
     </view>
     <!-- <view class='publish-list'>
       <text class='publish-list-title'>车辆信息：</text>

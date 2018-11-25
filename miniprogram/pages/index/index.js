@@ -1,6 +1,7 @@
 //index.js
 var dateUtil = require('../../utils/dateUtil.js');
 var userRequest = require('../../http/userRequest.js');
+var driverRequest = require('../../http/driverRouteRequest.js');
 //获取应用实例
 const app = getApp()
 
@@ -19,7 +20,7 @@ Page({
   },
   onLoad: function () {
     // 检查是否登录
-    // userRequest.userLogin();
+    userRequest.userLogin();
     this.onShow();
   },
   onAdd: function () {
@@ -53,25 +54,16 @@ Page({
     })
   },
   onShow: function () {
-    wx.cloud.init();
-    const db = wx.cloud.database()
-    // 查询当前用户所有的 counters
-    db.collection('travel_lines').orderBy('id', 'desc').get({
-      success: res => {
-        let queryResult = {}
-        console.log('[数据库] [查询记录] 成功1: ', res.data)
-        this.setData({
-          queryResult: res.data
-        })
-        console.log('[数据库] [查询记录] 成功2: ', res)
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '查询记录失败'
-        })
-        console.error('[数据库] [查询记录] 失败：', err)
-      }
+
+    driverRequest.search({
+      pageNumber : 1,
+      pageSize : 999,
+    }).then((res) => {
+      let queryResult = {}
+      console.log('[数据库] [查询记录] 成功1: ', res.data)
+      this.setData({
+        queryResult: res
+      })
     })
   },
 

@@ -28,7 +28,7 @@ function userLogin() {
         })
       }
       //存在登陆态
-      //queryUserInfo()
+      //queryUserInfo().then((res) => {})
     },
     fail: function () {
       console.info('不存在登陆态');
@@ -73,7 +73,7 @@ function login(loginCode) {
         queryUserInfo().then((res) => {
           //////////////////////////////////
           var userInfo = commonUtil.getStorage("userInfo");
-          // console.info("当前登录用户信息", userInfo)
+          console.info("当前登录用户信息", userInfo)
           if (userInfo === null || userInfo === "" || userInfo === undefined) {
             wx.redirectTo({
               url: '/pages/login/login'
@@ -126,12 +126,9 @@ function queryUserInfo() {
         'sessionid': session_id
       },
       success: function(res) {
-        wx.setStorage({
-          key: "userInfo",
-          data: res.data.data
-        })
+        wx.setStorageSync("userInfo",res.data.data)
         // console.info("queryUserInfo 当前登录用户信息:", res.data.data)
-        resolve();  
+        resolve(res.data.data);  
       },
       fail: function(res){
         console.log("queryUserInfo : ",res);

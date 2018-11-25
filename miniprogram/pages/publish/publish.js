@@ -1,41 +1,64 @@
 // pages/publish/publish.js
+
+var driverRequest = require('../../http/driverRouteRequest.js');
+
+const app = getApp()
+
+const date = new Date()
+const nowYear = date.getFullYear()
+const nowMonth = date.getMonth() + 1
+const nowDay = date.getDate()
+const nowHour = date.getHours()
+const nowMinute = date.getMinutes()
+const nowSecond = date.getSeconds()
+
 Page({
   data: {
+    vacancy:0,
+    years: [],
+    months: [],
+    days: [],
+    year: nowYear,
+    month: nowMonth,
+    day: nowDay,
+    hour: nowHour,
+    minute: nowMinute,
+    second: nowSecond,
+    value: [9999, 1, 1],
     array: ['1', '2', '3', '4', '5', '6'],
     objectArray: [{
-        id: 0,
+        id: 1,
         name: '1'
       },
       {
-        id: 1,
+        id: 2,
         name: '2'
       },
       {
-        id: 2,
+        id: 3,
         name: '3'
       },
       {
-        id: 3,
+        id: 4,
         name: '4'
       },
       {
-        id: 4,
+        id: 5,
         name: '5'
       },
       {
-        id: 5,
+        id: 6,
         name: '6'
       }
     ]
   },
-  bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
-    })
+  onLoad:function(e){
+    //setDate(this.data.year, this.data.month, this.data.day, this)
   },
   bindDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+    let val = e.detail.value
+  //  setDate(this.data.years[val[0]], this.data.months[val[1]], this.data.days[val[2]], this)
     this.setData({
       date: e.detail.value
     })
@@ -46,50 +69,47 @@ Page({
       time: e.detail.value
     })
   },
-  bindRegionChange: function(e) {
+  bindVacancyChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      region: e.detail.value
+      vacancy: e.detail.value
     })
   },
 
   formBindsubmit: function (e) {
-    if (e.detail.value.nickname === null || e.detail.value.nickname === ''){
+    console.info("表单数据：", e.detail.value);
+    console.info("数据：", this.data)
+    if (this.data.date === null || this.data.date === '' || this.data.date === undefined) {
       wx.showToast({
         icon: 'none',
-        title: '昵称不能为空！'
+        title: '出发日期不能为空！'
       })
-    } else if (e.detail.value.start === null || e.detail.value.start === ''){
-      wx.showToast({
-        icon: 'none',
-        title: '起点不能为空！'
-      })
-    } else if (e.detail.value.end === null || e.detail.value.end === '') {
-      wx.showToast({
-        icon: 'none',
-        title: '终点不能为空！'
-      })
-    } else if (e.detail.value.body === null || e.detail.value.body === '') {
-      wx.showToast({
-        icon: 'none',
-        title: '途经站点不能为空！'
-      })
-    } else if (e.detail.value.vacancy === null || e.detail.value.vacancy === '') {
-      wx.showToast({
-        icon: 'none',
-        title: '空余座位数量不能为空！'
-      })
-    } else if (e.detail.value.departureTime === null || e.detail.value.departureTime === '') {
+      return;
+    }
+    if (this.data.time === null || this.data.time === '' || this.data.time === undefined) {
       wx.showToast({
         icon: 'none',
         title: '出发时间不能为空！'
       })
-    } else if (e.detail.value.carinfo === null || e.detail.value.carinfo === '') {
+      return;
+    }
+    if (e.detail.value.body === null || e.detail.value.body === '' ||
+      e.detail.value.body === undefined) {
       wx.showToast({
         icon: 'none',
-        title: '汽车信息不能为空！'
+        title: '行程内容不能为空！'
       })
-    }else{
+      return;
+    }
+    if (this.data.vacancy === null || this.data.vacancy === '' || 
+      this.data.vacancy === undefined) {
+      wx.showToast({
+        icon: 'none',
+        title: '空余座位数量不能为空！'
+      })
+      return;
+    }
+
       // console.log(e.detail.value.nickname);
       // console.log(e.detail.value.start);
       // console.log(e.detail.value.end);
@@ -98,37 +118,18 @@ Page({
       // console.log(e.detail.value.departureTime);
       // console.log(e.detail.value.carinfo);
       // console.log(e.detail.value.remark);
-      var allbody = e.detail.value.start + "-" + e.detail.value.body + "-" + e.detail.value.end;
       var timestamp = Date.parse(new Date());
-      const db = wx.cloud.database()
-      db.collection('travel_lines').add({
-        data: {
-          nickname: e.detail.value.nickname,
-          body: allbody,
-          departureTime: e.detail.value.departureTime,
-          vacancy: e.detail.value.vacancy,
-          remark: e.detail.value.remark,
-          id: timestamp
-        },
-        success: res => {
-          // 在返回结果中会包含新创建的记录的 _id
-          this.setData({
-            counterId: res._id,
-            count: 1
-          })
-          wx.showToast({
-            title: '新增记录成功',
-          })
-          console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
-        },
-        fail: err => {
-          wx.showToast({
-            icon: 'none',
-            title: '新增记录失败'
-          })
-          console.error('[数据库] [新增记录] 失败：', err)
-        }
+    driverRequest.publish({
+      passPoint: e.detail.value.body,
+      startTime: this.data.date + " " + this.data.time+":00",
+      vacancy: this.data.array[this.data.vacancy],
+    }).then((res) => {
+      wx.showToast({
+        title: '发布成功',
       })
-    }
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+    })
   }
 })
