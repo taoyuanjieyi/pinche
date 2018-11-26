@@ -10,7 +10,8 @@
     "pages/me/me",
     "pages/publish/publish",
     "pages/login/login",
-    "pages/verification/verification"
+    "pages/verification/verification",
+    "pages/seat/seat"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

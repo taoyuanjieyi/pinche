@@ -35,7 +35,7 @@ page {
 }
 
 .search {
-  width: 80%;
+  width: 100%;
   position: relative;
   background: #fff;
   border-radius: 30rpx;

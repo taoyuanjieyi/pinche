@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class='index'>
   <view class='index-top'>
-    <image class='index-top-back' mode='aspectFit' src='../images/back-white.svg'></image>
+    <!-- <image class='index-top-back' mode='aspectFit' src='../images/back-white.svg'></image> -->
     <!-- <view class='index-release' bindtap="onAdd">发布拼车</view> -->
     <view class='search'>
       <input class='index-search' placeholder='search'></input>
