@@ -40,8 +40,7 @@ function search(searchData){
         'sessionid': session_id
       },
       success: function (res) {
-        console.info("driver search result :", res.data.data)
-        resolve(res.data.data);
+        resolve(res.data);
       },
       fail: function (res) {
         console.log("driver search fail : ", res);

@@ -7,6 +7,7 @@ Page({
   },
   onLoad: function() {
     var userInfo = commonUtil.getStorage("userInfo");
+    console.info("获取当前登录用户信息：",userInfo);
     if (userInfo === null || userInfo === "" || userInfo === undefined) {
       console.info("用户信息为空，重新查询用户信息！")
       userRequest.queryUserInfo().then((res) => {
