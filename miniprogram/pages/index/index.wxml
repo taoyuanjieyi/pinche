@@ -43,7 +43,7 @@
 
 <!-- 乘客预定的行程 -->
 <view wx:for="{{joinRouteList}}" class='inddex-content' wx:key="key">
-      <view class='index-content-left'>
+      <view class='index-content-left' >
         <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
       </view>
       <view class='index-content-center'>
@@ -59,7 +59,7 @@
     </view>
 
 
-    <view wx:for="{{queryResult}}" class='inddex-content' wx:key="key">
+    <view wx:for="{{driverRouteList}}" class='inddex-content' wx:key="key" bindtap="viewDriverRoute" data-index="{{index}}" >
       <view class='index-content-left'>
         <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
       </view>
@@ -69,7 +69,7 @@
             <text>{{item.nickName}}</text>
             <text class='content-center-message'>({{item.startTime}})</text>
           </view>
-          <view class='content-right-btn content-right-btn-color'>已预订√</view>
+          <view class='content-right-btn content-right-btn-color'>座位：{{item.vacancy}}</view>
         </view>
         <view class='content-center-bottom'>{{item.passPoint}}</view>
       </view>

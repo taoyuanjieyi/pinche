@@ -41,7 +41,7 @@
   </view>
 </view>
 
-<view class='seat-toast'>
+<view class='seat-toast' hidden='false'>
   <view class='seat-toast-content'>
     <view class='seat-toast-title'>信息确认</view>
     <view class='seat-toast-detail'>您选择了2个座位</view>

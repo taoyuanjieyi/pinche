@@ -37,16 +37,18 @@ Page({
       //查询用户是否存在
       userRequest.queryUserInfo().then((res) => {
         if (res === null || res === undefined || res === "") {
-          userRequest.userLogin();
-        }else{
           //插入登录的用户的相关信息到数据库
           userRequest.saveUser(e.detail.userInfo);
+          wx.redirectTo({
+            url: '/pages/verification/verification'
+          })
+        } else if (!res.bindMobile){
           //授权成功后，跳转进入小程序首页
           wx.redirectTo({
             url: '/pages/verification/verification'
           })
         }
-        console.info("当前登录用户信息：", userInfo);
+        console.info("当前登录用户信息：", res);
       })
     } else {
       //用户按了拒绝按钮

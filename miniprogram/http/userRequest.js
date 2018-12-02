@@ -17,7 +17,9 @@ function userLogin() {
         console.info("用户信息为空，重新查询用户信息！")
         queryUserInfo().then((res) => {
           if(res===null||res===undefined||res===""){
-            onLogin();
+            wx.redirectTo({
+              url: '/pages/verification/verification'
+            })
           }
           console.info("当前登录用户信息：", userInfo);
         })
@@ -92,24 +94,26 @@ function login(loginCode) {
 
 function saveUser(userInfo) {
   var session_id = commonUtil.getStorage("third_Session");
-  wx.request({
-    url: "http://39.106.5.219/pinche/user/save",
-    method: "POST",
-    data: {
-      nickName: userInfo.nickName,
-      avatarUrl: userInfo.avatarUrl,
-      province: userInfo.province,
-      city: userInfo.city
-    },
-    header: {
-      'content-type': 'application/json',
-      'sessionid': session_id
-    },
-    success: function(res) {
-      //从数据库获取用户信息
-      queryUserInfo();
-      console.log("插入小程序登录用户信息成功！");
-    }
+  return new Promise(function (resolve, reject) {
+    wx.request({
+      url: "http://39.106.5.219/pinche/user/save",
+      method: "POST",
+      data: {
+        nickName: userInfo.nickName,
+        avatarUrl: userInfo.avatarUrl,
+        province: userInfo.province,
+        city: userInfo.city
+      },
+      header: {
+        'content-type': 'application/json',
+        'sessionid': session_id
+      },
+      success: function(res) {
+        //从数据库获取用户信息
+        resolve(res.data);  
+        console.log("插入小程序登录用户信息成功！",res);
+      }
+    });
   });
 }
 

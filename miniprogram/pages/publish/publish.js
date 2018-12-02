@@ -124,12 +124,14 @@ Page({
       startTime: this.data.date + " " + this.data.time+":00",
       vacancy: this.data.array[this.data.vacancy],
     }).then((res) => {
-      wx.showToast({
-        title: '发布成功',
-      })
-      wx.switchTab({
-        url: '/pages/index/index'
-      })
+      if (res.retCode === 'success' ) {
+        wx.showToast({
+          title: '发布成功',
+        })
+        wx.switchTab({
+          url: '/pages/index/index'
+        })
+      }
     })
   }
 })

@@ -3,7 +3,7 @@
   <view>
     <view class='me-name'>{{nickName}}</view>
     <view class='me-account'>
-      <text>账号：</text>
+      <text>手机号：</text>
       <text class='me-account-message'>{{mobile}}</text>
     </view>
   </view>
