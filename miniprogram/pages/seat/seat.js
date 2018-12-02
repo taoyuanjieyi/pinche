@@ -31,13 +31,23 @@ Page({
   queryRouteDetail: function () {
 
     driverRequest.queryRouteDetail({
-      routeId: this.data.routeId,
+      driverRouteId: this.data.routeId,
     }).then((res) => {
+      console.log('[数据库] [查询记录] 成功: ', res)
       if (res.retCode === "need_login") {
         userRequest.onLogin();
         return;
       }
-      console.log('[数据库] [查询记录] 成功: ', res)
+      if(res.retCode==='success'){
+        this.setData({
+          driverNickName: res.driverRoute.nickName,
+          driverAvatarUrl: res.driverRoute.avatarUrl,
+          driverMobile: res.driverRoute.mobile,
+          driverVacancy: res.driverRoute.vacancy,
+          driverPassPoint: res.driverRoute.passPoint,
+          joinRouteUserList: res.joinRouteUserList
+        })
+      }
       
     })
   },

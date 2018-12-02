@@ -1,15 +1,15 @@
 <view class='seat'>
   <view class='seat-list'>
-    <image class='seat-list-avatar' mode='aspectFill' src='http://www.chinadaily.com.cn/language_tips/images/attachement/jpg/site1/20070814/001125254635082b41be0a.jpg'></image>
+    <image class='seat-list-avatar' mode='aspectFill' src='{{driverAvatarUrl}}'></image>
     <view class='seat-list-content'>
       <view>
         <view>
-          <view class='list-content-title'>MikeG（车主）</view>
-          <view class='list-content-phone'>1358277975</view>
+          <view class='list-content-title'>{{driverNickName}}（车主）</view>
+          <view class='list-content-phone'>{{driverMobile}}</view>
         </view>
-        <view class='seat-list-btn'>剩余2位</view>
+        <view class='seat-list-btn'>剩余{{driverVacancy}}位</view>
       </view>
-      <view class='list-content-address'>北京市海淀区丹棱街5号微软大厦2号楼</view>
+      <view class='list-content-address'>{{driverPassPoint}}</view>
     </view>
 
   </view>
@@ -28,12 +28,12 @@
       </view>
     </view>
   </view>
-  <view class='seat-list seat-list-center'>
-    <image class='seat-list-avatar' mode='aspectFill' src='http://www.chinadaily.com.cn/language_tips/images/attachement/jpg/site1/20070814/001125254635082b41be0a.jpg'></image>
+  <view class='seat-list seat-list-center' wx:for="{{joinRouteUserList}}"  wx:key="key">
+    <image class='seat-list-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
     <view class='seat-list-content seat-list-content-center'>
       <view>
         <view>
-          <view class='list-content-title'>liangjie(乘客)</view>
+          <view class='list-content-title'>{{item.nickName}}(乘客)</view>
         </view>
         <view class='seat-list-btn seat-list-btn-color'>已预定</view>
       </view>
