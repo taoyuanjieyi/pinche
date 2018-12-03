@@ -27,7 +27,7 @@
     </view>
     -->
 <!-- 车主发布的行程 -->
-<view wx:for="{{ownerRouteList}}" class='inddex-content-current' wx:key="key"bindtap="viewOwnerRoute" data-index="{{index}}" >
+<view wx:for="{{ownerRouteList}}" class='inddex-content inddex-content-current' wx:key="key"bindtap="viewOwnerRoute" data-index="{{index}}" >
       <view class='index-content-left'>
         <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
       </view>
@@ -44,7 +44,7 @@
     </view>
 
 <!-- 乘客预定的行程 -->
-<view wx:for="{{joinRouteList}}" class='inddex-content-current' wx:key="key"bindtap="viewJoinRoute" data-index="{{index}}" >
+<view wx:for="{{joinRouteList}}" class='inddex-content inddex-content-current' wx:key="key"bindtap="viewJoinRoute" data-index="{{index}}" >
       <view class='index-content-left' >
         <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
       </view>
