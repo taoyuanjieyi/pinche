@@ -9,6 +9,7 @@
 
   </view>
   <view class='inddex-view'>
+  <!-- 
     <view class='inddex-content'>
       <view class='index-content-left'>
         <image class='content-left-avatar' mode='aspectFill' src='http://www.chinadaily.com.cn/language_tips/images/attachement/jpg/site1/20070814/001125254635082b41be0a.jpg'></image>
@@ -24,8 +25,9 @@
         <view class='content-center-bottom'>中关村到顺义南法信中关村到顺义南法信中关村到顺义南法信</view>
       </view>
     </view>
+    -->
 <!-- 车主发布的行程 -->
-<view wx:for="{{ownerRouteList}}" class='inddex-content' wx:key="key">
+<view wx:for="{{ownerRouteList}}" class='inddex-content-current' wx:key="key"bindtap="viewOwnerRoute" data-index="{{index}}" >
       <view class='index-content-left'>
         <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
       </view>
@@ -42,7 +44,7 @@
     </view>
 
 <!-- 乘客预定的行程 -->
-<view wx:for="{{joinRouteList}}" class='inddex-content' wx:key="key">
+<view wx:for="{{joinRouteList}}" class='inddex-content-current' wx:key="key"bindtap="viewJoinRoute" data-index="{{index}}" >
       <view class='index-content-left' >
         <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
       </view>

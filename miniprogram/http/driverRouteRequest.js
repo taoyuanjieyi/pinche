@@ -29,7 +29,7 @@ function publish(driverData) {
 function search(searchData){
   console.info("查询行程数据：", searchData)
   var session_id = commonUtil.getStorage("third_Session");
-  console.info("publish 当前会话ID:", session_id)
+  console.info("search 当前会话ID:", session_id)
   return new Promise(function (resolve, reject) {
     wx.request({
       url: "http://39.106.5.219/pinche/driver/search",

@@ -22,13 +22,16 @@ Page({
     })
   },
   onLoad: function () {
-
+    
   },
   onShow: function () {
     // 检查是否登录
-    userRequest.userLogin();
-    
-    this.queryRouteList();
+    userRequest.userLogin().then((res) => {
+      console.info("检查登录结果：",res)
+      if (res) {
+        this.queryRouteList()
+      }
+    })
   },
   queryRouteList: function () {
 
@@ -36,11 +39,11 @@ Page({
       pageNumber : 1,
       pageSize : 999,
     }).then((res) => {
+      console.info("查询行程列表结果：",res)
       if(res.retCode === "need_login"){
         userRequest.onLogin();
         return;
       }
-      console.log('[数据库] [查询记录] 成功1: ', res)
       this.setData({
         driverRouteList: res.page.list,
         ownerRouteList: res.ownerRouteList,
@@ -52,6 +55,18 @@ Page({
     var index = parseInt(e.currentTarget.dataset.index); 
     wx.navigateTo({
       url: '../seat/seat?routeId=' + this.data.driverRouteList[index].routeId
+    })
+  },
+  viewOwnerRoute: function (e) {
+    var index = parseInt(e.currentTarget.dataset.index);
+    wx.navigateTo({
+      url: '../seat/seat?routeId=' + this.data.ownerRouteList[index].routeId
+    })
+  },
+  viewJoinRoute: function (e) {
+    var index = parseInt(e.currentTarget.dataset.index);
+    wx.navigateTo({
+      url: '../seat/seat?routeId=' + this.data.joinRouteList[index].routeId
     })
   }
 })
