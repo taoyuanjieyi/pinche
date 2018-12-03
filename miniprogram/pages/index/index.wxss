@@ -74,10 +74,14 @@ page {
   position: relative;
 }
 
+.inddex-content-current {
+  border: 2rpx solid #379ff8;
+}
+
 .index-content-left {
   position: absolute;
-  left: -14rpx;
-  top: -14rpx;
+  left: -16rpx;
+  top: -18rpx;
 }
 
 .content-left-avatar {
