@@ -49,3 +49,12 @@ page {
 .publish-btn:active {
   background: #ccc;
 }
+
+.publish-btn-active {
+  color: #fff;
+  background: #379ff8;
+}
+
+.publish-btn-active:active {
+  background: #2480cf;
+}
