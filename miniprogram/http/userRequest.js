@@ -21,7 +21,7 @@ function userLogin() {
           queryUserInfo().then((res) => {
             if(res===null||res===undefined||res===""){
               wx.redirectTo({
-                url: '/pages/verification/verification'
+                url: '/pages/login/login'
               })
             }
             console.info("当前登录用户信息：", userInfo);
@@ -149,9 +149,14 @@ function queryUserInfo() {
         'sessionid': session_id
       },
       success: function(res) {
-        wx.setStorageSync("userInfo",res.data.data)
-        // console.info("queryUserInfo 当前登录用户信息:", res.data.data)
-        resolve(res.data.data);  
+        if (res.data.retCode === 'success'){
+          wx.setStorageSync("userInfo",res.data.data)
+          // console.info("queryUserInfo 当前登录用户信息:", res.data.data)
+          resolve(res.data.data);  
+        }else{
+          console.error("查询用户失败：" , res.data);
+          resolve()
+        }
       },
       fail: function(res){
         console.log("queryUserInfo : ",res);

@@ -1,6 +1,7 @@
 //index.js
 var dateUtil = require('../../utils/dateUtil.js');
-var userRequest = require('../../http/userRequest.js');
+var userRequest = require('../../http/userRequest.js'); 
+var commonUtil = require('../../common/common.js');
 var driverRequest = require('../../http/driverRouteRequest.js');
 //获取应用实例
 const app = getApp()

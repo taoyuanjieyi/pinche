@@ -38,9 +38,12 @@ Page({
       userRequest.queryUserInfo().then((res) => {
         if (res === null || res === undefined || res === "") {
           //插入登录的用户的相关信息到数据库
-          userRequest.saveUser(e.detail.userInfo);
-          wx.redirectTo({
-            url: '/pages/verification/verification'
+          userRequest.saveUser(e.detail.userInfo).then((res) => {
+            if (res.retCode === 'success'){
+              wx.redirectTo({
+                url: '/pages/verification/verification'
+              })
+            }
           })
         } else if (!res.bindMobile){
           //授权成功后，跳转进入小程序首页

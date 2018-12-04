@@ -106,11 +106,7 @@ Page({
     userRequest.bindMobile(that.data.mobile, that.data.smsCode).then((res) => {
       console.info("绑定结果：", res)
       if (res) {
-        var userInfo = commonUtil.getStorage("userInfo");
-        userInfo.bindMobile = true;
-        wx.setStorage({
-          key: "userInfo",
-          data: userInfo
+        userRequest.queryUserInfo().then((res) => {
         })
         wx.switchTab({
           url: '/pages/index/index'
