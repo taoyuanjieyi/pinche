@@ -58,7 +58,9 @@ Page({
     console.info("当前系统日期：", nowDate, nowTime);
     this.setData({
       minDate: nowDate,
-      minTime: nowTime
+      minTime: nowTime,
+      time:nowTime,
+      date:nowDate
     })
   },
   bindDateChange: function(e) {
