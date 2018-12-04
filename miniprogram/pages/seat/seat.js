@@ -1,5 +1,6 @@
 var driverRequest = require('../../http/driverRouteRequest.js');
 var passengerRequest = require('../../http/passengerRouteRequest.js');
+var commonUtil = require('../../common/common.js');
 
 Page({
   data: {
@@ -43,7 +44,7 @@ Page({
       }else{
         wx.showToast({
           icon: 'none',
-          title: '预定失败，请重新试试，或去提个建议反馈一下！'
+          title: res.retMsg
         })
         this.setData({
           okHidden: true
@@ -74,8 +75,8 @@ Page({
       if(res.retCode==='success'){
         let seats = [];
         if (res.driverRoute!==null){
-          
-          if(res.driverRoute.vacancy<1){
+          var userInfo = commonUtil.getStorage("userInfo");
+          if (res.driverRoute.vacancy < 1 || res.driverRoute.userId === userInfo.userId){
             this.setData({
               waitingHidden: true
             })

@@ -126,10 +126,16 @@ Page({
     }).then((res) => {
       if (res.retCode === 'success' ) {
         wx.showToast({
+          icon: 'none',
           title: '发布成功',
         })
         wx.switchTab({
           url: '/pages/index/index'
+        })
+      }else{
+        wx.showToast({
+          icon: 'none',
+          title: res.retMsg
         })
       }
     })

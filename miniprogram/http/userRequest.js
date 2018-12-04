@@ -23,8 +23,13 @@ function userLogin() {
               wx.redirectTo({
                 url: '/pages/login/login'
               })
+            } else if (!userInfo.bindMobile) {
+              console.info("用户手机信息为空，跳转至绑定手机页面！")
+              wx.redirectTo({
+                url: '/pages/verification/verification'
+              })
             }
-            console.info("当前登录用户信息：", userInfo);
+            console.info("当前登录用户信息：", res);
             resolve(true);  
           })
         } else if (!userInfo.bindMobile){
@@ -112,6 +117,7 @@ function login(loginCode) {
 }
 
 function saveUser(userInfo) {
+  console.info("保存用户信息：",userInfo)
   var session_id = commonUtil.getStorage("third_Session");
   return new Promise(function (resolve, reject) {
     wx.request({
@@ -121,7 +127,10 @@ function saveUser(userInfo) {
         nickName: userInfo.nickName,
         avatarUrl: userInfo.avatarUrl,
         province: userInfo.province,
-        city: userInfo.city
+        city: userInfo.city,
+        country: userInfo.country,
+        language: userInfo.language,
+        gender:userInfo.gender
       },
       header: {
         'content-type': 'application/json',
