@@ -28,7 +28,7 @@
       </view>
     </view>
   </view>
-  <view class='seat-list seat-list-center' wx:for="{{joinRouteUserList}}"  wx:key="key">
+  <view class='seat-list seat-list-center' wx:for="{{joinRouteUserList}}" wx:key="key">
     <image class='seat-list-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
     <view class='seat-list-content seat-list-content-center'>
       <view>
@@ -51,3 +51,7 @@
     </view>
   </view>
 </view>
+
+<view class='me-list-img'>
+        <image class='list-content-img' mode='aspectFill' src='http://www.liantu.com/meihua/resource/image/thumbnail/default.png'></image>
+      </view>

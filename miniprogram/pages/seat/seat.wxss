@@ -21,6 +21,15 @@
   flex: 1;
 }
 
+.me-list-img {
+  text-align: center;
+}
+
+.list-content-img {
+  width: 400rpx;
+  height: 400rpx;
+}
+
 .seat-list-content>view {
   display: flex;
   justify-content: space-between;
