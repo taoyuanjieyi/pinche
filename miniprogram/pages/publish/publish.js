@@ -104,7 +104,7 @@ Page({
     }
     if (changeSubmitBtnEnable){
       this.setData({
-        submitBtnClass:"publish-btn-active"
+        submitBtnClass:"publish-btn publish-btn-active"
       })
     }else{
       this.setData({
