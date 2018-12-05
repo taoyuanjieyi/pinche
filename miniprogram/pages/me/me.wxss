@@ -80,7 +80,12 @@ page {
   opacity: 0;
 }
 
+.me-list-img {
+  text-align: center;
+}
+
 .list-content-img {
-  width: 60rpx;
-  height: 60rpx;
+  width: 300rpx;
+  height: 300rpx;
+  margin: 10rpx auto;
 }

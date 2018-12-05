@@ -5,6 +5,7 @@
     <!-- <view class='index-release' bindtap="onAdd">发布拼车</view> -->
     <view class='search'>
       <input class='index-search' placeholder='search'></input>
+      <image class='search-icon' src='http://www.chinadaily.com.cn/language_tips/images/attachement/jpg/site1/20070814/001125254635082b41be0a.jpg'></image>
     </view>
 
   </view>

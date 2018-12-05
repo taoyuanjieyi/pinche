@@ -25,12 +25,27 @@ page {
 
 .publish-list-title {
   /* line-height: 80rpx; */
-  white-space: normal;
+  white-space: nowrap;
+  display: block;
 }
 
 .publish-list-content {
+  padding: 10rpx 20rpx;
   flex: 1;
-  /* min-height: 60rpx; */
+  border: 1rpx solid #eaeaea;
+  min-height: 120rpx;
+  position: relative;
+}
+
+.publish-list-content>textarea {
+  width: auto;
+}
+
+.list-content-number {
+  color: #ccc;
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
 }
 
 .publish-btn {

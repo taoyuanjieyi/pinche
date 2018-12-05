@@ -52,7 +52,23 @@ Page({
         id: 6,
         name: '6'
       }
-    ]
+    ],
+    /*textarea */
+    min: 5,//最少字数
+    max: 200, //最多字数 
+  },
+  inputs: function(e){
+    // 获取输入框的内容
+    var value = e.detail.value;
+    // 获取输入框内容的长度
+    var len = parseInt(value.length);
+
+    //最多字数限制
+    if (len > this.data.max) return;
+    // 当输入框内容的长度大于最大长度限制（max)时，终止setData()的执行
+    this.setData({
+      currentWordNumber: len //当前字数  
+    });
   },
   onLoad:function(e){
     console.info("当前系统日期：", nowDate, nowTime);
