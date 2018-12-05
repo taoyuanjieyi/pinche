@@ -23,7 +23,7 @@
     </view>
     <view class='publish-list'>
       <text class='publish-list-title'>行程内容：</text>
-      <textarea name='body' class='publish-list-content' auto-height maxlength='200'></textarea>
+      <textarea name='body' bindinput="bindBodyChange" class='publish-list-content' auto-height maxlength='200' placeholder="请输入行程内容" ></textarea>
     </view>
     <!-- <view class='publish-list'>
       <text class='publish-list-title'>车辆信息：</text>
@@ -33,6 +33,6 @@
       <text class='publish-list-title'>备注：</text>
       <textarea name='remark' class='publish-list-content' auto-height></textarea>
     </view> -->
-    <button class='publish-btn' formType="submit">发布</button>
+    <button class='{{submitBtnClass}}' formType="submit">发布</button>
   </view>
 </form>

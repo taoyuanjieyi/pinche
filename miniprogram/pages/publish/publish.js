@@ -28,31 +28,7 @@ Page({
     minDate:nowDay,
     value: [9999, 1, 1],
     array: ['1', '2', '3', '4', '5', '6'],
-    objectArray: [{
-        id: 1,
-        name: '1'
-      },
-      {
-        id: 2,
-        name: '2'
-      },
-      {
-        id: 3,
-        name: '3'
-      },
-      {
-        id: 4,
-        name: '4'
-      },
-      {
-        id: 5,
-        name: '5'
-      },
-      {
-        id: 6,
-        name: '6'
-      }
-    ]
+    body:""
   },
   onLoad:function(e){
     console.info("当前系统日期：", nowDate, nowTime);
@@ -60,11 +36,11 @@ Page({
       minDate: nowDate,
       minTime: nowTime,
       time:nowTime,
-      date:nowDate
+      date:nowDate,
+      submitBtnClass: "publish-btn"
     })
   },
   bindDateChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     if (e.detail.value === nowDate){
       this.setData({
         minTime: nowTime,
@@ -76,19 +52,52 @@ Page({
         date: e.detail.value
       })
     }
-    
+    this.changeSubmitStyle()
   },
   bindTimeChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       time: e.detail.value
     })
+    this.changeSubmitStyle()
   },
   bindVacancyChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       vacancy: e.detail.value
     })
+    this.changeSubmitStyle()
+  },
+  bindBodyChange: function (e) {
+    
+    this.setData({
+      body: e.detail.value
+    })
+    this.changeSubmitStyle()
+  },
+  changeSubmitStyle:function(){
+    let changeSubmitBtnEnable = true;
+    if (this.data.date === null || this.data.date === '' || this.data.date === undefined) {
+      changeSubmitBtnEnable = false;
+    }
+    if (this.data.time === null || this.data.time === '' || this.data.time === undefined) {
+      changeSubmitBtnEnable = false;
+    }
+    if (this.data.body === null || this.data.body === '' ||
+      this.data.body === undefined) {
+      changeSubmitBtnEnable = false;
+    }
+    if (this.data.vacancy === null || this.data.vacancy === '' ||
+      this.data.vacancy === undefined) {
+      changeSubmitBtnEnable = false;
+    }
+    if (changeSubmitBtnEnable){
+      this.setData({
+        submitBtnClass:"publish-btn-active"
+      })
+    }else{
+      this.setData({
+        submitBtnClass: "publish-btn"
+      })
+    }
   },
 
   formBindsubmit: function (e) {
