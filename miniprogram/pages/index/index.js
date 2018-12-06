@@ -35,22 +35,10 @@ Page({
     })
   },
   queryRouteList: function () {
-
-    driverRequest.search({
+    this.queryDriverRouteList({
       pageNumber : 1,
       pageSize : 999,
-    }).then((res) => {
-      console.info("查询行程列表结果：",res)
-      if(res.retCode === "need_login"){
-        userRequest.onLogin();
-        return;
-      }
-      this.setData({
-        driverRouteList: res.page.list,
-        ownerRouteList: res.ownerRouteList,
-        joinRouteList: res.joinRouteList
-      })
-    })
+    });
   },
   viewDriverRoute : function(e){
     var index = parseInt(e.currentTarget.dataset.index); 
@@ -69,5 +57,28 @@ Page({
     wx.navigateTo({
       url: '../seat/seat?routeId=' + this.data.joinRouteList[index].routeId
     })
+  },
+  bindSearchChange:function(e){
+    var value = e.detail.value;
+    var len = parseInt(value.length);
+    this.queryDriverRouteList({
+      pageNumber: 1,
+      pageSize: 999,
+      keyword:value
+    });
+  },
+ queryDriverRouteList:function(searchData){
+   driverRequest.search(searchData).then((res) => {
+     console.info("查询行程列表结果：", res)
+     if (res.retCode === "need_login") {
+       userRequest.onLogin();
+       return;
+     }
+     this.setData({
+       driverRouteList: res.page.list,
+       ownerRouteList: res.ownerRouteList,
+       joinRouteList: res.joinRouteList
+     })
+   })
   }
 })

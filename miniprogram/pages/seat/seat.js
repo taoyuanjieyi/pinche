@@ -8,7 +8,8 @@ Page({
     seatArray: [],
     seatArrayIndex: 0,
     okHidden:true,
-    waitingHidden:false
+    waitingHidden:false,
+    payQrcodeUrl:""
   },
   onLoad: function (options){
     this.setData({
@@ -85,6 +86,12 @@ Page({
             seats[i] = i+1;
           }
 
+          var payQrcode = JSON.parse(userInfo.payQrcode)
+          var qrcodeUrl = "";
+          if (payQrcode !== null && payQrcode !== "" && payQrcode !== undefined) {
+            qrcodeUrl = payQrcode.qrcodeUrl;
+          }
+
           that.setData({
             driverNickName: res.driverRoute.nickName,
             driverAvatarUrl: res.driverRoute.avatarUrl,
@@ -92,7 +99,8 @@ Page({
             driverVacancy: res.driverRoute.vacancy,
             driverPassPoint: res.driverRoute.passPoint,
             joinRouteUserList: res.joinRouteUserList,
-            seatArray: seats
+            seatArray: seats,
+            payQrcodeUrl: "http://39.106.5.219" + qrcodeUrl
           })
         }
 
@@ -100,4 +108,10 @@ Page({
       
     })
   },
+  previewImage: function(e){
+    wx.previewImage({
+      current: this.data.payQrcodeUrl, // 当前显示图片的http链接
+      urls: [this.data.payQrcodeUrl] // 需要预览的图片http链接列表
+    })
+  }
 })

@@ -52,6 +52,6 @@
   </view>
 </view>
 
-<view class='me-list-img'>
-        <image class='list-content-img' mode='aspectFill' src='http://www.liantu.com/meihua/resource/image/thumbnail/default.png'></image>
+<view class='me-list-img' bindtap='previewImage'>
+        <image class='list-content-img' mode='aspectFill' src='{{payQrcodeUrl}}'></image>
       </view>

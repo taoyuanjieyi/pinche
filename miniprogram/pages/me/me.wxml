@@ -13,10 +13,10 @@
     <text class='list-content-title'>收款信息</text>
     <view>
       <text class='list-content-arrow list-content-arrow-icon'>上传收款二维码</text>
-      <button class='list-content-chooseimage' bindtap='chooseimage'>11111</button>
+      <button class='list-content-chooseimage' bindtap='chooseImage'>11111</button>
     </view>
   </view>
-  <view class='me-list-img'>
-    <image class='list-content-img' src='http://www.liantu.com/meihua/resource/image/thumbnail/default.png'></image>
+  <view class='me-list-img' bindtap='previewImage'>
+    <image class='list-content-img' src='{{payQrcodeUrl}}'></image>
   </view>
 </view>
