@@ -52,8 +52,8 @@ page {
   width: 40rpx;
   height: 40rpx;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 20rpx;
+  top: 10rpx;
 }
 
 .index-search:focus {
