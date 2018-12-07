@@ -86,7 +86,7 @@ Page({
             seats[i] = i+1;
           }
 
-          var payQrcode = JSON.parse(userInfo.payQrcode)
+          var payQrcode = JSON.parse(res.driverRoute.payQrcode)
           var qrcodeUrl = "";
           if (payQrcode !== null && payQrcode !== "" && payQrcode !== undefined) {
             qrcodeUrl = payQrcode.qrcodeUrl;
