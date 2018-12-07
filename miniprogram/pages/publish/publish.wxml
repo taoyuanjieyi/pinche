@@ -22,20 +22,30 @@
       </picker>
     </view>
     <view class='publish-list'>
+      <picker name="color" bindchange="bindColorChange" value="{{color}}" range="{{carColor}}">
+        <view class="picker">
+          车辆颜色：{{carColor[color]}}
+        </view>
+      </picker>
+    </view>
+    <view class='publish-list'>
+      <picker name="brand" bindchange="bindBrandChange" value="{{brand}}" range="{{carBrand}}">
+        <view class="picker">
+          车辆品牌：{{carBrand[brand]}}
+        </view>
+      </picker>
+    </view>
+    <view class='publish-list'>
+      <text class='publish-list-title'>车牌号：</text>
+      <textarea class='publish-list-car' name='body' auto-height></textarea>
+    </view>
+    <view class='publish-list'>
       <text class='publish-list-title'>行程内容：</text>
       <view class='publish-list-content'>
         <textarea name='body' auto-height maxlength='200' placeholder='请输入行程内容' minlength="{{min}}" maxlength="{{max}}" bindinput="bindBodyChange"></textarea>
         <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
       </view>
     </view>
-    <!-- <view class='publish-list'>
-      <text class='publish-list-title'>车辆信息：</text>
-      <textarea name='carinfo' class='publish-list-content' auto-height></textarea>
-    </view>
-    <view class='publish-list'>
-      <text class='publish-list-title'>备注：</text>
-      <textarea name='remark' class='publish-list-content' auto-height></textarea>
-    </view> -->
     <button class='{{submitBtnClass}}' formType="submit">发布</button>
   </view>
 </form>

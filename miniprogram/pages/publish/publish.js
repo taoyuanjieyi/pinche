@@ -29,6 +29,10 @@ Page({
     value: [9999, 1, 1],
     array: ['1', '2', '3', '4', '5', '6'],
     body:"",
+    /*车辆颜色*/
+    carColor:['红色','黑色','白色'],
+    /*车辆品牌*/
+    carBrand: ['大众', '奔驰', '宝马'],
     /*textarea */
     min: 5,//最少字数
     max: 200, //最多字数 
@@ -66,6 +70,20 @@ Page({
   bindVacancyChange: function(e) {
     this.setData({
       vacancy: e.detail.value
+    })
+    this.changeSubmitStyle()
+  },
+  /*车牌颜色*/
+  bindColorChange: function (e) {
+    this.setData({
+      color: e.detail.value
+    })
+    this.changeSubmitStyle()
+  },
+  /*车辆品牌*/
+  bindBrandChange: function (e) {
+    this.setData({
+      brand: e.detail.value
     })
     this.changeSubmitStyle()
   },
