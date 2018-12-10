@@ -100,7 +100,7 @@ Page({
             driverPassPoint: res.driverRoute.passPoint,
             joinRouteUserList: res.joinRouteUserList,
             seatArray: seats,
-            payQrcodeUrl: "http://39.106.5.219" + qrcodeUrl
+            payQrcodeUrl: "https://www.i5365.cn" + qrcodeUrl
           })
         }
 

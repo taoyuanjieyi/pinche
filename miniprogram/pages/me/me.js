@@ -26,7 +26,7 @@ Page({
       nickName: userInfo.nickName,
       avatarUrl:userInfo.avatarUrl,
       mobile:userInfo.mobile,
-      payQrcodeUrl: "http://39.106.5.219" + qrcodeUrl,
+      payQrcodeUrl: "https://www.i5365.cn" + qrcodeUrl,
     })
   },
   chooseImage: function() {
@@ -41,7 +41,7 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: 'http://39.106.5.219/pinche/user/upload', //仅为示例，非真实的接口地址
+          url: 'https://www.i5365.cn/pinche/user/upload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           header: {
@@ -60,7 +60,7 @@ Page({
                 qrcodeUrl = payQrcode.qrcodeUrl;
               }
               _this.setData({
-                payQrcodeUrl: "http://39.106.5.219" + qrcodeUrl,
+                payQrcodeUrl: "https://www.i5365.cn" + qrcodeUrl,
               })
             })
             var data = res.data

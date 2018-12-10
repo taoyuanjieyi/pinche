@@ -7,7 +7,7 @@ function publish(driverData) {
   console.info("publish 当前会话ID:", session_id)
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "http://39.106.5.219/pinche/driver/publish",
+      url: "https://www.i5365.cn/pinche/driver/publish",
       data: driverData,
       method: "POST",
       header: {
@@ -32,7 +32,7 @@ function search(searchData){
   console.info("search 当前会话ID:", session_id)
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "http://39.106.5.219/pinche/driver/search",
+      url: "https://www.i5365.cn/pinche/driver/search",
       data: searchData,
       method: "POST",
       header: {
@@ -55,7 +55,7 @@ function queryRouteDetail(routeData) {
   console.info("publish 当前会话ID:", session_id)
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "http://39.106.5.219/pinche/driver/queryDriverRoute",
+      url: "https://www.i5365.cn/pinche/driver/queryDriverRoute",
       data: routeData,
       method: "GET",
       header: {

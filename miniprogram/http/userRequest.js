@@ -78,7 +78,7 @@ function login(loginCode) {
   return new Promise(function (resolve, reject) {
     //发起网络请求
     wx.request({
-      url: 'http://39.106.5.219/pinche/user/login',
+      url: 'https://www.i5365.cn/pinche/user/login',
       data: {
         code: loginCode
       },
@@ -121,7 +121,7 @@ function saveUser(userInfo) {
   var session_id = commonUtil.getStorage("third_Session");
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "http://39.106.5.219/pinche/user/save",
+      url: "https://www.i5365.cn/pinche/user/save",
       method: "POST",
       data: {
         nickName: userInfo.nickName,
@@ -151,7 +151,7 @@ function queryUserInfo() {
     console.info("queryUserInfo 当前会话ID:", session_id)
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "http://39.106.5.219/pinche/user/get",
+      url: "https://www.i5365.cn/pinche/user/get",
       data: {},
       header: {
         'content-type': 'application/json',
@@ -179,7 +179,7 @@ function getSmsCode(mobile) {
   var session_id = commonUtil.getStorage("third_Session");
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "http://39.106.5.219/pinche/user/getSmsCode",
+      url: "https://www.i5365.cn/pinche/user/getSmsCode",
       data: { "mobile": mobile},
       header: {
         'content-type': 'application/json',
@@ -207,7 +207,7 @@ function bindMobile(mobile,smsCode) {
   var session_id = commonUtil.getStorage("third_Session");
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "http://39.106.5.219/pinche/user/bindMobile",
+      url: "https://www.i5365.cn/pinche/user/bindMobile",
       data: { "mobile": mobile,"smsCode":smsCode},
       header: {
         'content-type': 'application/json',

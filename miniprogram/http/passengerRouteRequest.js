@@ -7,7 +7,7 @@ function joinRoute(joinData) {
   console.info("joinRoute 当前会话ID:", session_id)
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "http://39.106.5.219/pinche/passenger/join",
+      url: "https://www.i5365.cn/pinche/passenger/join",
       data: joinData,
       method: "POST",
       header: {
