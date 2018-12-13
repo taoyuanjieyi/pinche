@@ -2,20 +2,6 @@ page {
   background: #eaeaea;
 }
 
-.carMessage-top {
-  padding: 20rpx 5%;
-  font-size: 28rpx;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #379ff8;
-}
-
-.carMessage-top-add {
-  font-size: 40rpx;
-}
-
 .carMessage {
   padding: 14rpx 5%;
   display: flex;

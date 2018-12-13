@@ -7,7 +7,8 @@
     "pages/verification/verification",
     "pages/seat/seat",
     "pages/index-swiper/index-swiper",
-    "pages/carMessage/carMessage"
+    "pages/carMessage/carMessage",
+    "pages/commonStroke/commonStroke"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -15,7 +16,6 @@
     "navigationBarBackgroundColor": "#21292c",
     "navigationBarTitleText": "闲 座",
     "navigationBarTextStyle": "white"
-    
   },
   "tabBar": {
     "selectedColor": "#d9583a",

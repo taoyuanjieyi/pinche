@@ -1,0 +1,11 @@
+<view class='carMessage-top'>
+  <view>返回上一级</view>
+  <view class='carMessage-top-add'>+</view>
+</view>
+<view>
+  <radio-group class="" bindchange="radioChange">
+    <label class="commonStroke-list" wx:for="{{items}}">
+      <radio value="{{item.name}}" checked="{{item.checked}}" color='#379ff8' />{{item.value}}
+    </label>
+  </radio-group>
+</view>

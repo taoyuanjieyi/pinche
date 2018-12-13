@@ -1,0 +1,19 @@
+page {
+  background: #eaeaea;
+}
+
+.commonStroke-list {
+  width: 100%;
+  padding: 14rpx 5%;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+.commonStroke-list>radio {
+  transform: scale(0.8);
+  margin-right: 20rpx;
+}
