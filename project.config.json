@@ -10,7 +10,7 @@
 	},
 	"appid": "wx0ecaebefa97c7d9d",
 	"projectname": "pinche",
-	"libVersion": "2.2.5",
+	"libVersion": "2.4.1",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -63,7 +63,13 @@
 				{
 					"id": -1,
 					"name": "seat",
-					"pathName": "pages/seat/seat"
+					"pathName": "pages/seat/seat",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "carMessage",
+					"pathName": "pages/carMessage/carMessage"
 				}
 			]
 		}

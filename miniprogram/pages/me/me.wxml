@@ -9,6 +9,12 @@
   </view>
 </view>
 <view class='me-list'>
+<view class='me-list-content'>
+    <text class='list-content-title'>我的车辆</text>
+    <view>
+      <text class='list-content-arrow list-content-arrow-icon'></text>
+    </view>
+  </view>
   <view class='me-list-content'>
     <text class='list-content-title'>收款信息</text>
     <view>
@@ -16,7 +22,7 @@
       <button class='list-content-chooseimage' bindtap='chooseImage'>11111</button>
     </view>
   </view>
-  <view class='me-list-img' bindtap='previewImage'>
+  <!-- <view class='me-list-img' bindtap='previewImage'>
     <image class='list-content-img' src='{{payQrcodeUrl}}'></image>
-  </view>
+  </view> -->
 </view>
