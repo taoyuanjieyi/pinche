@@ -71,8 +71,10 @@ Page({
    driverRequest.search(searchData).then((res) => {
      console.info("查询行程列表结果：", res)
      if (res.retCode === "need_login") {
-       userRequest.onLogin();
-       return;
+       userRequest.onLogin().then((res) => {
+         this.queryRouteList();
+        return;
+       })
      }
      this.setData({
        driverRouteList: res.page.list,

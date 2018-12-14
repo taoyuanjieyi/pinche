@@ -47,7 +47,7 @@ function userLogin() {
         console.info('不存在登陆态');
         //不存在登陆态
         onLogin().then((res) => {
-          resolve(false)
+          resolve(res)
         })
       }
     })
