@@ -1,5 +1,5 @@
 <view class='carMessage-top'>
-  <view>返回上一级</view>
+  <view bindtap='goBack'>返回上一级</view>
   <view class='carMessage-top-add'>+</view>
 </view>
 <view>
