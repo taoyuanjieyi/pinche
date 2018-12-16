@@ -31,7 +31,7 @@
     <view class='publish-list'>
       <text class='publish-list-title'>行程内容：</text>
       <view class='publish-list-content'>
-        <textarea name='body' auto-height maxlength='200' placeholder='请输入行程内容' minlength="{{min}}" maxlength="{{max}}" bindinput="bindBodyChange"></textarea>
+        <textarea name='body' auto-height maxlength='200' placeholder='请输入行程内容' minlength="{{min}}" maxlength="{{max}}" bindinput="bindBodyChange" bindtap='openSelectRoutePage' value='{{body}}'></textarea>
         <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
       </view>
     </view>

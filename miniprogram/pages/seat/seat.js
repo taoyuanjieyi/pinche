@@ -96,6 +96,7 @@ Page({
           if (this.data.isShowMobile){
             this.setData({
               driverMobile: res.driverRoute.mobile,
+              carInfo: res.driverRoute.carInfo,
             })
           }
 
@@ -104,6 +105,7 @@ Page({
             driverAvatarUrl: res.driverRoute.avatarUrl,
             driverVacancy: res.driverRoute.vacancy,
             driverPassPoint: res.driverRoute.passPoint,
+            seat:res.driverRoute.seats,
             joinRouteUserList: res.joinRouteUserList,
             seatArray: seats,
             payQrcodeUrl: "https://www.i5365.cn" + qrcodeUrl
@@ -118,6 +120,12 @@ Page({
     wx.previewImage({
       current: this.data.payQrcodeUrl, // 当前显示图片的http链接
       urls: [this.data.payQrcodeUrl] // 需要预览的图片http链接列表
+    })
+  },
+  callTelephone:function(e){
+    var mobile = e.currentTarget.dataset.mobile;
+    wx.makePhoneCall({
+      phoneNumber: mobile,
     })
   }
 })

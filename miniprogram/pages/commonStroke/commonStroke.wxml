@@ -1,9 +1,9 @@
 <view class='carMessage-top'>
-  <view bindtap='goBack'>返回上一级</view>
+  <view bindtap='goBack'>{{okBtn}}</view>
   <view bindtap='openAddWindow' class='carMessage-top-add' hidden="{{addBtnShow}}">+</view>
 </view>
 <view class='carMessage-view'>
-  <radio-group class="" bindchange="radioChange">
+  <radio-group class="" bindchange="radioChange" bindtap="radioClick">
     <label class="commonStroke-list" wx:for="{{items}}" wx:key='' wx:for-index="aindex">
       <radio data-aindex="{{aindex}}" value="{{aindex}}" checked="{{item.checked}}" color='#379ff8' />{{item.body}}
     </label>

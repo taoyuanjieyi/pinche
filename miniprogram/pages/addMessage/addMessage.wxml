@@ -1,17 +1,16 @@
 <form bindsubmit="formBindsubmit">
   <view class='publish'>
-    
-    <view class='publish-list'>
-      <picker name="color" bindchange="bindColorChange" value="{{color}}" range="{{carColor}}">
-        <view class="picker">
-          车辆颜色：{{carColor[color]}}
-        </view>
-      </picker>
-    </view>
     <view class='publish-list'>
       <picker name="brand" bindchange="bindBrandChange" value="{{brand}}" range="{{carBrand}}">
         <view class="picker">
           车辆品牌：{{carBrand[brand]}}
+        </view>
+      </picker>
+    </view>
+    <view class='publish-list'>
+      <picker name="color" bindchange="bindColorChange" value="{{color}}" range="{{carColor}}">
+        <view class="picker">
+          车辆颜色：{{carColor[color]}}
         </view>
       </picker>
     </view>

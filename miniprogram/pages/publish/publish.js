@@ -38,17 +38,27 @@ Page({
     min: 5, //最少字数
     max: 200, //最多字数 
   },
-  onLoad: function(e) {
+  onLoad: function(options) {
     console.info("当前系统日期：", nowDate, nowTime);
+    
     this.setData({
       minDate: nowDate,
       minTime: nowTime,
       time: nowTime,
       date: nowDate,
-      submitBtnClass: "publish-btn"
+      submitBtnClass: "publish-btn",
     })
   },
   onShow: function(e){
+    var selectedRouteBody = commonUtil.getStorage("selectedRouteBody");
+    var defaultBody = ""
+    if (selectedRouteBody !== undefined && selectedRouteBody !== "" && selectedRouteBody !== null) {
+      defaultBody = selectedRouteBody
+    }
+  this.setData({
+    body: defaultBody,
+  })
+
     // 获取所有车辆信息
     var userInfo = commonUtil.getStorage("userInfo");
     if (userInfo === null || userInfo === "" || userInfo === undefined) {
@@ -215,7 +225,7 @@ Page({
   },
   openSelectRoutePage: function(){
     wx.navigateTo({
-      url: '../carMessage/carMessage?mode=select'
+      url: '../commonStroke/commonStroke?mode=select'
     })
   }
 })

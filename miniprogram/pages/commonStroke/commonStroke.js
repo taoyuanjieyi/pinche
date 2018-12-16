@@ -10,14 +10,34 @@ Page({
     hideAddContent:true,
     isEdit : false,
     editIndex:null,
+    mode:null,
+    okBtn:"",
   },
   radioChange(e) {
     this.showAddContent()
     this.setData({
       bodyValue: this.data.items[e.detail.value].body,
       isEdit:true,
+      body: this.data.items[e.detail.value].body,
       editIndex: e.detail.value,
     })
+  },
+  radioClick(e) {
+    if (this.data.isEdit === false){
+      this.setData({
+        bodyValue: this.data.items[this.data.editIndex].body,
+        body: this.data.items[e.detail.value].body,
+        isEdit: true,
+        editIndex: this.data.editIndex,
+      })
+    }
+  },
+  onLoad:function(options){
+    if (options.mode === "select"){
+      this.setData({
+        okBtn: "确定"
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面显示
@@ -47,7 +67,9 @@ Page({
   openAddWindow:function(){
     this.setData({
       bodyValue: "",
-      isEdit:false
+      body:"",
+      currentWordNumber:0,
+      isEdit:false,
     })
     this.showAddContent();
   },
@@ -97,9 +119,18 @@ Page({
     }
   },
   goBack: function (e) {
-    wx.navigateBack()
+    wx.setStorageSync("selectedRouteBody",this.data.body)
+    wx.navigateBack();
   },
   saveQuickRoute: function (e) {
+    if (this.data.body === null || this.data.body === '' ||
+      this.data.body === undefined) {
+      wx.showToast({
+        icon: 'none',
+        title: '行程内容不能为空！'
+      })
+      return;
+    }
     if (this.data.isEdit){
       this.data.items[this.data.editIndex].body = this.data.body;
       console.info(this.data);
