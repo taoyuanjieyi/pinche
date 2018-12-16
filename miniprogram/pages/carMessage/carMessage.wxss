@@ -13,6 +13,7 @@ page {
 
 .carMessage-list {
   display: flex;
+  align-items: center;
 }
 
 .carMessage-list-img {

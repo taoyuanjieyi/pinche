@@ -2,24 +2,12 @@ page {
   background: #eaeaea;
 }
 
-.commonStroke-list {
-  width: 100%;
-  padding: 14rpx 5%;
-  font-size: 28rpx;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
+.publish {
+  width: 95%;
+  margin: 20rpx auto;
   background: #fff;
-  border-bottom: 1rpx solid #eaeaea;
-}
-
-.commonStroke-list>radio {
-  transform: scale(0.8);
-  margin-right: 20rpx;
-}
-
-.carMessage-view {
-  background: #fff;
+  border-radius: 4rpx;
+  overflow: hidden;
 }
 
 .publish-list {
@@ -29,6 +17,10 @@ page {
   padding: 30rpx 10rpx;
   display: flex;
   border-bottom: 1rpx solid #eaeaea;
+}
+
+.publish-list>picker {
+  width: 100%;
 }
 
 .publish-list-title {
@@ -55,3 +47,30 @@ page {
   right: 10rpx;
   bottom: 10rpx;
 }
+
+.publish-btn {
+  width: 95%;
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #379ff8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30rpx auto;
+  background: #eaeaea;
+  border-radius: 4rpx;
+}
+
+.publish-btn:active {
+  background: #ccc;
+}
+
+.publish-btn-active {
+  color: #fff;
+  background: #379ff8;
+}
+
+.publish-btn-active:active {
+  background: #2480cf;
+}
+

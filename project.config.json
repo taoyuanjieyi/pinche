@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -75,7 +75,19 @@
 				{
 					"id": -1,
 					"name": "commonStroke",
-					"pathName": "pages/commonStroke/commonStroke"
+					"pathName": "pages/commonStroke/commonStroke",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "page/addMessage/addMessage",
+					"pathName": "page/addMessage/addMessage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "addMessage",
+					"pathName": "pages/addMessage/addMessage"
 				}
 			]
 		}
