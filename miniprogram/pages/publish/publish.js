@@ -1,6 +1,7 @@
 // pages/publish/publish.js
 
 var driverRequest = require('../../http/driverRouteRequest.js');
+var commonUtil = require('../../common/common.js');
 
 const app = getApp()
 
@@ -30,10 +31,9 @@ Page({
     array: ['1', '2', '3', '4', '5', '6'],
     body: "",
     submitBtnDisbled:true,
-    /*车辆颜色*/
-    carColor: ['黑色', '白色', '红色', '金色', '灰色', '银色', '黄色', '蓝色', '棕色'],
-    /*车辆品牌*/
-    carBrand: ['奥迪', '奔驰', '本田', '别克', '比亚迪', '标志', '长安', '长城', '银色', '传祺', '大众', '丰田', '福特', '菲亚特', '哈佛', '红旗', '海马', '吉利', 'JEEP', '凯迪拉克', '克莱斯勒', '雷克萨斯', '路虎', '林肯', '雷诺', '陆风', '马自达', '名爵', '尼桑', '欧宝', '奇瑞', '起亚', '荣威', '绅宝', '三菱', '斯柯达', '斯巴鲁', '沃尔沃', '现代', '雪佛兰', '雪铁龙', '英菲尼迪', '众泰', '中华', '其他'],
+    /*车辆信息*/
+    carInfoList: [],
+    carInfo : "请选择",
     /*textarea */
     min: 5, //最少字数
     max: 200, //最多字数 
@@ -47,6 +47,23 @@ Page({
       date: nowDate,
       submitBtnClass: "publish-btn"
     })
+  },
+  onShow: function(e){
+    // 获取所有车辆信息
+    var userInfo = commonUtil.getStorage("userInfo");
+    if (userInfo === null || userInfo === "" || userInfo === undefined) {
+      return;
+    } else if (userInfo.carList !== null || userInfo.carList !== "" || userInfo.carList !== undefined) {
+      var carList = JSON.parse(userInfo.carList);
+      for(var i=0;i<carList.length;i++){
+        var carInfo = carList[i];
+        carInfo.contentLabel = carInfo.brand + " " + carInfo.color + " " + carInfo.carNumber;
+      }
+      this.setData({
+        carInfoList: carList
+      })
+    }
+    
   },
   bindDateChange: function(e) {
     if (e.detail.value === nowDate) {
@@ -74,17 +91,10 @@ Page({
     })
     this.changeSubmitStyle()
   },
-  /*车牌颜色*/
-  bindColorChange: function(e) {
-    this.setData({
-      color: e.detail.value
-    })
-    this.changeSubmitStyle()
-  },
   /*车辆品牌*/
-  bindBrandChange: function(e) {
+  bindCarInfoChange: function(e) {
     this.setData({
-      brand: e.detail.value
+      carInfo: this.data.carInfoList[e.detail.value].contentLabel
     })
     this.changeSubmitStyle()
   },
@@ -119,6 +129,10 @@ Page({
     }
     if (this.data.vacancy === null || this.data.vacancy === '' ||
       this.data.vacancy === undefined) {
+      changeSubmitBtnEnable = false;
+    }
+    if (this.data.carInfo === null || this.data.carInfo === '' ||
+      this.data.carInfo === undefined || this.data.carInfo === '请选择') {
       changeSubmitBtnEnable = false;
     }
     if (changeSubmitBtnEnable) {
@@ -167,11 +181,21 @@ Page({
       return;
     }
 
+    if (this.data.carInfo === null || this.data.carInfo === '' ||
+      this.data.carInfo === undefined || this.data.carInfo === '请选择') {
+      wx.showToast({
+        icon: 'none',
+        title: '车辆信息不能为空！'
+      })
+      return;
+    }
+
     var timestamp = Date.parse(new Date());
     driverRequest.publish({
       passPoint: e.detail.value.body,
       startTime: this.data.date + " " + this.data.time + ":00",
       vacancy: this.data.array[this.data.vacancy],
+      carInfo: this.data.carInfo,
     }).then((res) => {
       if (res.retCode === 'success') {
         wx.showToast({
@@ -187,6 +211,11 @@ Page({
           title: res.retMsg
         })
       }
+    })
+  },
+  openSelectRoutePage: function(){
+    wx.navigateTo({
+      url: '../carMessage/carMessage?mode=select'
     })
   }
 })

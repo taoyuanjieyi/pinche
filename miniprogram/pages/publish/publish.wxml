@@ -22,22 +22,11 @@
       </picker>
     </view>
     <view class='publish-list'>
-      <picker name="color" bindchange="bindColorChange" value="{{color}}" range="{{carColor}}">
+      <picker name="carInfo" bindchange="bindCarInfoChange" value="{{index}}" range="{{carInfoList}}" range-key="contentLabel"	>
         <view class="picker">
-          车辆颜色：{{carColor[color]}}
+          车辆信息：{{carInfo}}
         </view>
       </picker>
-    </view>
-    <view class='publish-list'>
-      <picker name="brand" bindchange="bindBrandChange" value="{{brand}}" range="{{carBrand}}">
-        <view class="picker">
-          车辆品牌：{{carBrand[brand]}}
-        </view>
-      </picker>
-    </view>
-    <view class='publish-list'>
-      <text class='publish-list-title'>车牌号：</text>
-      <textarea class='publish-list-car' name='body' auto-height></textarea>
     </view>
     <view class='publish-list'>
       <text class='publish-list-title'>行程内容：</text>
