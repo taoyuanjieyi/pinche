@@ -46,6 +46,6 @@
         <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
       </view>
     </view>
-    <button class='{{submitBtnClass}}' formType="submit">发布</button>
+    <button class='{{submitBtnClass}}' formType="submit" disabled="{{submitBtnDisbled}}">发布</button>
   </view>
 </form>

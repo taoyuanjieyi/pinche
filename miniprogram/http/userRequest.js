@@ -230,11 +230,61 @@ function bindMobile(mobile,smsCode) {
   });
 }
 
+//更新用户常用行程
+function updateQuickRoute(quickRouteData) {
+  console.info("更新我的行程信息{0}", quickRouteData)
+  var session_id = commonUtil.getStorage("third_Session");
+  return new Promise(function (resolve, reject) {
+    wx.request({
+      url: "https://www.i5365.cn/pinche/user/updateQuickRoute",
+      method: "POST",
+      data: quickRouteData,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'sessionid': session_id
+      },
+      success: function (res) {
+        console.info("更新常用行程信息结果：",res);
+        resolve(res);
+      },
+      fail: function (res) {
+        console.log("updateQuickRoute fail : ", res);
+      }
+    });
+  });
+}
+
+//更新用户车辆信息
+function updateCarInfo(carInfoData) {
+  console.info("更新我的车辆信息{0}", carInfoData)
+  var session_id = commonUtil.getStorage("third_Session");
+  return new Promise(function (resolve, reject) {
+    wx.request({
+      url: "https://www.i5365.cn/pinche/user/updateCarInfo",
+      method: "POST",
+      data: carInfoData,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'sessionid': session_id
+      },
+      success: function (res) {
+        console.info(res);
+        resolve(res);
+      },
+      fail: function (res) {
+        console.log("getSmsCode fail : ", res);
+      }
+    });
+  });
+}
+
 module.exports = {
   onLogin: onLogin,
   queryUserInfo: queryUserInfo,
   saveUser: saveUser,
   getSmsCode: getSmsCode,
   bindMobile: bindMobile,
-  userLogin: userLogin
+  userLogin: userLogin,
+  updateCarInfo: updateCarInfo,
+  updateQuickRoute: updateQuickRoute
 }

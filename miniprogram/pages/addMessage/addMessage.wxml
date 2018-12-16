@@ -17,8 +17,8 @@
     </view>
     <view class='publish-list'>
       <text class='publish-list-title'>车牌号：</text>
-      <textarea class='publish-list-car' name='body' auto-height></textarea>
+      <textarea bindinput="bindCarNumberInput" class='publish-list-car' name='body' auto-height></textarea>
     </view>
-    <button class='publish-btn ' formType="submit">添加车辆信息</button>
+    <button class='{{submitBtnClass}}' disabled="{{submitBtnDisbled}}"  bindtap='saveCarInfo'>添加车辆信息</button>
   </view>
 </form>

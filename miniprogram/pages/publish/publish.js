@@ -29,6 +29,7 @@ Page({
     value: [9999, 1, 1],
     array: ['1', '2', '3', '4', '5', '6'],
     body: "",
+    submitBtnDisbled:true,
     /*车辆颜色*/
     carColor: ['黑色', '白色', '红色', '金色', '灰色', '银色', '黄色', '蓝色', '棕色'],
     /*车辆品牌*/
@@ -122,11 +123,13 @@ Page({
     }
     if (changeSubmitBtnEnable) {
       this.setData({
-        submitBtnClass: "publish-btn publish-btn-active"
+        submitBtnClass: "publish-btn publish-btn-active",
+        submitBtnDisbled:false
       })
     } else {
       this.setData({
-        submitBtnClass: "publish-btn"
+        submitBtnClass: "publish-btn",
+        submitBtnDisbled: true
       })
     }
   },

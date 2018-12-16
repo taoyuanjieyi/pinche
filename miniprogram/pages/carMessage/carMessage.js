@@ -1,3 +1,5 @@
+var userRequest = require('../../http/userRequest.js');
+var commonUtil = require('../../common/common.js');
 // miniprogram/pages/carMessage/carMessage.js
 Page({
 
@@ -5,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    items:[],
   },
 
   /**
@@ -26,7 +28,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // 获取所有车辆信息
+    var userInfo = commonUtil.getStorage("userInfo");
+    if (userInfo === null || userInfo === "" || userInfo === undefined) {
+      return;
+    } else if (userInfo.carList !== null || userInfo.carList !== "" || userInfo.carList !== undefined) {
+      this.setData({
+        items:JSON.parse(userInfo.carList)
+      })
+    }
   },
 
   /**
@@ -66,5 +76,11 @@ Page({
 
   goBack: function(e){
     wx.navigateBack()
+  },
+
+  goAdd: function (e) {
+    wx.navigateTo({
+      url: '../addMessage/addMessage'
+    })
   }
 })
