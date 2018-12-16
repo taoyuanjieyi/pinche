@@ -9,12 +9,14 @@ Page({
     seatArrayIndex: 0,
     okHidden:true,
     waitingHidden:false,
-    payQrcodeUrl:""
+    payQrcodeUrl:"",
+    isShowMobile:false,
   },
   onLoad: function (options){
     this.setData({
       routeId: options.routeId,
-      waitingHidden: false
+      waitingHidden: false,
+      isShowMobile: (options.isShowMobile === "true" || options.isShowMobile === true)?true:false
     })
     this.queryRouteDetail()
   },
@@ -91,11 +93,15 @@ Page({
           if (payQrcode !== null && payQrcode !== "" && payQrcode !== undefined) {
             qrcodeUrl = payQrcode.qrcodeUrl;
           }
+          if (this.data.isShowMobile){
+            this.setData({
+              driverMobile: res.driverRoute.mobile,
+            })
+          }
 
           that.setData({
             driverNickName: res.driverRoute.nickName,
             driverAvatarUrl: res.driverRoute.avatarUrl,
-            driverMobile: res.driverRoute.mobile,
             driverVacancy: res.driverRoute.vacancy,
             driverPassPoint: res.driverRoute.passPoint,
             joinRouteUserList: res.joinRouteUserList,

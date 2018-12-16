@@ -43,19 +43,19 @@ Page({
   viewDriverRoute : function(e){
     var index = parseInt(e.currentTarget.dataset.index); 
     wx.navigateTo({
-      url: '../seat/seat?routeId=' + this.data.driverRouteList[index].routeId
+      url: '../seat/seat?isShowMobile=false&routeId=' + this.data.driverRouteList[index].routeId
     })
   },
   viewOwnerRoute: function (e) {
     var index = parseInt(e.currentTarget.dataset.index);
     wx.navigateTo({
-      url: '../seat/seat?routeId=' + this.data.ownerRouteList[index].routeId
+      url: '../seat/seat?isShowMobile=true&routeId=' + this.data.ownerRouteList[index].routeId
     })
   },
   viewJoinRoute: function (e) {
     var index = parseInt(e.currentTarget.dataset.index);
     wx.navigateTo({
-      url: '../seat/seat?routeId=' + this.data.joinRouteList[index].routeId
+      url: '../seat/seat?isShowMobile=true&routeId=' + this.data.joinRouteList[index].routeId
     })
   },
   bindSearchChange:function(e){
