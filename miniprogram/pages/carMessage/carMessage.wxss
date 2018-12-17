@@ -3,17 +3,16 @@ page {
 }
 
 .carMessage {
-  padding: 14rpx 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background: #fff;
-  border-bottom: 1rpx solid #eaeaea;
 }
 
 .carMessage-list {
+  width: 100%;
+  padding: 14rpx 5%;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eaeaea;
 }
 
 .carMessage-list-img {

@@ -26,4 +26,5 @@ page {
 
 .carMessage-top-add {
   font-size: 40rpx;
+  padding: 0 30rpx;
 }
