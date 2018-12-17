@@ -5,7 +5,7 @@
 <view class='carMessage-view'>
   <radio-group class="" bindchange="radioChange" bindtap="radioClick">
     <label class="commonStroke-list" wx:for="{{items}}" wx:key='' wx:for-index="aindex">
-      <radio data-aindex="{{aindex}}" value="{{aindex}}" checked="{{item.checked}}" color='#379ff8' />{{item.body}}
+      <radio data-aindex="{{aindex}}" value="{{aindex}}" checked="{{item.checked}}" color='#379ff8' />{{item.body}}<image class='commonStroke-list-edit' src='../images/edit.svg'></image>
     </label>
   </radio-group>
   <view class='publish-list' hidden="{{hideAddContent}}">
@@ -14,7 +14,6 @@
       <textarea name='body' auto-height maxlength='200' placeholder='请输入行程内容' minlength="{{min}}" maxlength="{{max}}" bindinput="bindBodyChange" value='{{bodyValue}}'></textarea>
       <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
     </view>
-        <button class='{{submitBtnClass}}' bindtap='saveQuickRoute'>保存</button>
-
   </view>
+  <button class='publish-btn' bindtap='saveQuickRoute'>保存</button>
 </view>

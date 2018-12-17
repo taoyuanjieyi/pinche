@@ -18,7 +18,15 @@ page {
   margin-right: 20rpx;
 }
 
+.commonStroke-list-edit {
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 20rpx;
+  padding: 10rpx;
+}
+
 .carMessage-view {
+  overflow: hidden;
   background: #fff;
 }
 
@@ -54,4 +62,17 @@ page {
   position: absolute;
   right: 10rpx;
   bottom: 10rpx;
+}
+
+.publish-btn {
+  width: 95%;
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #379ff8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30rpx auto;
+  background: #eaeaea;
+  border-radius: 4rpx;
 }
