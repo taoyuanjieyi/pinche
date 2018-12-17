@@ -50,6 +50,10 @@ Page({
           wx.redirectTo({
             url: '/pages/verification/verification'
           })
+        }else{
+          wx.switchTab({
+            url: '/pages/index/index'
+          })
         }
         console.info("当前登录用户信息：", res);
       })

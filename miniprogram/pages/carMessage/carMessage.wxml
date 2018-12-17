@@ -17,4 +17,4 @@
   </label>
   <!-- <view class='carMessage-arrow'></view> -->
 </view>
-<view class='carMessage-no'>暂无车辆信息</view>
+<view class='carMessage-no' hidden="{{noDataHide}}">暂无车辆信息</view>

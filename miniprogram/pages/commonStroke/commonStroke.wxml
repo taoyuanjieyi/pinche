@@ -3,9 +3,9 @@
   <view bindtap='openAddWindow' class='carMessage-top-add' hidden="{{addBtnShow}}">+</view>
 </view>
 <view class='carMessage-view'>
-  <radio-group class="" bindchange="radioChange" bindtap="radioClick">
+  <radio-group class="" bindchange="radioChange">
     <label class="commonStroke-list" wx:for="{{items}}" wx:key='' wx:for-index="aindex">
-      <radio data-aindex="{{aindex}}" value="{{aindex}}" checked="{{item.checked}}" color='#379ff8' />{{item.body}}<image class='commonStroke-list-edit' src='../images/edit.svg'></image>
+      <radio data-aindex="{{aindex}}" value="{{aindex}}" checked="{{item.checked}}" color='#379ff8' />{{item.body}}<image bindtap="editClick" data-index="{{aindex}}" class='commonStroke-list-edit' src='../images/edit.svg'></image>
     </label>
   </radio-group>
   <view class='publish-list' hidden="{{hideAddContent}}">
@@ -15,5 +15,5 @@
       <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
     </view>
   </view>
-  <button class='publish-btn' bindtap='saveQuickRoute'>保存</button>
+  <button class='{{submitBtnClass}}' hidden="{{saveBtnShow}}" disabled="{{submitBtnDisbled}}" bindtap='saveQuickRoute'>保存</button>
 </view>

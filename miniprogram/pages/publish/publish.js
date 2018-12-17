@@ -57,7 +57,10 @@ Page({
     }
   this.setData({
     body: defaultBody,
+    currentWordNumber: parseInt(defaultBody.length) //当前字数  
   })
+    this.changeSubmitStyle();
+
 
     // 获取所有车辆信息
     var userInfo = commonUtil.getStorage("userInfo");

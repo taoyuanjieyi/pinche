@@ -8,6 +8,7 @@ Page({
    */
   data: {
     items:[],
+    noDataHide:true,
   },
 
   /**
@@ -32,9 +33,14 @@ Page({
     var userInfo = commonUtil.getStorage("userInfo");
     if (userInfo === null || userInfo === "" || userInfo === undefined) {
       return;
-    } else if (userInfo.carList !== null || userInfo.carList !== "" || userInfo.carList !== undefined) {
+    } else if (userInfo.carList !== null && userInfo.carList !== "" && userInfo.carList !== undefined) {
       this.setData({
-        items:JSON.parse(userInfo.carList)
+        items:JSON.parse(userInfo.carList),
+        noDataHide:true,
+      })
+    }else{
+      this.setData({
+        noDataHide: false,
       })
     }
   },

@@ -12,25 +12,25 @@ Page({
     editIndex:null,
     mode:null,
     okBtn:"",
+    submitBtnDisbled: true,
+    submitBtnClass: "publish-btn",
   },
   radioChange(e) {
-    this.showAddContent()
     this.setData({
-      bodyValue: this.data.items[e.detail.value].body,
-      isEdit:true,
       body: this.data.items[e.detail.value].body,
       editIndex: e.detail.value,
     })
   },
-  radioClick(e) {
-    if (this.data.isEdit === false){
-      this.setData({
-        bodyValue: this.data.items[this.data.editIndex].body,
-        body: this.data.items[e.detail.value].body,
-        isEdit: true,
-        editIndex: this.data.editIndex,
-      })
-    }
+  editClick(e) {
+    console.info(e);
+    this.showAddContent()
+    this.setData({
+      bodyValue: this.data.items[e.currentTarget.dataset.index].body,
+      body: this.data.items[e.currentTarget.dataset.index].body,
+      isEdit: true,
+      editIndex: e.currentTarget.dataset.index,
+    })
+    this.changeSubmitStyle()
   },
   onLoad:function(options){
     if (options.mode === "select"){
@@ -72,15 +72,18 @@ Page({
       isEdit:false,
     })
     this.showAddContent();
+    this.changeSubmitStyle()
   },
   showAddContent:function(){
     this.setData({
-      hideAddContent:false
+      hideAddContent:false,
+      saveBtnShow:false,
     })
   },
   hideAddContent:function(){
     this.setData({
-      hideAddContent: true
+      hideAddContent: true,
+      saveBtnShow:true
     })
   },
   bindBodyChange: function (e) {
@@ -110,11 +113,13 @@ Page({
 
     if (changeSubmitBtnEnable) {
       this.setData({
-        submitBtnClass: "publish-btn publish-btn-active"
+        submitBtnClass: "publish-btn publish-btn-active",
+        submitBtnDisbled:false
       })
     } else {
       this.setData({
-        submitBtnClass: "publish-btn"
+        submitBtnClass: "publish-btn",
+        submitBtnDisbled: true
       })
     }
   },

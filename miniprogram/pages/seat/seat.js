@@ -105,7 +105,6 @@ Page({
             driverAvatarUrl: res.driverRoute.avatarUrl,
             driverVacancy: res.driverRoute.vacancy,
             driverPassPoint: res.driverRoute.passPoint,
-            seat:res.driverRoute.seats,
             joinRouteUserList: res.joinRouteUserList,
             seatArray: seats,
             payQrcodeUrl: "https://www.i5365.cn" + qrcodeUrl
