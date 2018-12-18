@@ -16,4 +16,8 @@
     </view>
   </view>
   <button class='{{submitBtnClass}}' hidden="{{saveBtnShow}}" disabled="{{submitBtnDisbled}}" bindtap='saveQuickRoute'>保存</button>
+  <view class='commonStroke-list-nomessage'>
+    <image class='list-nomessage-img' mode='aspectFill' src='../images/nomessage.png'></image>
+    <view>暂无常用行程信息</view>
+  </view>
 </view>
