@@ -1,4 +1,5 @@
 var userRequest = require('../../http/userRequest.js');
+var login = require('../../http/login.js'); 
 var commonUtil = require('../../common/common.js');
 var app = getApp()
 Page({
@@ -6,26 +7,33 @@ Page({
     payQrcodeUrl: "",
   },
   onLoad: function() {
+    var that = this;
     var userInfo = commonUtil.getStorage("userInfo");
     if (userInfo === null || userInfo === "" || userInfo === undefined) {
       console.info("用户信息为空，重新查询用户信息！")
-      userRequest.queryUserInfo().then((res) => {
-        if (res === null || res === undefined || res === "") {
-          onLogin();
-        }
-        userInfo = res;
+      login.queryUserInfo(function(userInfo){
+        that.setPageInfo(userInfo)
+      });
+    } else if (!userInfo.bindMobile) {
+      console.info("用户手机信息为空，跳转至绑定手机页面！")
+      wx.redirectTo({
+        url: '/pages/verification/verification'
       })
+    } else {
+      that.setPageInfo(userInfo)
     }
-    console.info("当前登录用户信息：", userInfo,);
+  },
+  setPageInfo:function(userInfo){
+    console.info("当前登录用户信息：", userInfo, );
     var payQrcode = JSON.parse(userInfo.payQrcode)
     var qrcodeUrl = "";
-    if (payQrcode !== null && payQrcode !== "" && payQrcode !== undefined){
+    if (payQrcode !== null && payQrcode !== "" && payQrcode !== undefined) {
       qrcodeUrl = payQrcode.qrcodeUrl;
     }
     this.setData({
       nickName: userInfo.nickName,
-      avatarUrl:userInfo.avatarUrl,
-      mobile:userInfo.mobile,
+      avatarUrl: userInfo.avatarUrl,
+      mobile: userInfo.mobile,
       payQrcodeUrl: "https://www.i5365.cn" + qrcodeUrl,
     })
   },

@@ -1,4 +1,5 @@
 var userRequest = require('../../http/userRequest.js');
+var login = require('../../http/login.js'); 
 var commonUtil = require('../../common/common.js');
 
 Page({
@@ -65,7 +66,7 @@ Page({
     }
   },
   saveCarInfo: function (e) {
-
+    var that = this;
     if (this.data.carNumber.length !== 7) {
       wx.showToast({
         icon: 'none',
@@ -104,7 +105,11 @@ Page({
       carInfoJson: JSON.stringify(carList)
     }).then((res) => {
       console.info("保存常用行程到服务器结果：", res)
-      if (res.data.retCode === "success") {
+      if (res.data.retCode === "need_login") {
+        login.checkLogin(function () {
+          that.saveCarInfo(e);
+        })
+      }else if (res.data.retCode === "success") {
         userRequest.queryUserInfo().then((res) => {
           wx.navigateBack();
         })

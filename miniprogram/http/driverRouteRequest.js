@@ -15,8 +15,8 @@ function publish(driverData) {
         'sessionid': session_id
       },
       success: function (res) {
-        console.info("driver publish result :", res.data)
-        resolve(res.data);
+        console.info("driver publish result :", res)
+        resolve(res);
       },
       fail: function (res) {
         console.log("driver publish fail : ", res);
@@ -40,7 +40,7 @@ function search(searchData){
         'sessionid': session_id
       },
       success: function (res) {
-        resolve(res.data);
+        resolve(res);
       },
       fail: function (res) {
         console.log("driver search fail : ", res);
@@ -63,7 +63,7 @@ function queryRouteDetail(routeData) {
         'sessionid': session_id
       },
       success: function (res) {
-        resolve(res.data);
+        resolve(res);
       },
       fail: function (res) {
         console.log("driver search fail : ", res);

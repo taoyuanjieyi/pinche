@@ -1,6 +1,8 @@
 var driverRequest = require('../../http/driverRouteRequest.js');
 var passengerRequest = require('../../http/passengerRouteRequest.js');
 var commonUtil = require('../../common/common.js');
+var login = require('../../http/login.js'); 
+
 
 Page({
   data: {
@@ -26,16 +28,16 @@ Page({
     })
   },
   okButton: function (e) {
+    var that = this;
     passengerRequest.joinRoute({
       routeId: this.data.routeId,
       seats: this.data.seatArray[this.data.seatArrayIndex]
     }).then((res) => {
-      console.log('[数据库] [查询记录] 成功: ', res)
-      if (res.retCode === "need_login") {
-        userRequest.onLogin();
-        return;
-      }
-      if (res.retCode === 'success') {
+      if (res.data.retCode === "need_login") {
+        login.checkLogin(function () {
+          that.okButton(e);
+        })
+      } else if (res.data.retCode === 'success') {
         wx.showToast({
           icon: 'none',
           title: '预定成功，请主动联系车主确认上车地点！'
@@ -70,12 +72,11 @@ Page({
     driverRequest.queryRouteDetail({
       driverRouteId: this.data.routeId,
     }).then((res) => {
-      console.log('[数据库] [查询记录] 成功: ', res)
-      if (res.retCode === "need_login") {
-        userRequest.onLogin();
-        return;
-      }
-      if(res.retCode==='success'){
+      if (res.data.retCode === "need_login") {
+        login.checkLogin(function () {
+          that.queryRouteDetail();
+        })
+      } else if(res.data.retCode==='success'){
         let seats = [];
         if (res.driverRoute!==null){
           var userInfo = commonUtil.getStorage("userInfo");

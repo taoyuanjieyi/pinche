@@ -15,8 +15,8 @@ function joinRoute(joinData) {
         'sessionid': session_id
       },
       success: function (res) {
-        console.info("passenger join result :", res.data)
-        resolve(res.data);
+        console.info("passenger join result :", res)
+        resolve(res);
       },
       fail: function (res) {
         console.log("passenger join fail : ", res);

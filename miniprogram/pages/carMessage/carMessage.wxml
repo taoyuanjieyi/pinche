@@ -17,7 +17,7 @@
   </label>
   <!-- <view class='carMessage-arrow'></view> -->
 </view>
-<view class='commonStroke-list-nomessage'>
+<view class='commonStroke-list-nomessage' hidden="{{noDataHide}}">
   <image class='list-nomessage-img' mode='aspectFill' src='../images/car1.png'></image>
   <view>暂无车辆信息</view>
 </view>

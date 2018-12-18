@@ -1,4 +1,5 @@
 var userRequest = require('../../http/userRequest.js');
+var login = require('../../http/login.js'); 
 var commonUtil = require('../../common/common.js');
 
 Page({
@@ -14,6 +15,8 @@ Page({
     okBtn:"",
     submitBtnDisbled: true,
     submitBtnClass: "publish-btn",
+    saveBtnShow:true,
+    noDataHide:false
   },
   radioChange(e) {
     this.setData({
@@ -52,6 +55,7 @@ Page({
     } else if (userInfo.quickRoute !== null && userInfo.quickRoute !== "" && userInfo.quickRoute !== undefined){
       this.setData({
         items: JSON.parse(userInfo.quickRoute),
+        noDataHide:true,
         isEdit: false,
       })
       var isHideAddBtn = false;
@@ -62,6 +66,10 @@ Page({
         addBtnShow: isHideAddBtn
       })
       this.hideAddContent()
+    }else{
+      this.setData({
+        noDataHide: false,
+      })
     }
   },
   openAddWindow:function(){
@@ -175,7 +183,11 @@ Page({
       quickRouteJson: JSON.stringify(this.data.items)
     }).then((res) => {
       console.info("保存常用行程到服务器结果：", res)
-      if (res.data.retCode === "success") {
+      if (res.data.retCode === "need_login") {
+        login.checkLogin(function () {
+          that.submitQuickRoute();
+        })
+      } else if (res.data.retCode === "success") {
         userRequest.queryUserInfo().then((res) => {
           this.loadPage();
         })

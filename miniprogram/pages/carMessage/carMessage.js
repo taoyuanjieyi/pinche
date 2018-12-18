@@ -1,4 +1,5 @@
 var userRequest = require('../../http/userRequest.js');
+var login = require('../../http/login.js'); 
 var commonUtil = require('../../common/common.js');
 // miniprogram/pages/carMessage/carMessage.js
 Page({

@@ -104,8 +104,12 @@ Page({
       return;
     }
     userRequest.bindMobile(that.data.mobile, that.data.smsCode).then((res) => {
-      console.info("绑定结果：", res)
-      if (res) {
+      if (res.statusCode !== 200 || res.data.retCode !== "success") {
+        wx.showToast({
+          icon: 'none',
+          title: commonUtil.isBlank(res.data.retMsg) ? '绑定失败！' : res.data.retMsg
+        })
+      }else{
         userRequest.queryUserInfo().then((res) => {
         })
         wx.switchTab({
@@ -136,32 +140,40 @@ Page({
     } else if (mobile.trim().length != 11 || !/^1[3|4|5|6|7|8|9]\d{9}$/.test(mobile)) {
       warn = "手机号格式不正确";
     } else {
-      userRequest.getSmsCode(mobile);
-      //当手机号正确的时候提示用户短信验证码已经发送
-      wx.showToast({
-        title: '短信验证码已发送',
-        icon: 'none',
-        duration: 2000
-      });
-      //设置一分钟的倒计时
-      var interval = setInterval(function() {
-        currentTime--; //每执行一次让倒计时秒数减一
-        that.setData({
-          text: currentTime + 's', //按钮文字变成倒计时对应秒数
+      userRequest.getSmsCode(mobile).then((res) => {
+        if(res.statusCode === 200 && res.data.retCode === "success"){
+          //当手机号正确的时候提示用户短信验证码已经发送
+          wx.showToast({
+            icon: 'none',
+            title: '短信发送成功，请注意查收！',
+            duration: 2000
+          })
+          //设置一分钟的倒计时
+          var interval = setInterval(function() {
+            currentTime--; //每执行一次让倒计时秒数减一
+            that.setData({
+              text: currentTime + 's', //按钮文字变成倒计时对应秒数
 
-        })
-        //如果当秒数小于等于0时 停止计时器 且按钮文字变成重新发送 且按钮变成可用状态 倒计时的秒数也要恢复成默认秒数 即让获取验证码的按钮恢复到初始化状态只改变按钮文字
-        if (currentTime <= 0) { 
-          clearInterval(interval)
-          that.setData({
-            text: '重新发送',
-            currentTime: 61,
-            disabled: false,
-            color: '#929fff'
+            })
+            //如果当秒数小于等于0时 停止计时器 且按钮文字变成重新发送 且按钮变成可用状态 倒计时的秒数也要恢复成默认秒数 即让获取验证码的按钮恢复到初始化状态只改变按钮文字
+            if (currentTime <= 0) { 
+              clearInterval(interval)
+              that.setData({
+                text: '重新发送',
+                currentTime: 61,
+                disabled: false,
+                color: '#929fff'
+              })
+            }
+          }, 100);
+        }else{
+          wx.showToast({
+            icon: 'none',
+            title: commonUtil.isBlank(res.data.retMsg) ? '短信发送失败，请稍后重试！' : res.data.retMsg,
+            duration: 2000
           })
         }
-      }, 100);
-
+      })
     };
 
     //判断 当提示错误信息文字不为空 即手机号输入有问题时提示用户错误信息 并且提示完之后一定要让按钮为可用状态 因为点击按钮时设置了只要点击了按钮就让按钮禁用的情况

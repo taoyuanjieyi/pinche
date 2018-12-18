@@ -7,7 +7,18 @@ function getStorage(storageKey){
   }
 }
 
+function isBlank(obj) {
+  if (obj === null || obj === undefined){
+    return true;
+  }
+  if (typeof obj === "string" && obj.trim() === ""){
+    return true;
+  }
+  return false;
+}
+
 
 module.exports = {
-  getStorage: getStorage
+  getStorage: getStorage,
+  isBlank: isBlank
 }

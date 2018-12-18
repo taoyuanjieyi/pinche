@@ -7,55 +7,21 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function() {
-    var that = this;
-    // 查看是否授权
-    wx.getSetting({
-      success: function(res) {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: function(res) {
-              //从数据库获取用户信息
-              //that.queryUserInfo();
-              //用户已经授权过
-              // wx.switchTab({
-              //   url: ''
-              // })
-            }
-          });
-        }
-      }
-    })
+   
   },
   bindGetUserInfo: function(e) {
-    console.info("=======",e.detail.userInfo);
+    console.info("微信授权用户信息：",e.detail.userInfo);
     if (e.detail.userInfo) {
-      wx.setStorage({
-        key: "wx_userInfo",
-        data: e.detail.userInfo
-      })
       //用户按了允许授权按钮
-      //查询用户是否存在
-      userRequest.queryUserInfo().then((res) => {
-        if (res === null || res === undefined || res === "") {
-          //插入登录的用户的相关信息到数据库
-          userRequest.saveUser(e.detail.userInfo).then((res) => {
-            if (res.retCode === 'success'){
-              wx.redirectTo({
-                url: '/pages/verification/verification'
-              })
-            }
-          })
-        } else if (!res.bindMobile){
-          //授权成功后，跳转进入小程序首页
+      //插入登录的用户的相关信息到数据库
+      userRequest.saveUser(e.detail.userInfo).then((res) => {
+        if (res.retCode === 'success'){
           wx.redirectTo({
             url: '/pages/verification/verification'
           })
         }else{
-          wx.switchTab({
-            url: '/pages/index/index'
-          })
+          console.info("保存用户信息失败！")
         }
-        console.info("当前登录用户信息：", res);
       })
     } else {
       //用户按了拒绝按钮

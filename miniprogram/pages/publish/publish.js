@@ -1,6 +1,7 @@
 // pages/publish/publish.js
 
 var driverRequest = require('../../http/driverRouteRequest.js');
+var login = require('../../http/login.js'); 
 var commonUtil = require('../../common/common.js');
 
 const app = getApp()
@@ -204,13 +205,18 @@ Page({
     }
 
     var timestamp = Date.parse(new Date());
+    var that = this
     driverRequest.publish({
       passPoint: e.detail.value.body,
       startTime: this.data.date + " " + this.data.time + ":00",
       vacancy: this.data.array[this.data.vacancy],
       carInfo: this.data.carInfo,
     }).then((res) => {
-      if (res.retCode === 'success') {
+      if (res.data.retCode === "need_login") {
+        login.checkLogin(function () {
+          that.formBindsubmit(e);
+        })
+      } else if (res.data.retCode === 'success') {
         wx.showToast({
           icon: 'none',
           title: '发布成功',
@@ -221,7 +227,7 @@ Page({
       } else {
         wx.showToast({
           icon: 'none',
-          title: res.retMsg
+          title: res.data.retMsg
         })
       }
     })
