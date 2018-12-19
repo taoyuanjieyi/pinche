@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -87,7 +87,13 @@
 				{
 					"id": -1,
 					"name": "addMessage",
-					"pathName": "pages/addMessage/addMessage"
+					"pathName": "pages/addMessage/addMessage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "del",
+					"pathName": "pages/del/del"
 				}
 			]
 		}

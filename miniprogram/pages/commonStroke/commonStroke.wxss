@@ -2,6 +2,15 @@ page {
   background: #eaeaea;
 }
 
+.commonStroke-list-view {
+  width: 100%;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eaeaea;
+  overflow: hidden;
+}
+
 .commonStroke-list {
   width: 100%;
   padding: 14rpx 5%;
@@ -10,7 +19,26 @@ page {
   display: flex;
   align-items: center;
   background: #fff;
-  border-bottom: 1rpx solid #eaeaea;
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  margin-left: -90px;
+}
+
+.commonStroke-list-del {
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #379ff8;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
 
 .commonStroke-list>radio {

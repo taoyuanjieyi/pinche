@@ -1,12 +1,17 @@
 <view class='carMessage-top'>
   <view bindtap='goBack'>{{okBtn}}</view>
-  <view bindtap='openAddWindow' class='carMessage-top-add' hidden="{{addBtnShow}}">+</view>
+  <view bindtap='openAddWindow' class='carMessage-top-add'>+</view>
+  <!-- <view bindtap='openAddWindow' class='carMessage-top-add' hidden="{{addBtnShow}}">+</view> -->
 </view>
 <view class='carMessage-view'>
   <radio-group class="" bindchange="radioChange">
-    <label class="commonStroke-list" wx:for="{{items}}" wx:key='' wx:for-index="aindex">
-      <radio data-aindex="{{aindex}}" value="{{aindex}}" checked="{{item.checked}}" color='#379ff8' />{{item.body}}<image bindtap="editClick" data-index="{{aindex}}" class='commonStroke-list-edit' src='../images/edit.svg'></image>
-    </label>
+    <view class='commonStroke-list-view' wx:for="{{items}}" wx:key='' wx:for-index="aindex">
+      <label class="commonStroke-list">
+        <radio data-aindex="{{aindex}}" value="{{aindex}}" checked="{{item.checked}}" color='#379ff8' />{{item.body}}
+        <image bindtap="editClick" data-index="{{aindex}}" class='commonStroke-list-edit' src='../images/edit.svg'></image>
+      </label>
+      <view class='commonStroke-list-del'>删除</view>
+    </view>
   </radio-group>
   <view class='publish-list' hidden="{{hideAddContent}}">
     <text class='publish-list-title'>行程内容：</text>
@@ -16,7 +21,7 @@
     </view>
   </view>
   <button class='{{submitBtnClass}}' hidden="{{saveBtnShow}}" disabled="{{submitBtnDisbled}}" bindtap='saveQuickRoute'>保存</button>
-  <view class='commonStroke-list-nomessage'  hidden="{{noDataHide}}">
+  <view class='commonStroke-list-nomessage' hidden="{{noDataHide}}">
     <image class='list-nomessage-img' mode='aspectFill' src='../images/nomessage.png'></image>
     <view>暂无常用行程信息</view>
   </view>
