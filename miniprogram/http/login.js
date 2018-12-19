@@ -95,20 +95,20 @@ function platformLogin(wxLoginCode,callback){
 }
 
 function queryUserInfo(callback){
-  userRequest.queryUserInfo().then((userInfo) => {
-    if (userInfo === null || userInfo === "" || userInfo === undefined) {
+  userRequest.queryUserInfo().then((res) => {
+    if (res.data.data === null || res.data.data === "" || res.data.data === undefined) {
       console.info("当前登录用户信息为空，跳转到授权页面")
       wx.redirectTo({
         url: '/pages/login/login'
       })
 
-    } else if (!userInfo.bindMobile) {
+    } else if (!res.data.data.bindMobile) {
       console.info("用户手机信息为空，跳转至绑定手机页面！")
       wx.redirectTo({
         url: '/pages/verification/verification'
       })
     } else {
-      callback(userInfo)
+      callback(res.data.data)
     }
   })
 }

@@ -139,8 +139,8 @@ function saveUser(userInfo) {
       },
       success: function(res) {
         //从数据库获取用户信息
-        resolve(res.data);  
-        console.log("插入小程序登录用户信息成功！",res);
+        console.log("插入小程序登录用户信息成功！", res);
+        resolve(res);  
       }
     });
   });
@@ -162,7 +162,7 @@ function queryUserInfo() {
         if (res.data.retCode === 'success'){
           wx.setStorageSync("userInfo",res.data.data)
           // console.info("queryUserInfo 当前登录用户信息:", res.data.data)
-          resolve(res.data.data);  
+          resolve(res);  
         }else{
           console.error("查询用户失败：" , res.data);
           resolve()
