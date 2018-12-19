@@ -15,7 +15,7 @@ Page({
       //用户按了允许授权按钮
       //插入登录的用户的相关信息到数据库
       userRequest.saveUser(e.detail.userInfo).then((res) => {
-        if (res.retCode === 'success'){
+        if (res.data.retCode === 'success'){
           wx.redirectTo({
             url: '/pages/verification/verification'
           })

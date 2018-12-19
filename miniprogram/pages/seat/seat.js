@@ -49,7 +49,7 @@ Page({
       }else{
         wx.showToast({
           icon: 'none',
-          title: res.retMsg
+          title: res.data.retMsg
         })
         this.setData({
           okHidden: true
@@ -78,35 +78,35 @@ Page({
         },true)
       } else if(res.data.retCode==='success'){
         let seats = [];
-        if (res.driverRoute!==null){
+        if (res.data.driverRoute!==null){
           var userInfo = commonUtil.getStorage("userInfo");
-          if (res.driverRoute.vacancy < 1 || res.driverRoute.userId === userInfo.userId){
+          if (res.data.driverRoute.vacancy < 1 || res.data.driverRoute.userId === userInfo.userId){
             this.setData({
               waitingHidden: true
             })
           }
-          for (let i = 0; i < res.driverRoute.vacancy;i++){
+          for (let i = 0; i < res.data.driverRoute.vacancy;i++){
             seats[i] = i+1;
           }
 
-          var payQrcode = JSON.parse(res.driverRoute.payQrcode)
+          var payQrcode = JSON.parse(res.data.driverRoute.payQrcode)
           var qrcodeUrl = "";
           if (payQrcode !== null && payQrcode !== "" && payQrcode !== undefined) {
             qrcodeUrl = payQrcode.qrcodeUrl;
           }
           if (this.data.isShowMobile){
             this.setData({
-              driverMobile: res.driverRoute.mobile,
-              carInfo: res.driverRoute.carInfo,
+              driverMobile: res.data.driverRoute.mobile,
+              carInfo: res.data.driverRoute.carInfo,
             })
           }
 
           that.setData({
-            driverNickName: res.driverRoute.nickName,
-            driverAvatarUrl: res.driverRoute.avatarUrl,
-            driverVacancy: res.driverRoute.vacancy,
-            driverPassPoint: res.driverRoute.passPoint,
-            joinRouteUserList: res.joinRouteUserList,
+            driverNickName: res.data.driverRoute.nickName,
+            driverAvatarUrl: res.data.driverRoute.avatarUrl,
+            driverVacancy: res.data.driverRoute.vacancy,
+            driverPassPoint: res.data.driverRoute.passPoint,
+            joinRouteUserList: res.data.joinRouteUserList,
             seatArray: seats,
             payQrcodeUrl: "https://www.i5365.cn" + qrcodeUrl
           })
