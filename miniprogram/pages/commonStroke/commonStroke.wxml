@@ -3,7 +3,9 @@
   <view bindtap='openAddWindow' class='carMessage-top-add'>+</view>
   <!-- <view bindtap='openAddWindow' class='carMessage-top-add' hidden="{{addBtnShow}}">+</view> -->
 </view>
+
 <view class='carMessage-view'>
+<!--
   <radio-group class="" bindchange="radioChange">
     <view class='commonStroke-list-view' wx:for="{{items}}" wx:key='' wx:for-index="aindex">
       <label class="commonStroke-list">
@@ -13,6 +15,21 @@
       <view class='commonStroke-list-del'>删除</view>
     </view>
   </radio-group>
+-->
+<radio-group  bindchange="radioChange">
+<view class="container">
+  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="{{index}}">
+    <view class="content">
+      <radio data-aindex="{{aindex}}" value="{{index}}" checked="{{item.checked}}" color='#379ff8' />{{item.body}}
+      <image bindtap="editClick" data-index="{{index}}" class='commonStroke-list-edit' src='../images/edit.svg'></image>
+
+    </view>
+    <view class="del" catchtap="removeQuickRoute" data-index="{{index}}">删除</view>
+  </view>
+</view>
+</radio-group>
+
+
   <view class='publish-list' hidden="{{hideAddContent}}">
     <text class='publish-list-title'>行程内容：</text>
     <view class='publish-list-content'>
