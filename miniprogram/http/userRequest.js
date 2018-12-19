@@ -165,7 +165,7 @@ function queryUserInfo() {
           resolve(res);  
         }else{
           console.error("查询用户失败：" , res.data);
-          resolve()
+          resolve(res)
         }
       },
       fail: function(res){

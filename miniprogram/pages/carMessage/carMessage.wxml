@@ -4,18 +4,23 @@
   </view>
   <view class='carMessage-top-add' bindtap='goAdd'>+</view>
 </view>
+<!--
 <view class='carMessage'>
-  <label wx:for="{{items}}" wx:key='' wx:for-index="aindex">
+  <label wx:for="{{items}}" wx:key="{{index}}" data-index="{{index}}">
     <view class='carMessage-list'>
       <image class='carMessage-list-img' mode='aspectFill' src='../images/car1.png'></image>
       <view>
         {{item.brand}} {{item.color}} {{item.carNumber}}
-        <!-- <view class='carMessage-list-title'></view> -->
-        <!-- <view class='carMessage-list-message'>车辆信息</view> -->
       </view>
     </view>
   </label>
-  <!-- <view class='carMessage-arrow'></view> -->
+</view>
+-->
+<view class="container">
+  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="{{index}}">
+    <view class="content">{{item.brand}} {{item.color}} {{item.carNumber}}</view>
+    <view class="del" catchtap="removeCarInfo" data-index="{{index}}">删除</view>
+  </view>
 </view>
 <view class='commonStroke-list-nomessage' hidden="{{noDataHide}}">
   <image class='list-nomessage-img' mode='aspectFill' src='../images/car1.png'></image>

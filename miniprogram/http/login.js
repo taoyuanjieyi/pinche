@@ -96,7 +96,7 @@ function platformLogin(wxLoginCode,callback){
 
 function queryUserInfo(callback){
   userRequest.queryUserInfo().then((res) => {
-    if (res.data.data === null || res.data.data === "" || res.data.data === undefined) {
+      if (res.data.retCode !== "success" || res.data.data === null || res.data.data === "" || res.data.data === undefined) {
       console.info("当前登录用户信息为空，跳转到授权页面")
       wx.redirectTo({
         url: '/pages/login/login'
