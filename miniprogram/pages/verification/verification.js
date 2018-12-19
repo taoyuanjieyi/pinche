@@ -104,13 +104,22 @@ Page({
       return;
     }
     userRequest.bindMobile(that.data.mobile, that.data.smsCode).then((res) => {
-      if (res.statusCode !== 200 || res.data.retCode !== "success") {
+      if (res.data.retCode === "need_login") {
+        login.checkLogin(function () {
+          that.formBindsubmit(e);
+        }, true)
+      }else if (res.statusCode !== 200 || res.data.retCode !== "success") {
         wx.showToast({
           icon: 'none',
           title: commonUtil.isBlank(res.data.retMsg) ? '绑定失败！' : res.data.retMsg
         })
       }else{
         userRequest.queryUserInfo().then((res) => {
+          if (res.data.retCode === "need_login") {
+            login.checkLogin(function () {
+              that.formBindsubmit(e);
+            }, true)
+          }
         })
         wx.switchTab({
           url: '/pages/index/index'

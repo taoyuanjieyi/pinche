@@ -4,12 +4,12 @@ var wxPromise = require('../plugins/wxPromise.js');
 const wxRequest = wxPromise.wxPromisify(wx.request);
 
 //用户登陆
-function checkLogin(callback) {
+function checkLogin(callback, sessionInvalid) {
   //检查微信会话
   //var session = checkWxSession();
   // 检查平台 session 是否存在
   var session_id = commonUtil.getStorage("third_Session");
-  if (commonUtil.isBlank(session_id)) {
+  if (commonUtil.isBlank(session_id) || sessionInvalid) {
       console.info("当前平台登录sesssion不存在，获取会话信息")
       wxLogin(callback);
   }else{
@@ -86,10 +86,7 @@ function platformLogin(wxLoginCode,callback){
   getPlatformSession(wxLoginCode).then((res) => {
     if (!commonUtil.isBlank(res)) {
       //获取到用户凭证 存儲 3rd_session 
-      wx.setStorage({
-        key: "third_Session",
-        data: res
-      })
+      wx.setStorageSync("third_Session",res)
       console.info("登录存入sessionid到本地", res)
       //查询用户信息
       queryUserInfo(callback)

@@ -108,7 +108,7 @@ Page({
       if (res.data.retCode === "need_login") {
         login.checkLogin(function () {
           that.saveCarInfo(e);
-        })
+        }, true)
       }else if (res.data.retCode === "success") {
         userRequest.queryUserInfo().then((res) => {
           wx.navigateBack();

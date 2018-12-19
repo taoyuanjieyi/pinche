@@ -215,7 +215,7 @@ Page({
       if (res.data.retCode === "need_login") {
         login.checkLogin(function () {
           that.formBindsubmit(e);
-        })
+        },true)
       } else if (res.data.retCode === 'success') {
         wx.showToast({
           icon: 'none',

@@ -36,7 +36,7 @@ Page({
       if (res.data.retCode === "need_login") {
         login.checkLogin(function () {
           that.okButton(e);
-        })
+        },true)
       } else if (res.data.retCode === 'success') {
         wx.showToast({
           icon: 'none',
@@ -75,7 +75,7 @@ Page({
       if (res.data.retCode === "need_login") {
         login.checkLogin(function () {
           that.queryRouteDetail();
-        })
+        },true)
       } else if(res.data.retCode==='success'){
         let seats = [];
         if (res.driverRoute!==null){

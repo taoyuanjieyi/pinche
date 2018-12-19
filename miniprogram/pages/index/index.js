@@ -31,7 +31,7 @@ Page({
     // 检查是否登录,登录成功执行queryRouteList()方法
     login.checkLogin(function(){
       that.queryRouteList()
-    });
+    },true);
   },
   queryRouteList: function () {
     this.queryDriverRouteList({
@@ -73,7 +73,7 @@ Page({
      if (res.data.retCode === "need_login") {
        login.checkLogin(function(){
          that.queryDriverRouteList();
-       })
+       },true)
      }
      this.setData({
        driverRouteList: res.data.page.list,

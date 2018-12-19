@@ -40,6 +40,7 @@ function search(searchData){
         'sessionid': session_id
       },
       success: function (res) {
+        console.info("行程数据查询结果：", searchData)
         resolve(res);
       },
       fail: function (res) {
