@@ -2,6 +2,7 @@
   <view class='verification'>
     <view class='verification-top'>
       <image class='verification-top-logo' src='../../images/logo.png'></image>
+      <view class='verification-top-title'>闲座</view>
     </view>
     <view class='verification-title'>手机号码登录</view>
     <view class='verification-number'>

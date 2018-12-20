@@ -11,7 +11,15 @@
   width: 200rpx;
   height: 200rpx;
   border-radius: 50%;
+  border: 1rpx solid #c8c8c8;
   margin-top: 100rpx;
+}
+
+.verification-top-title {
+  font-size: 36rpx;
+  color: #666;
+  font-weight: bold;
+  margin-top: 20rpx;
 }
 
 .verification-title {
