@@ -33,6 +33,17 @@ Page({
       that.queryRouteList()
     },true);
   },
+  // 下拉刷新
+  onPullDownRefresh: function () {
+    // 显示顶部刷新图标
+    wx.showNavigationBarLoading();
+    var that = this;
+    that.queryRouteList();
+    // 隐藏导航栏加载框
+    wx.hideNavigationBarLoading();
+    // 停止下拉动作
+    wx.stopPullDownRefresh();
+  },
   queryRouteList: function () {
     this.queryDriverRouteList({
       pageNumber : 1,

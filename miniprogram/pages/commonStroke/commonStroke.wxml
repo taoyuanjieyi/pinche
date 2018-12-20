@@ -1,8 +1,7 @@
-<!-- <view class='carMessage-top'>
+<view class='carMessage-top'>
   <view bindtap='goBack'>{{okBtn}}</view>
-  <view class='carMessage-top-add'>+</view>
   <view bindtap='openAddWindow' class='carMessage-top-add' hidden="{{addBtnShow}}">+</view>
-</view> -->
+</view>
 
 <view class='carMessage-view'>
 <!--
@@ -20,9 +19,10 @@
 <view class="container">
   <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="{{index}}">
     <view class="content">
-      <radio class='carMessage-radio' data-aindex="{{aindex}}" value="{{index}}" checked="{{item.checked}}" color='#379ff8' />{{item.body}}
+      <radio class='carMessage-radio' data-aindex="{{aindex}}" value="{{index}}" color='#379ff8' >{{item.body}}</radio>
       <image bindtap="editClick" data-index="{{index}}" class='commonStroke-list-edit' src='../images/edit.svg'></image>
     </view>
+    
     <view class="del" catchtap="removeQuickRoute" data-index="{{index}}">删除</view>
   </view>
 </view>
@@ -38,7 +38,7 @@
   </view>
   <button class='{{submitBtnClass}}' hidden="{{saveBtnShow}}" disabled="{{submitBtnDisbled}}" bindtap='saveQuickRoute'>保存</button>
   <!-- <view class='commonStroke-list-nomessage' hidden="{{noDataHide}}"> -->
-  <view class='commonStroke-list-nomessage'>
+  <view class='commonStroke-list-nomessage' hidden="{{noDataHide}}">
     <image class='list-nomessage-img' mode='aspectFill' src='../images/nomessage.png'></image>
     <view>暂无常用行程信息</view>
     <button class='list-nomessage-btn' bindtap='openAddWindow' >添加行程信息</button>

@@ -18,7 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < this.data.items.length; i++) {
       this.data.items.push({
         //content: i + " 向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦",
         isTouchMove: false //默认全隐藏删除
@@ -49,10 +49,17 @@ Page({
     if (userInfo === null || userInfo === "" || userInfo === undefined) {
       return;
     } else if (userInfo.carList !== null && userInfo.carList !== "" && userInfo.carList !== undefined) {
-      this.setData({
-        items: JSON.parse(userInfo.carList),
-        noDataHide: true,
-      })
+      var carListJson = JSON.parse(userInfo.carList);
+      if (carListJson.length<1){
+        this.setData({
+          noDataHide: false,
+        })
+      }else{
+        this.setData({
+          items: carListJson,
+          noDataHide: true,
+        })
+      }
     } else {
       this.setData({
         noDataHide: false,

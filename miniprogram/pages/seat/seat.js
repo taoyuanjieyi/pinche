@@ -43,7 +43,8 @@ Page({
           title: '预定成功，请主动联系车主确认上车地点！'
         })
         this.setData({
-          okHidden: true
+          okHidden: true,
+          isShowMobile: true 
         })
         this.reloadPage();
       }else{

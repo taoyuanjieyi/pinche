@@ -43,7 +43,7 @@ Page({
         okBtn: "确定"
       })
     }
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < this.data.items.length; i++) {
       this.data.items.push({
         //content: i + " 向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦",
         isTouchMove: false //默认全隐藏删除
@@ -64,11 +64,19 @@ Page({
     if (userInfo === null || userInfo === "" || userInfo === undefined) {
 
     } else if (userInfo.quickRoute !== null && userInfo.quickRoute !== "" && userInfo.quickRoute !== undefined){
-      this.setData({
-        items: JSON.parse(userInfo.quickRoute),
-        noDataHide:true,
-        isEdit: false,
-      })
+      var quickRouteJson = JSON.parse(userInfo.quickRoute);
+      if (quickRouteJson.length<1){
+        this.setData({
+          noDataHide: false,
+          isEdit: false,
+        })
+      }else{
+        this.setData({
+          items: quickRouteJson,
+          noDataHide:true,
+          isEdit: false,
+        })
+      }
       var isHideAddBtn = false;
       if(this.data.items.length>4){
         isHideAddBtn = true;
@@ -89,6 +97,7 @@ Page({
       body:"",
       currentWordNumber:0,
       isEdit:false,
+      noDataHide: true,
     })
     this.showAddContent();
     this.changeSubmitStyle()
