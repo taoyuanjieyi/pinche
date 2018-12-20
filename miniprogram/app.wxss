@@ -28,3 +28,79 @@ page {
   font-size: 40rpx;
   padding: 0 30rpx;
 }
+
+/*touch*/
+.touch-item {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eaeaea;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.content {
+  width: 100%;
+  padding: 10px;
+  line-height: 22px;
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  margin-left: -90px;
+  display: flex;
+  align-items: center;
+}
+
+.del {
+  background-color: #379ff8;
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.touch-move-active .content, .touch-move-active .del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+/*无信息*/
+.commonStroke-list-nomessage {
+  width: 100%;
+  font-size: 32rpx;
+  color: #666;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -260rpx;
+}
+
+.list-nomessage-img {
+  width: 260rpx;
+  height: 260rpx;
+  border-radius: 50%;
+  border: 1rpx solid #c8c8c8;
+  margin-bottom: 20rpx;
+}
+
+.list-nomessage-btn {
+  width: 280rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #379ff8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30rpx;
+}
