@@ -41,6 +41,6 @@
   <view class='commonStroke-list-nomessage'>
     <image class='list-nomessage-img' mode='aspectFill' src='../images/nomessage.png'></image>
     <view>暂无常用行程信息</view>
-    <button class='list-nomessage-btn' bindtap='openAddWindow' >请添加行程信息</button>
+    <button class='list-nomessage-btn' bindtap='openAddWindow' >添加行程信息</button>
   </view>
 </view>

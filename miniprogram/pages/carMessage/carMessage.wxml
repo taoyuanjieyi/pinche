@@ -27,5 +27,5 @@
 <view class='commonStroke-list-nomessage'>
   <image class='list-nomessage-img' mode='aspectFill' src='../images/car1.png'></image>
   <view>暂无车辆信息</view>
-  <button class='list-nomessage-btn' bindtap='openAddWindow' >请添加车辆信息</button>
+  <button class='list-nomessage-btn' bindtap='openAddWindow' >添加车辆信息</button>
 </view>
