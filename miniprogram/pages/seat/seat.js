@@ -128,5 +128,10 @@ Page({
     wx.makePhoneCall({
       phoneNumber: mobile,
     })
+  },
+  tel:function(){
+    wx.makePhoneCall({
+      phoneNumber: '138108572570',
+    })
   }
 })

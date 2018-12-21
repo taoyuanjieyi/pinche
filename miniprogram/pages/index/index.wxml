@@ -44,7 +44,6 @@
       </view>
     </view>
 
-
     <view wx:for="{{driverRouteList}}" class='inddex-content' wx:key="key" bindtap="viewDriverRoute" data-index="{{index}}" >
       <view class='index-content-left'>
         <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>

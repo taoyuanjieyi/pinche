@@ -15,9 +15,14 @@
       </picker>
     </view>
     <view class='publish-list'>
-      <text class='publish-list-title'>车牌号：</text>
+      <!-- < class='publish-list-title'>车牌号：</text> -->
+      <picker class='carNum' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker">
+          车牌号：{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}
+        </view>
+      </picker>
       <textarea bindinput="bindCarNumberInput" class='publish-list-car' name='body' auto-height></textarea>
     </view>
-    <button class='{{submitBtnClass}}' disabled="{{submitBtnDisbled}}"  bindtap='saveCarInfo'>添加车辆信息</button>
+    <button class='{{submitBtnClass}}' disabled="{{submitBtnDisbled}}" bindtap='saveCarInfo'>添加车辆信息</button>
   </view>
 </form>

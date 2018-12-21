@@ -13,23 +13,8 @@ page {
   -webkit-text-size-adjust: 100%;
 }
 
-
-.carMessage-top {
-  padding: 20rpx 5%;
-  font-size: 28rpx;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #379ff8;
-}
-
-.carMessage-top-add {
-  font-size: 40rpx;
-  padding: 0 30rpx;
-}
-
 /*touch*/
+
 .touch-item {
   font-size: 14px;
   display: flex;
@@ -38,6 +23,7 @@ page {
   width: 100%;
   overflow: hidden;
   background: #fff;
+  border-radius: 4rpx;
 }
 
 .content {
@@ -74,6 +60,7 @@ page {
 }
 
 /*无信息*/
+
 .commonStroke-list-nomessage {
   width: 100%;
   font-size: 32rpx;
@@ -89,7 +76,7 @@ page {
   width: 260rpx;
   height: 260rpx;
   border-radius: 50%;
-  border: 1rpx solid #c8c8c8;
+  /* border: 1rpx solid #c8c8c8; */
   margin-bottom: 20rpx;
 }
 
@@ -103,4 +90,28 @@ page {
   align-items: center;
   justify-content: center;
   margin-top: 100rpx;
+  border-radius: 4rpx;
+}
+
+.list-nomessage-btn::after {
+  border-radius: 4rpx;
+}
+
+/*添加信息btn*/
+
+.carMessage-top-add {
+  width: 95%;
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30rpx auto;
+  border-radius: 4rpx;
+  background: #379ff8;
+}
+
+.carMessage-top-add:active {
+  background: #ccc;
 }

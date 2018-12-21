@@ -43,6 +43,8 @@ page {
 }
 
 .commonStroke-list-edit {
+  min-width: 26rpx;
+  min-height: 26rpx;
   width: 26rpx;
   height: 26rpx;
   margin-left: 20rpx;
@@ -101,6 +103,10 @@ page {
   border-radius: 4rpx;
 }
 
+.publish-btn::after {
+  border-radius: 4rpx;
+}
+
 .publish-btn:active {
   background: #ccc;
 }
@@ -113,4 +119,3 @@ page {
 .publish-btn-active:active {
   background: #2480cf;
 }
-

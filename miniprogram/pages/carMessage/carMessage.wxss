@@ -46,3 +46,20 @@ page {
   background-size: 16rpx;
 }
 
+.container {
+  background: #fff;
+  overflow: hidden;
+}
+
+.commonStroke-list-edit {
+  min-width: 26rpx;
+  min-height: 26rpx;
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 20rpx;
+  padding: 10rpx;
+}
+
+.del {
+  background: #ff4500;
+}

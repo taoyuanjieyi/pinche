@@ -5,10 +5,14 @@
       <view>
         <view>
           <view class='list-content-title'>{{driverNickName}}（车主）</view>
-          <view class='list-content-phone'>{{carInfo}} </view>
-          <view class='list-content-phone'  data-mobile="{{driverMobile}}" bindtap='callTelephone'>{{driverMobile}}</view>
+          <view class='list-content-phone' data-mobile="{{driverMobile}}" bindtap='callTelephone'>{{driverMobile}}</view>
+          <view class='list-content-phone'>{{carInfo}} </view> 
         </view>
-        <view class='seat-list-btn'>剩余{{driverVacancy}}位</view>
+        <view>
+          <view class='seat-list-btn'>剩余{{driverVacancy}}位</view>
+          <view class='list-content-cancel'>取消行程</view>
+        </view>
+
       </view>
       <view class='list-content-address'>{{driverPassPoint}}</view>
     </view>
@@ -35,8 +39,13 @@
       <view>
         <view>
           <view class='list-content-title'>{{item.nickName}}(乘客)</view>
+          <view bindtap='tel'>138108572570</view>
         </view>
-        <view class='seat-list-btn seat-list-btn-color'>已预定{{item.seats}}位</view>
+        <view class='list-content-right'>
+          <view class='seat-list-btn seat-list-btn-color'>已预定{{item.seats}}位</view>
+          <view class='list-content-cancel'>取消预定</view>
+        </view>
+
       </view>
     </view>
   </view>

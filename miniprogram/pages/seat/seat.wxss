@@ -17,6 +17,7 @@
 }
 
 .seat-list-content {
+  font-size: 28rpx;
   margin-left: 20rpx;
   flex: 1;
 }
@@ -48,6 +49,10 @@
   font-size: 28rpx;
 }
 
+.list-content-right {
+  text-align: center
+}
+
 .seat-list-btn,
 .list-content-seat {
   height: 50rpx;
@@ -65,6 +70,10 @@
 
 .seat-list-btn-color {
   background: #eb6100;
+}
+
+.list-content-cancel {
+  margin-top: 10rpx;
 }
 
 .seat-toast {

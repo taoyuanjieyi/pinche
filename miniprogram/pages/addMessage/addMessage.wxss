@@ -16,11 +16,16 @@ page {
   margin: 0 10rpx;
   padding: 30rpx 10rpx;
   display: flex;
+  align-items: center;
   border-bottom: 1rpx solid #eaeaea;
 }
 
 .publish-list>picker {
   width: 100%;
+}
+
+.publish-list .carNum {
+  width: 300rpx;
 }
 
 .publish-list-title {
@@ -37,8 +42,8 @@ page {
   position: relative;
 }
 
-.publish-list-content>textarea {
-  width: auto;
+.publish-list-car {
+  width: 100%;
 }
 
 .list-content-number {
@@ -73,4 +78,5 @@ page {
 .publish-btn-active:active {
   background: #2480cf;
 }
+
 
