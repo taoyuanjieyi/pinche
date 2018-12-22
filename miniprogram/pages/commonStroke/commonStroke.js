@@ -16,6 +16,7 @@ Page({
     submitBtnDisbled: true,
     submitBtnClass: "publish-btn",
     saveBtnShow:true,
+    addBtnShow:true,
     noDataHide:false,
     startX: 0, //开始坐标
     startY: 0
@@ -65,19 +66,21 @@ Page({
 
     } else if (userInfo.quickRoute !== null && userInfo.quickRoute !== "" && userInfo.quickRoute !== undefined){
       var quickRouteJson = JSON.parse(userInfo.quickRoute);
+      var isHideAddBtn = false;
       if (quickRouteJson.length<1){
+        isHideAddBtn = true
         this.setData({
           noDataHide: false,
           isEdit: false,
         })
       }else{
+        isHideAddBtn = false
         this.setData({
           items: quickRouteJson,
           noDataHide:true,
           isEdit: false,
         })
       }
-      var isHideAddBtn = false;
       if(this.data.items.length>4){
         isHideAddBtn = true;
       }
@@ -88,6 +91,7 @@ Page({
     }else{
       this.setData({
         noDataHide: false,
+        addBtnShow: true,
       })
     }
   },
@@ -98,6 +102,7 @@ Page({
       currentWordNumber:0,
       isEdit:false,
       noDataHide: true,
+      addBtnShow: false,
     })
     this.showAddContent();
     this.changeSubmitStyle()
@@ -111,7 +116,7 @@ Page({
   hideAddContent:function(){
     this.setData({
       hideAddContent: true,
-      saveBtnShow:true
+      saveBtnShow:true,
     })
   },
   bindBodyChange: function (e) {

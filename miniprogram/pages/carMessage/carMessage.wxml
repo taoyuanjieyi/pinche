@@ -18,16 +18,16 @@
 <view class="container">
   <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="{{index}}">
     <view class="content">
-      <image class='carMessage-list-img' mode='aspectFill' src='../images/car1.png'></image>{{item.brand}} {{item.color}} {{item.carNumber}}
-      <image bindtap="editClick" data-index="{{index}}" class='commonStroke-list-edit' src='../images/edit.svg'></image>
+      <image class='carMessage-list-img' mode='aspectFill' src='../images/car1.png'></image>{{item.brand}} {{item.color}} {{item.area}}{{item.areaLetter}}{{item.carNumber}}
+      <image bindtap="editClick" data-index="{{index}}" class='commonStroke-list-edit' src='../images/edit.svg' bindtap='goEdit'></image>
     </view>
     <view class="del" catchtap="removeCarInfo" data-index="{{index}}">删除</view>
   </view>
-  <view class='carMessage-top-add' bindtap='goAdd'>添加车辆信息</view>
+  <view class='carMessage-top-add' bindtap='goAdd' hidden='{{addBtnHide}}'>添加车辆信息</view>
 </view>
 <!-- <view class='commonStroke-list-nomessage' hidden="{{noDataHide}}"> -->
 <view class='commonStroke-list-nomessage' hidden="{{noDataHide}}">
   <image class='list-nomessage-img' mode='aspectFill' src='../images/car1.png'></image>
   <view>暂无车辆信息</view>
-  <button class='list-nomessage-btn' bindtap='openAddWindow'>添加车辆信息</button>
+  <button class='list-nomessage-btn' bindtap='goAdd'>添加车辆信息</button>
 </view>

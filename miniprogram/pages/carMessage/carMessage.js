@@ -10,6 +10,7 @@ Page({
   data: {
     items:[],
     noDataHide:true,
+    addBtnHide:false,
     startX: 0, //开始坐标
     startY: 0
   },
@@ -53,16 +54,19 @@ Page({
       if (carListJson.length<1){
         this.setData({
           noDataHide: false,
+          addBtnHide:true,
         })
       }else{
         this.setData({
           items: carListJson,
           noDataHide: true,
+          addBtnHide:false,
         })
       }
     } else {
       this.setData({
         noDataHide: false,
+        addBtnHide:true,
       })
     }
   },
@@ -109,6 +113,13 @@ Page({
   goAdd: function (e) {
     wx.navigateTo({
       url: '../addMessage/addMessage'
+    })
+  },
+
+  goEdit: function (e) {
+    console.info("编辑",e);
+    wx.navigateTo({
+      url: '../addMessage/addMessage?idx='+e.currentTarget.dataset.index
     })
   },
 

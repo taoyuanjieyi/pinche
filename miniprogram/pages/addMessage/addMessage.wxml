@@ -3,14 +3,14 @@
     <view class='publish-list'>
       <picker name="brand" bindchange="bindBrandChange" value="{{brand}}" range="{{carBrand}}">
         <view class="picker">
-          车辆品牌：{{carBrand[brand]}}
+          车辆品牌：{{carBrand[selectBrandIndex]}}
         </view>
       </picker>
     </view>
     <view class='publish-list'>
       <picker name="color" bindchange="bindColorChange" value="{{color}}" range="{{carColor}}">
         <view class="picker">
-          车辆颜色：{{carColor[color]}}
+          车辆颜色：{{carColor[selectColorIndex]}}
         </view>
       </picker>
     </view>
@@ -21,8 +21,8 @@
           车牌号：{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}
         </view>
       </picker>
-      <textarea bindinput="bindCarNumberInput" class='publish-list-car' name='body' auto-height></textarea>
+      <textarea bindinput="bindCarNumberInput" class='publish-list-car' name='body' auto-height value="{{carNumber}}"></textarea>
     </view>
-    <button class='{{submitBtnClass}}' disabled="{{submitBtnDisbled}}" bindtap='saveCarInfo'>添加车辆信息</button>
+    <button class='{{submitBtnClass}}' disabled="{{submitBtnDisbled}}" bindtap='saveCarInfo'>{{submitBtnText}}</button>
   </view>
 </form>
