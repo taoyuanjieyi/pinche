@@ -8,19 +8,26 @@
 <view class="container">
       <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="{{index}}">
         <view class="content">
-          <view>{{item.body}}</view>
-          <image bindtap="editClick" data-index="{{index}}" class='commonStroke-list-edit' src='../images/edit.svg'></image>
+          <view hidden="{{editIndex===index?true:false}}">{{item.body}}</view>
+          <view class='publish-list-content' hidden="{{editIndex===index?false:true}}">
+          <textarea auto-height minlength="{{min}}" maxlength="{{max}}" value='{{body}}' bindinput="bind{{index}}" data-index="{{index}}"></textarea>
+          <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
+        </view>
+          <image bindtap="{{editIndex===index?'saveClick':'editClick'}}{{index}}" data-index="{{index}}" class='commonStroke-list-edit' src="../images/{{editIndex===index?'save':'edit'}}.svg"></image>
         </view>
         <view class="del" catchtap="removeQuickRoute" data-index="{{index}}">删除</view>
       </view>
+      <!--
       <view class='publish-list' hidden="{{hideAddContent}}">
         <text class='publish-list-title'>行程内容：</text>
         <view class='publish-list-content'>
-          <textarea name='body' auto-height maxlength='200' placeholder='请输入行程内容' minlength="{{min}}" maxlength="{{max}}" bindinput="bindBodyChange" value='{{bodyValue}}'></textarea>
+          <textarea name='body' auto-height placeholder='请输入行程内容' minlength="{{min}}" maxlength="{{max}}" bindinput="bindBodyChange" value='{{bodyValue}}'></textarea>
           <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
         </view>
       </view>
+       
       <button class='{{submitBtnClass}}' hidden="{{saveBtnShow}}" disabled="{{submitBtnDisbled}}" bindtap='saveQuickRoute'>保存</button>
+      -->
     </view>
 <!-- 常用行程页面结束  -->
 

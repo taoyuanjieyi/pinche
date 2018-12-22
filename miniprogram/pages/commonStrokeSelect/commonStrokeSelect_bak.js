@@ -2,23 +2,19 @@ var userRequest = require('../../http/userRequest.js');
 var login = require('../../http/login.js');
 var commonUtil = require('../../common/common.js');
 
-var bindInputList = [
-  { name: "bindInput1", id: "0" },
-  { name: "bindInput2", id: "1" },
-  { name: "bindInput3", id: "2" },
-  { name: "bindInput4", id: "3" },
-  { name: "bindInput5", id: "4" }]
-
-var pageObject = {
+Page({
   data: {
-    bindInputList: bindInputList,
     items: [],
     min: 5, //最少字数
     max: 200, //最多字数 
     body: "",
+    hideAddContent: true,
     isEdit: false,
     editIndex: null,
+    okBtn: "",
     submitBtnDisbled: true,
+    submitBtnClass: "publish-btn",
+    saveBtnShow: true,
     addBtnShow: true,
     noDataHide: true,
     startX: 0, //开始坐标
@@ -27,12 +23,22 @@ var pageObject = {
   radioChange(e) {
     this.setData({
       body: this.data.items[e.detail.value].body,
+      editIndex: e.detail.value,
     })
     this.selectBack()
-  }, 
-  selectBack: function (e) {
-    wx.setStorageSync("selectedRouteBody", this.data.body)
-    wx.navigateBack();
+  },
+  editClick(e) {
+    console.info(e);
+    var idx = e.currentTarget.dataset.index
+    this.showAddContent()
+    this.setData({
+      bodyValue: this.data.items[idx].body,
+      body: this.data.items[idx].body,
+      isEdit: true,
+      editIndex: idx,
+      addBtnShow: false,
+    })
+    this.changeSubmitStyle()
   },
   onLoad: function (options) {
     for (var i = 0; i < this.data.items.length; i++) {
@@ -63,7 +69,6 @@ var pageObject = {
         this.setData({
           noDataHide: false,
           isEdit: false,
-          editIndex: null
         })
       } else {
         isHideAddBtn = false
@@ -71,7 +76,6 @@ var pageObject = {
           items: quickRouteJson,
           noDataHide: true,
           isEdit: false,
-          editIndex: null
         })
       }
       if (this.data.items.length > 4) {
@@ -80,6 +84,7 @@ var pageObject = {
       this.setData({
         addBtnShow: isHideAddBtn,
       })
+      this.hideAddContent()
     } else {
       this.setData({
         noDataHide: false,
@@ -88,29 +93,71 @@ var pageObject = {
     }
   },
   openAddWindow: function () {
-    //像数组中添加一个空对象
-    var route = {};
-    var length = this.data.items.length;
-    route.name = '行程' + length;
-    route.body = "";
-    route.orderBy = length;
-    route.isDefault = false;
-    if (length < 1) {
-      route.isDefault = true;
-    }
-    route.isDisplay = true;
-    this.addRoute(route);
     this.setData({
-      items: this.data.items,
-      editIndex: length,
-      isEdit: true,
+      bodyValue: "",
+      body: "",
+      currentWordNumber: 0,
+      isEdit: false,
       noDataHide: true,
       addBtnShow: true,
-      currentWordNumber: 0,
-      body: "",
+    })
+    this.showAddContent();
+    this.changeSubmitStyle()
+  },
+  showAddContent: function () {
+    this.setData({
+      hideAddContent: false,
+      saveBtnShow: false,
     })
   },
-  saveQuickRoute: function () {
+  hideAddContent: function () {
+    this.setData({
+      hideAddContent: true,
+      saveBtnShow: true,
+    })
+  },
+  bindBodyChange: function (e) {
+    // 获取输入框的内容
+    var value = e.detail.value;
+    // 获取输入框内容的长度
+    var len = parseInt(value.length);
+
+    //最多字数限制
+    if (len > this.data.max) return;
+    // 当输入框内容的长度大于最大长度限制（max)时，终止setData()的执行
+    this.setData({
+      currentWordNumber: len //当前字数  
+    });
+    this.setData({
+      body: e.detail.value
+    })
+    this.changeSubmitStyle()
+  },
+  changeSubmitStyle: function () {
+    let changeSubmitBtnEnable = true;
+
+    if (this.data.body === null || this.data.body === '' ||
+      this.data.body === undefined) {
+      changeSubmitBtnEnable = false;
+    }
+
+    if (changeSubmitBtnEnable) {
+      this.setData({
+        submitBtnClass: "publish-btn publish-btn-active",
+        submitBtnDisbled: false
+      })
+    } else {
+      this.setData({
+        submitBtnClass: "publish-btn",
+        submitBtnDisbled: true
+      })
+    }
+  },
+  selectBack: function (e) {
+    wx.setStorageSync("selectedRouteBody", this.data.body)
+    wx.navigateBack();
+  },
+  saveQuickRoute: function (e) {
     if (this.data.body === null || this.data.body === '' ||
       this.data.body === undefined) {
       wx.showToast({
@@ -171,6 +218,9 @@ var pageObject = {
       }
     })
   },
+
+
+
 
   //手指触摸动作开始 记录起点X坐标
   touchstart: function (e) {
@@ -243,38 +293,4 @@ var pageObject = {
       }
     })
   }
-}
-
-for (var i = 0; i < bindInputList.length; i++) {
-  (function (item) {
-    pageObject['bind' + item.id] = function (e) {
-      console.info("bind")
-      // 获取输入框的内容
-      var value = e.detail.value;
-      // 获取输入框内容的长度
-      var len = parseInt(value.length);
-
-      //最多字数限制
-      if (len > this.data.max) return;
-      // 当输入框内容的长度大于最大长度限制（max)时，终止setData()的执行
-      this.setData({
-        currentWordNumber: len, //当前字数  
-        body: value,
-      });
-    },
-      pageObject['editClick' + item.id] = function (e) {
-      console.info("editClick")
-        var idx = e.currentTarget.dataset.index
-        this.setData({
-          body: this.data.items[idx].body,
-          currentWordNumber: this.data.items[idx].body.length,
-          isEdit: true,
-          editIndex: idx,
-        })
-      },
-      pageObject['saveClick' + item.id] = function (e) {
-        this.saveQuickRoute()
-      }
-  })(bindInputList[i])
-}
-Page(pageObject)
+})
