@@ -107,12 +107,16 @@ Page({
   },
   /*车牌号*/
   bindCarNumberInput: function(e) {
+    if(!/^[0-9A-Za-z]{0,6}$/.test(e.detail.value)){
+      return this.data.carNumber;
+    }
     // 获取输入框的内容
     var value = e.detail.value.replace(/\s+/g, '');
     this.setData({
-      carNumber: value
+      carNumber: value.toUpperCase()
     })
     this.changeSubmitStyle()
+    return value.toUpperCase();
   },
   changeSubmitStyle: function() {
     let changeSubmitBtnEnable = true;

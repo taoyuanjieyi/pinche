@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "行程发布",
-  "navigationBarBackgroundColor": "#379ff8"
+  "backgroundTextStyle": "dark",
+  "disableScroll": true
 }

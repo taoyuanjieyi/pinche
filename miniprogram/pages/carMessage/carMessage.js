@@ -177,25 +177,39 @@ Page({
   //删除事件
   removeCarInfo: function (e) {
     var that = this;
-    that.data.items.splice(e.currentTarget.dataset.index, 1)
-    that.setData({
-      items: that.data.items
-    })
-    userRequest.updateCarInfo({
-      carInfoJson: JSON.stringify(that.data.items)
-    }).then((res) => {
-      console.info("删除常用行程结果：", res)
-      if (res.data.retCode === "need_login") {
-        login.checkLogin(function () {
-          that.removeCarInfo(e);
-        }, true)
-      } else if (res.data.retCode === "success") {
-        userRequest.queryUserInfo().then((res) => {
-          that.loadPage();
-        })
-      } else {
-        console.info("行程列表数据：", that.data.items);
+    wx.showModal({
+      title:"删除车辆提示",
+      content:"确认删除该辆汽车信息吗？",
+      showCancel:true,
+      success: function (res){
+        if(res.confirm){
+          that.data.items.splice(e.currentTarget.dataset.index, 1)
+          that.setData({
+            items: that.data.items
+          })
+          userRequest.updateCarInfo({
+            carInfoJson: JSON.stringify(that.data.items)
+          }).then((res) => {
+            console.info("删除常用行程结果：", res)
+            if (res.data.retCode === "need_login") {
+              login.checkLogin(function () {
+                that.removeCarInfo(e);
+              }, true)
+            } else if (res.data.retCode === "success") {
+              userRequest.queryUserInfo().then((res) => {
+                that.loadPage();
+              })
+            } else {
+              console.info("行程列表数据：", that.data.items);
+            }
+          })
+        } else if(res.cancel){
+          console.info("取消删除")
+        }
+      },
+      fail:function(res){
+        console.info("打开删除确认提示框报错",res)
       }
-    })
+    })    
   }
 })

@@ -11,21 +11,26 @@ Page({
     hideAddContent:true,
     isEdit : false,
     editIndex:null,
-    mode:null,
+    selectMode:false,
     okBtn:"",
     submitBtnDisbled: true,
     submitBtnClass: "publish-btn",
     saveBtnShow:true,
     addBtnShow:true,
-    noDataHide:false,
+    noDataHide:true,
     startX: 0, //开始坐标
-    startY: 0
+    startY: 0,
+    quickRouteHide:false,
+    quickRouteSelectHide:false
   },
   radioChange(e) {
     this.setData({
       body: this.data.items[e.detail.value].body,
       editIndex: e.detail.value,
     })
+    if (this.data.selectMode){
+      this.selectBack()
+    }
   },
   editClick(e) {
     console.info(e);
@@ -35,13 +40,15 @@ Page({
       body: this.data.items[e.currentTarget.dataset.index].body,
       isEdit: true,
       editIndex: e.currentTarget.dataset.index,
+      addBtnShow: false,
     })
     this.changeSubmitStyle()
   },
   onLoad:function(options){
     if (options.mode === "select"){
+      // 设置选择按钮
       this.setData({
-        okBtn: "确定"
+        selectMode: true,
       })
     }
     for (var i = 0; i < this.data.items.length; i++) {
@@ -59,6 +66,18 @@ Page({
    */
   onShow: function () {
     this.loadPage();
+    if (this.data.selectMode) {
+      this.setData({
+        quickRouteHide: true,
+        quickRouteSelectHide: false
+      })
+    }else{
+      this.setData({
+        quickRouteHide: false,
+        quickRouteSelectHide: true
+      })
+    }
+    
   },
   loadPage:function(){
     var userInfo = commonUtil.getStorage("userInfo");
@@ -85,7 +104,7 @@ Page({
         isHideAddBtn = true;
       }
       this.setData({
-        addBtnShow: isHideAddBtn
+        addBtnShow: isHideAddBtn,
       })
       this.hideAddContent()
     }else{
@@ -102,7 +121,7 @@ Page({
       currentWordNumber:0,
       isEdit:false,
       noDataHide: true,
-      addBtnShow: false,
+      addBtnShow: true,
     })
     this.showAddContent();
     this.changeSubmitStyle()
@@ -156,8 +175,8 @@ Page({
       })
     }
   },
-  goBack: function (e) {
-    wx.setStorageSync("selectedRouteBody",this.data.body)
+  selectBack: function (e) {
+    wx.setStorageSync("selectedRouteBody", this.data.body)
     wx.navigateBack();
   },
   saveQuickRoute: function (e) {
@@ -278,10 +297,22 @@ Page({
   //删除事件
   removeQuickRoute: function (e) {
     var that = this;
-    that.data.items.splice(e.currentTarget.dataset.index, 1)
-    that.setData({
-      items: that.data.items
-    })
-    that.submitQuickRoute();
+    wx.showModal({
+      title: "删除常用行程提示",
+      content: "确认删除该常用行程吗？",
+      showCancel: true,
+      success: function (res) {
+        if (res.confirm) {
+          that.data.items.splice(e.currentTarget.dataset.index, 1)
+          that.setData({
+            items: that.data.items
+          })
+          that.submitQuickRoute();
+        }
+      },
+      fail: function (res) {
+        console.info("打开删除确认提示框报错", res)
+      }
+    })  
   }
 })

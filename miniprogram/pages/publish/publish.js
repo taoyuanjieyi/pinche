@@ -41,7 +41,6 @@ Page({
   },
   onLoad: function(options) {
     console.info("当前系统日期：", nowDate, nowTime);
-    
     this.setData({
       minDate: nowDate,
       minTime: nowTime,
@@ -54,15 +53,14 @@ Page({
     var selectedRouteBody = commonUtil.getStorage("selectedRouteBody");
     var defaultBody = ""
     if (selectedRouteBody !== undefined && selectedRouteBody !== "" && selectedRouteBody !== null) {
-      defaultBody = selectedRouteBody
+      this.setData({
+        body: selectedRouteBody,
+        currentWordNumber: parseInt(defaultBody.length) //当前字数  
+      })
+      wx.setStorageSync("selectedRouteBody", "")
+      this.changeSubmitStyle();
     }
-  this.setData({
-    body: defaultBody,
-    currentWordNumber: parseInt(defaultBody.length) //当前字数  
-  })
-    this.changeSubmitStyle();
-
-
+    
     // 获取所有车辆信息
     var userInfo = commonUtil.getStorage("userInfo");
     if (userInfo === null || userInfo === "" || userInfo === undefined) {

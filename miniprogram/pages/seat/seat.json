@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "预定座位"
+  "navigationBarTitleText": "预定座位",
+  "disableScroll": true
 }

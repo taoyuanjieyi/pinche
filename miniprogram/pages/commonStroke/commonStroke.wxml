@@ -1,5 +1,5 @@
 <!-- <view class='carMessage-top'>
-  <view bindtap='goBack'>{{okBtn}}</view>
+  <view bindtap='selectBack'>{{okBtn}}</view>
   
 </view> -->
 
@@ -15,7 +15,29 @@
     </view>
   </radio-group>
 -->
-  <radio-group bindchange="radioChange">
+<!-- 常用行程页面开始  -->
+<view class="container" hidden="{{quickRouteHide}}">
+      <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="{{index}}">
+        <view class="content">
+          <view>{{item.body}}</view>
+          <image bindtap="editClick" data-index="{{index}}" class='commonStroke-list-edit' src='../images/edit.svg'></image>
+        </view>
+        <view class="del" catchtap="removeQuickRoute" data-index="{{index}}">删除</view>
+      </view>
+      <view class='publish-list' hidden="{{hideAddContent}}">
+        <text class='publish-list-title'>行程内容：</text>
+        <view class='publish-list-content'>
+          <textarea name='body' auto-height maxlength='200' placeholder='请输入行程内容' minlength="{{min}}" maxlength="{{max}}" bindinput="bindBodyChange" value='{{bodyValue}}'></textarea>
+          <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
+        </view>
+      </view>
+      <button class='{{submitBtnClass}}' hidden="{{saveBtnShow}}" disabled="{{submitBtnDisbled}}" bindtap='saveQuickRoute'>保存</button>
+    </view>
+<!-- 常用行程页面结束  -->
+
+
+<!-- 常用行程选择页面开始 -->
+  <radio-group bindchange="radioChange" hidden="{{quickRouteSelectHide}}">
     <view class="container">
       <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="{{index}}">
         <view class="content">
@@ -35,6 +57,8 @@
       <button class='{{submitBtnClass}}' hidden="{{saveBtnShow}}" disabled="{{submitBtnDisbled}}" bindtap='saveQuickRoute'>保存</button>
     </view>
   </radio-group>
+<!-- 常用行程选择页面结束 -->
+
   <view bindtap='openAddWindow' class='carMessage-top-add' hidden="{{addBtnShow}}">添加行程信息</view>
 
 
