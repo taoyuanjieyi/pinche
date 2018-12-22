@@ -244,7 +244,7 @@ Page({
   },
   openSelectRoutePage: function(){
     wx.navigateTo({
-      url: '../commonStroke/commonStroke?mode=select'
+      url: '../commonStrokeSelect/commonStrokeSelect'
     })
   }
 })

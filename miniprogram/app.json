@@ -9,6 +9,7 @@
     "pages/index-swiper/index-swiper",
     "pages/carMessage/carMessage",
     "pages/commonStroke/commonStroke",
+    "pages/commonStrokeSelect/commonStrokeSelect",
     "pages/addMessage/addMessage"
   ],
   "window": {

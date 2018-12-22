@@ -1,5 +1,5 @@
 var userRequest = require('../../http/userRequest.js');
-var login = require('../../http/login.js'); 
+var login = require('../../http/login.js');
 var commonUtil = require('../../common/common.js');
 
 Page({
@@ -7,25 +7,25 @@ Page({
     items: [],
     min: 5, //最少字数
     max: 200, //最多字数 
-    body:"",
-    hideAddContent:true,
-    isEdit : false,
-    editIndex:null,
-    okBtn:"",
+    body: "",
+    hideAddContent: true,
+    isEdit: false,
+    editIndex: null,
+    okBtn: "",
     submitBtnDisbled: true,
     submitBtnClass: "publish-btn",
-    saveBtnShow:true,
-    addBtnShow:true,
-    noDataHide:true,
+    saveBtnShow: true,
+    addBtnShow: true,
+    noDataHide: true,
     startX: 0, //开始坐标
     startY: 0,
-    quickRouteHide:false,
   },
   radioChange(e) {
     this.setData({
       body: this.data.items[e.detail.value].body,
       editIndex: e.detail.value,
     })
+    this.selectBack()
   },
   editClick(e) {
     console.info(e);
@@ -40,7 +40,7 @@ Page({
     })
     this.changeSubmitStyle()
   },
-  onLoad:function(options){
+  onLoad: function (options) {
     for (var i = 0; i < this.data.items.length; i++) {
       this.data.items.push({
         //content: i + " 向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦",
@@ -57,63 +57,63 @@ Page({
   onShow: function () {
     this.loadPage();
   },
-  loadPage:function(){
+  loadPage: function () {
     var userInfo = commonUtil.getStorage("userInfo");
     if (userInfo === null || userInfo === "" || userInfo === undefined) {
 
-    } else if (userInfo.quickRoute !== null && userInfo.quickRoute !== "" && userInfo.quickRoute !== undefined){
+    } else if (userInfo.quickRoute !== null && userInfo.quickRoute !== "" && userInfo.quickRoute !== undefined) {
       var quickRouteJson = JSON.parse(userInfo.quickRoute);
       var isHideAddBtn = false;
-      if (quickRouteJson.length<1){
+      if (quickRouteJson.length < 1) {
         isHideAddBtn = true
         this.setData({
           noDataHide: false,
           isEdit: false,
         })
-      }else{
+      } else {
         isHideAddBtn = false
         this.setData({
           items: quickRouteJson,
-          noDataHide:true,
+          noDataHide: true,
           isEdit: false,
         })
       }
-      if(this.data.items.length>4){
+      if (this.data.items.length > 4) {
         isHideAddBtn = true;
       }
       this.setData({
         addBtnShow: isHideAddBtn,
       })
       this.hideAddContent()
-    }else{
+    } else {
       this.setData({
         noDataHide: false,
         addBtnShow: true,
       })
     }
   },
-  openAddWindow:function(){
+  openAddWindow: function () {
     this.setData({
       bodyValue: "",
-      body:"",
-      currentWordNumber:0,
-      isEdit:false,
+      body: "",
+      currentWordNumber: 0,
+      isEdit: false,
       noDataHide: true,
       addBtnShow: true,
     })
     this.showAddContent();
     this.changeSubmitStyle()
   },
-  showAddContent:function(){
+  showAddContent: function () {
     this.setData({
-      hideAddContent:false,
-      saveBtnShow:false,
+      hideAddContent: false,
+      saveBtnShow: false,
     })
   },
-  hideAddContent:function(){
+  hideAddContent: function () {
     this.setData({
       hideAddContent: true,
-      saveBtnShow:true,
+      saveBtnShow: true,
     })
   },
   bindBodyChange: function (e) {
@@ -135,7 +135,7 @@ Page({
   },
   changeSubmitStyle: function () {
     let changeSubmitBtnEnable = true;
-    
+
     if (this.data.body === null || this.data.body === '' ||
       this.data.body === undefined) {
       changeSubmitBtnEnable = false;
@@ -144,7 +144,7 @@ Page({
     if (changeSubmitBtnEnable) {
       this.setData({
         submitBtnClass: "publish-btn publish-btn-active",
-        submitBtnDisbled:false
+        submitBtnDisbled: false
       })
     } else {
       this.setData({
@@ -152,6 +152,10 @@ Page({
         submitBtnDisbled: true
       })
     }
+  },
+  selectBack: function (e) {
+    wx.setStorageSync("selectedRouteBody", this.data.body)
+    wx.navigateBack();
   },
   saveQuickRoute: function (e) {
     if (this.data.body === null || this.data.body === '' ||
@@ -162,11 +166,11 @@ Page({
       })
       return;
     }
-    if (this.data.isEdit){
+    if (this.data.isEdit) {
       this.data.items[this.data.editIndex].body = this.data.body;
       console.info(this.data);
       this.submitQuickRoute();
-    }else{
+    } else {
       var route = {};
       var length = this.data.items.length;
       route.name = '行程' + length;
@@ -177,25 +181,25 @@ Page({
         route.isDefault = true;
       }
       route.isDisplay = true;
-      
+
       this.addRoute(route);
       this.submitQuickRoute();
     }
-    
+
   },
-  compare:function(property) {
+  compare: function (property) {
     return function (a, b) {
       var value1 = a[property];
       var value2 = b[property];
       return value1 - value2;
     }
   },
-  addRoute:function(route){
+  addRoute: function (route) {
     this.data.items.push(route);
     this.data.items.sort(this.compare("orderBy"));
     console.info("行程列表数据：", this.data.items);
   },
-  submitQuickRoute:function (){
+  submitQuickRoute: function () {
     var that = this;
     userRequest.updateQuickRoute({
       quickRouteJson: JSON.stringify(this.data.items)
@@ -204,12 +208,12 @@ Page({
       if (res.data.retCode === "need_login") {
         login.checkLogin(function () {
           that.submitQuickRoute();
-        },true)
+        }, true)
       } else if (res.data.retCode === "success") {
         userRequest.queryUserInfo().then((res) => {
           this.loadPage();
         })
-      }else{
+      } else {
         console.info("行程列表数据：", this.data.items);
       }
     })
@@ -287,6 +291,6 @@ Page({
       fail: function (res) {
         console.info("打开删除确认提示框报错", res)
       }
-    })  
+    })
   }
 })

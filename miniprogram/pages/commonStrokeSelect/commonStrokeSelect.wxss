@@ -1,0 +1,121 @@
+page {
+  background: #eaeaea;
+}
+
+.commonStroke-list-view {
+  width: 100%;
+  font-size: 14px;
+  border-bottom: 1px solid #eaeaea;
+  overflow: hidden;
+}
+
+.commonStroke-list {
+  width: 90%;
+  padding: 14rpx 5%;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+}
+
+.commonStroke-list-del {
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #379ff8;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.carMessage-radio {
+  transform: scale(0.8);
+  margin-right: 20rpx;
+}
+
+.commonStroke-list-edit {
+  min-width: 26rpx;
+  min-height: 26rpx;
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 20rpx;
+  padding: 10rpx;
+}
+
+.carMessage-view {
+  overflow: hidden;
+  background: #fff;
+}
+
+.publish-list {
+  font-size: 30rpx;
+  color: #21292c;
+  margin: 0 10rpx;
+  padding: 30rpx 10rpx;
+  display: flex;
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+.publish-list-title {
+  /* line-height: 80rpx; */
+  white-space: nowrap;
+  display: block;
+}
+
+.publish-list-content {
+  padding: 10rpx 20rpx;
+  flex: 1;
+  border: 1rpx solid #eaeaea;
+  min-height: 120rpx;
+  position: relative;
+}
+
+.publish-list-content>textarea {
+  width: auto;
+}
+
+.list-content-number {
+  color: #ccc;
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+}
+
+.publish-btn {
+  width: 95%;
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #379ff8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30rpx auto;
+  background: #eaeaea;
+  border-radius: 4rpx;
+}
+
+.publish-btn::after {
+  border-radius: 4rpx;
+}
+
+.publish-btn:active {
+  background: #ccc;
+}
+
+.publish-btn-active {
+  color: #fff;
+  background: #379ff8;
+}
+
+.publish-btn-active:active {
+  background: #2480cf;
+}
