@@ -41,7 +41,7 @@ page {
 }
 
 .del {
-  background-color: #379ff8;
+  background-color: #ff4500;
   width: 90px;
   display: flex;
   flex-direction: column;
