@@ -60,6 +60,3 @@ page {
   padding: 10rpx;
 }
 
-.del {
-  background: #ff4500;
-}
