@@ -39,7 +39,7 @@
       <view>
         <view>
           <view class='list-content-title'>{{item.nickName}}(乘客)</view>
-          <view wx:if= "{{isDriver||item.userId===loginUserId}}" bindtap='tel'>{{item.mobile}}</view>
+          <view wx:if= "{{isDriver||item.userId===loginUserId}}" bindtap='callTelephone' data-mobile="{{item.mobile}}">{{item.mobile}}</view>
         </view>
         <view class='list-content-right'>
           <view class='seat-list-btn seat-list-btn-color'>已预定{{item.seats}}位</view>
