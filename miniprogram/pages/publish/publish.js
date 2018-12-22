@@ -48,6 +48,8 @@ Page({
       time: nowTime,
       date: nowDate,
       submitBtnClass: "publish-btn",
+      body: "",
+      currentWordNumber: 0 //当前字数  
     })
   },
   onShow: function(e){
@@ -181,7 +183,7 @@ Page({
     if ((this.data.date + " " + this.data.time)<=nowDate){
       wx.showToast({
         icon: 'none',
-        title: '出发时间必须大于系统当前时间！'
+        title: '出发时间须晚于当前时间！'
       })
       return;
     }
