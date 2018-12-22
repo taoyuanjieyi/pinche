@@ -48,7 +48,6 @@ Page({
       time: nowTime,
       date: nowDate,
       submitBtnClass: "publish-btn",
-      body: "",
       currentWordNumber: 0 //当前字数  
     })
   },
@@ -62,6 +61,11 @@ Page({
       })
       wx.setStorageSync("selectedRouteBody", "")
       this.changeSubmitStyle();
+    }else{
+      this.setData({
+        body: "",
+        currentWordNumber: 0 //当前字数  
+      })
     }
     
     // 获取所有车辆信息
