@@ -53,7 +53,7 @@ function search(searchData){
 function queryRouteDetail(routeData) {
   console.info("查询行程详情数据：", routeData)
   var session_id = commonUtil.getStorage("third_Session");
-  console.info("publish 当前会话ID:", session_id)
+  console.info("queryRouteDetail 当前会话ID:", session_id)
   return new Promise(function (resolve, reject) {
     wx.request({
       url: "https://www.i5365.cn/pinche/driver/queryDriverRoute",
@@ -64,10 +64,11 @@ function queryRouteDetail(routeData) {
         'sessionid': session_id
       },
       success: function (res) {
+        console.info("queryRouteDetail 查询结果:", res)
         resolve(res);
       },
       fail: function (res) {
-        console.log("driver search fail : ", res);
+        console.log("queryRouteDetail fail : ", res);
       }
     });
   });

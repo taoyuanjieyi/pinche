@@ -12,13 +12,22 @@ Page({
     okHidden:true,
     waitingHidden:false,
     payQrcodeUrl:"",
-    isShowMobile:false,
+    isDriver:false,
+    isPassenger:false,
+    loginUserId:""
   },
   onLoad: function (options){
+    var userInfo = commonUtil.getStorage("userInfo");
+    if (!commonUtil.isBlank(userInfo)){
+      this.setData({
+        loginUserId:userInfo.userId
+      })
+    }
     this.setData({
       routeId: options.routeId,
       waitingHidden: false,
-      isShowMobile: (options.isShowMobile === "true" || options.isShowMobile === true)?true:false
+      isDriver: (options.isDriver === "true" || options.isDriver === true)?true:false,
+      isPassenger: (options.isPassenger === "true" || options.isPassenger === true) ? true : false,
     })
     this.queryRouteDetail()
   },
@@ -44,7 +53,7 @@ Page({
         })
         this.setData({
           okHidden: true,
-          isShowMobile: true 
+          isPassenger: true 
         })
         this.reloadPage();
       }else{
@@ -95,7 +104,7 @@ Page({
           if (payQrcode !== null && payQrcode !== "" && payQrcode !== undefined) {
             qrcodeUrl = payQrcode.qrcodeUrl;
           }
-          if (this.data.isShowMobile){
+          if (this.data.isPassenger||this.data.isDriver){
             this.setData({
               driverMobile: res.data.driverRoute.mobile,
               carInfo: res.data.driverRoute.carInfo,

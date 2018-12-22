@@ -67,13 +67,13 @@ Page({
   viewOwnerRoute: function (e) {
     var index = parseInt(e.currentTarget.dataset.index);
     wx.navigateTo({
-      url: '../seat/seat?isShowMobile=true&routeId=' + this.data.ownerRouteList[index].routeId
+      url: '../seat/seat?isDriver=true&routeId=' + this.data.ownerRouteList[index].routeId
     })
   },
   viewJoinRoute: function (e) {
     var index = parseInt(e.currentTarget.dataset.index);
     wx.navigateTo({
-      url: '../seat/seat?isShowMobile=true&routeId=' + this.data.joinRouteList[index].routeId
+      url: '../seat/seat?isPassenger=true&routeId=' + this.data.joinRouteList[index].routeId
     })
   },
   bindSearchChange:function(e){
