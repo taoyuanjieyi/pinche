@@ -3,6 +3,7 @@
 var driverRequest = require('../../http/driverRouteRequest.js');
 var login = require('../../http/login.js'); 
 var commonUtil = require('../../common/common.js');
+var dateUtil = require('../../utils/dateUtil.js');
 
 const app = getApp()
 
@@ -176,6 +177,15 @@ Page({
       })
       return;
     }
+    var nowDate = dateUtil.getCurrDateToMinute()
+    if ((this.data.date + " " + this.data.time)<=nowDate){
+      wx.showToast({
+        icon: 'none',
+        title: '出发时间必须大于系统当前时间！'
+      })
+      return;
+    }
+
     if (e.detail.value.body === null || e.detail.value.body === '' ||
       e.detail.value.body === undefined) {
       wx.showToast({

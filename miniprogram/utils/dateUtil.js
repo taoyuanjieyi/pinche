@@ -11,6 +11,19 @@ function formatTime(date) {
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
+function getCurrDateToMinute(){
+  const date = new Date()
+  const nowYear = date.getFullYear()
+  const nowMonth = date.getMonth() + 1
+  const nowDay = date.getDate()
+  const nowHour = date.getHours()
+  const nowMinute = date.getMinutes()
+  const nowSecond = date.getSeconds()
+  const nowDate = nowYear + "-" + (nowMonth < 10 ? "0" : "") + nowMonth + "-" + (nowDay < 10 ? "0" : "") + nowDay;
+  const nowTime = (nowHour < 10 ? "0" : "") + nowHour + ":" + (nowMinute < 10 ? "0" : "") + nowMinute;
+  return nowDate + " " +nowTime;
+}
+
 function formatNumber(n) {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -43,5 +56,6 @@ function formatTimeTwo(number, format) {
 
 module.exports = {
   formatTime: formatTime,
-  formatTimeTwo: formatTimeTwo
+  formatTimeTwo: formatTimeTwo,
+  getCurrDateToMinute: getCurrDateToMinute
 }
