@@ -10,7 +10,7 @@
           <radio class='carMessage-radio' data-aindex="{{aindex}}" value="{{index}}" color='#379ff8'></radio>
           <view hidden="{{editIndex===index?true:false}}">{{item.body}}</view>
           <view class='publish-list-content' hidden="{{editIndex===index?false:true}}">
-            <textarea auto-height minlength="{{min}}" maxlength="{{max}}" value='{{body}}' bindinput="bind{{index}}" data-index="{{index}}"></textarea>
+            <textarea auto-height minlength="{{min}}" maxlength="{{max}}" bindinput="bind{{index}}" data-index="{{index}}">{{body}}</textarea>
             <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
           </view>
           <image bindtap="{{editIndex===index?'saveClick':'editClick'}}{{index}}" data-index="{{index}}" class='commonStroke-list-edit' src="../images/{{editIndex===index?'save':'edit'}}.svg"></image>
