@@ -70,7 +70,7 @@ Page({
       var carList = JSON.parse(userInfo.carList);
       for(var i=0;i<carList.length;i++){
         var carInfo = carList[i];
-        carInfo.contentLabel = carInfo.brand + " " + carInfo.color + " " + carInfo.carNumber;
+        carInfo.contentLabel = carInfo.brand + " " + carInfo.color + " " + carInfo.area+carInfo.areaLetter+carInfo.carNumber;
       }
       this.setData({
         carInfoList: carList
