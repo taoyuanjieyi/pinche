@@ -51,16 +51,20 @@ Page({
       return;
     } else if (userInfo.carList !== null && userInfo.carList !== "" && userInfo.carList !== undefined) {
       var carListJson = JSON.parse(userInfo.carList);
-      if (carListJson.length<1){
+      if (carListJson.length < 1){
         this.setData({
           noDataHide: false,
           addBtnHide:true,
         })
       }else{
+        var addBtnHide = false
+        if (carListJson.length > 4){
+          addBtnHide = true
+        }
         this.setData({
           items: carListJson,
           noDataHide: true,
-          addBtnHide:false,
+          addBtnHide: addBtnHide,
         })
       }
     } else {
