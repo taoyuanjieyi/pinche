@@ -19,8 +19,12 @@ page {
   border-bottom: 1rpx solid #eaeaea;
 }
 
-.publish-list-arrow {
+.publish-list-between {
   justify-content: space-between;
+}
+
+.publish-list-arrow {
+  color: #999;
 }
 
 .publish-list-arrow::after {
