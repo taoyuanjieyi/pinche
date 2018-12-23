@@ -62,6 +62,7 @@ page {
 }
 
 .publish-list-content>textarea {
+  font-size: 30rpx;
   width: auto;
 }
 

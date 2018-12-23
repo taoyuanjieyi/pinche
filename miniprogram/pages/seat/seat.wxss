@@ -14,6 +14,7 @@
   min-width: 100rpx;
   min-height: 100rpx;
   border-radius: 50%;
+  border: 1rpx solid #eaeaea;
 }
 
 .seat-list-content {
@@ -50,11 +51,10 @@
 }
 
 .list-content-right {
-  text-align: center
+  text-align: center;
 }
 
-.seat-list-btn,
-.list-content-seat {
+.seat-list-btn, .list-content-seat {
   height: 50rpx;
   padding: 0 10rpx;
   font-size: 30rpx;
@@ -67,13 +67,22 @@
   white-space: nowrap;
 }
 
-
 .seat-list-btn-color {
   background: #eb6100;
 }
 
 .list-content-cancel {
-  margin-top: 10rpx;
+  margin-top: 20rpx;
+  height: 50rpx;
+  padding: 0 10rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #379ff8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6rpx;
+  white-space: nowrap;
 }
 
 .seat-toast {
@@ -85,7 +94,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .seat-toast-content {

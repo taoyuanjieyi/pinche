@@ -59,8 +59,8 @@
         <view class='content-center-bottom'>{{item.passPoint}}</view>
       </view>
     </view>
-   
   </view>
 </view>
+<view class='index-no'>暂无更多行程</view>
 
 

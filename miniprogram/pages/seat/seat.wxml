@@ -19,7 +19,7 @@
 
   </view>
   <view class='seat-list seat-list-center' hidden='{{waitingHidden}}'>
-    <image class='seat-list-avatar' mode='aspectFill' src='http://www.chinadaily.com.cn/language_tips/images/attachement/jpg/site1/20070814/001125254635082b41be0a.jpg'></image>
+    <image class='seat-list-avatar' mode='aspectFill' src='/images/logo.png'></image>
     <view class='seat-list-content seat-list-content-center'>
       <view>
         <view>
@@ -27,7 +27,8 @@
         </view>
         <picker class='list-content-seat' bindchange="bindPickerChange" value="{{seatArrayIndex}}" range="{{seatArray}}">
           <view class="picker">
-            可预定{{seatArray[seatArray.length-1]}}位
+          预订
+            <!-- 预定{{seatArray[seatArray.length-1]}}位 -->
           </view>
         </picker>
       </view>

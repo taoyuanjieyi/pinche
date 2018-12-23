@@ -61,7 +61,7 @@ page {
 }
 
 .inddex-view {
-  padding-bottom: 100rpx;
+  /* padding-bottom: 100rpx; */
   overflow: auto;
 }
 
@@ -158,4 +158,9 @@ page {
   height: 50rpx;
 }
 
-/*授权*/
+.index-no {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  margin: 30rpx 0 50rpx;
+}
