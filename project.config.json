@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,
@@ -95,6 +95,23 @@
 					"name": "verification",
 					"pathName": "pages/verification/verification",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "swiper",
+					"pathName": "pages/index-swiper/index-swiper",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "tac",
+					"pathName": "pages/tac/tac"
 				}
 			]
 		}

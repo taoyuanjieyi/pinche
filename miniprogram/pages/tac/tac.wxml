@@ -1,0 +1,111 @@
+<view class="page-content">
+  <view class='Legal-content'>
+    <view class='Legal-title'>闲座用户注册服务协议</view>
+    <text class="Legal-content-top">闲座小程序许可条款</text>
+    <!-- <text>闲座</text> -->
+    <text class="Legal-content-margin">本条款是您与闲座小程序拥有者所订立的协议，适用于闲座与闲座相关的服务或软件更新（但不包括附带有新的或附加条款的服务或更新，此等情况下将适用该附带的其他条款且不改变您或闲座享有的与更新前的软件或服务有关的权利）。</text>
+    <text>一旦使用本软件，则表明您接受本条款。如果您不接受这些条款，请不要使用该软件。</text>
+    <text>如果您遵守这些许可条款，您将拥有下述权利。</text>
+    <text class="Legal-content-title">1. 安装和使用权利。</text>
+    <text>a) <text class="Legal-content-bold">通则。</text>您可以安装和使用闲座小程序。</text>
+    <text>b) <text class="Legal-content-bold">第三方软件/服务。</text>本软件可能包含根据本协议或第三方应用/服务自己的条款许可给您的第三方应用/服务，包括但不限于腾讯微信等。即使此类应用/服务受其他协议约束，下述免责条款以及损害赔偿限制和除外情况仍然在适用法允许的范围内适用。您承认，我们对第三方软件将不承担任何责任。我们对第三方软件造成的任何损害概不负责。</text>
+    <text>c)<text class="Legal-content-bold"> 闲座服务协议。</text>本软件的功能依赖于微信，提供互联网访问服务。</text>
+    <text class="Legal-content-bold Legal-content-margin">2. 数据收集。</text>
+    <text>本软件可能收集有关您和您对本软件的使用的信息，并将其发送到互联网分享以及闲座小程序的拥有者。闲座的拥有者可使用此信息提供服务和改进闲座的产品和服务。您同意遵守所有适用的闲座隐私声明条款。</text>
+    <text class="Legal-content-bold Legal-content-margin">3. 许可范围。</text>
+    <text>本软件仅供微信或手机帐号许可绑定使用。闲座拥有者保留所有其他权利。除非适用法律给予您更多权利（尽管有此项限制），否则您不得（且无权）：</text>
+    <text>a) 绕过只允许您以特定方式使用的软件中的任何技术限制；</text>
+    <text>b) 对软件进行反向工程、反向编译或反汇编；</text>
+    <text>c) 删除、减少、阻止或修改该软件中的任何信息；</text>
+    <text>d) 以违反法律的任何方式、制造或传播恶意软件或发布信息的方式使用软件。</text>
+    <text class="Legal-content-title">4. 行为准则。</text>
+    <text>a) <text class="Legal-content-bold">如您接受本条款，您须在使用软件时遵守如下规定</text></text>
+    <text>(i) 不得从事任何非法活动。</text>
+    <text>(ii) 不得从事任何利用、危害或可能危害儿童的活动。</text>
+    <text>(iii) 不得发送垃圾信息。“垃圾信息”是指不需要的或未经请求而发送的车辆、行程或即时消息等与闲座小程序相关的所有信息。</text>
+    <text>(iv) 不得公开展示或利用闲座共享不当内容及材料(如涉及裸体、兽交、色情、暴露画面或犯罪活动)。</text>
+    <text>(v) 不得在闲座小程序中，上传或转发含有不当内容的照片及文档（如涉及裸体、兽交、色情、暴露画面或犯罪活动）。</text>
+    <text>(vi) 不得从事虚假或误导性活动（例如，以欺诈的手段索要现金，使用虚假身份，操纵服务器以增加播放计数或影响排名、评分或评论）。</text>
+    <text>(vii) 不得规避服务的任何访问或可用性限制。</text>
+    <text>(viii) 不要从事对您、服务或其他任何人有害的活动(例如，传播计算机病毒、跟踪、传播仇恨言论或主张对他人使用暴力)。</text>
+    <text>(ix) 不得侵害他人权益（例如，未经授权传播已经获得版权的音乐或其他受版权保护的主体）。</text>
+    <text>(x) 不得侵害他人隐私。</text>
+    <text>(xi) 不得帮助他人违反本条款。</text>
+    <text>b) <text class="Legal-content-bold">强制执行。</text>如您违反这些条款，闲座小程序可能会终止为您继续提供服务。同时，为了保障这些条款的强制力，闲座拥有者还将阻止您与服务的一切通讯，或者出于任何理由移除或拒绝发布您的内容。在对涉嫌违反这些条款的行为进行调查时，闲座拥有者保留对您的内容进行审查以便解决问题的权利。然而，我们仍无法保证对整个服务器的监控，并且也不会尝试这样做。</text>
+    <text class="Legal-content-bold Legal-content-margin"></text>
+    <text></text>
+    <text class="Legal-content-bold Legal-content-margin">6. 支持服务。</text>
+    <text>a) 闲座拥有者在本协议项下无义务为本软件提供任何支持服务。任何支持按“现状”、“包含所有缺陷”的形式提供，不适用任何形式的保证。</text>
+    <text>b) 对于未登录账户的用户，将无法使用本软件</text>
+    <text class="Legal-content-bold Legal-content-margin">7. 更新。</text>
+    <text>本软件会定期检查更新，为您提供更优质的服务。您仅会从闲座小程序处获得更新。闲座小程序可能需要通过更新服务器程序来为您提供更新。您同意在未经任何额外通知的情况下接收该等自动更新。更新可能不包括或支持所有现有的软件功能、服务或移动设备等。</text>
+    <text class="Legal-content-bold Legal-content-margin">8. 终止。</text>
+    <text>如果您未遵守本协议的任何条款或条件，闲座拥有者可在不损害任何其他权利的情况下终止本协议。</text>
+    <text class="Legal-content-bold Legal-content-margin">9. 完整协议。</text>
+    <text>本协议以及闲座拥有者为补充、更新、或第三方应用提供的任何其他条款，构成本软件的完整协议。</text>
+    <text class="Legal-content-bold Legal-content-margin">10. 适用法律和争议解决地。</text>
+    <text>本协议条款受中华人民共和国法律管辖并依照其进行解释。由本协议引起或与其相关的任何争议（包括其存续、效力、终止的任何问题）将提交至闲座拥有者指定的仲裁机构，并按照届时有效的仲裁规则在北京进行有约束力的仲裁。</text>
+    <text class="Legal-content-bold Legal-content-margin">11. 消费者权利；地区差异；法律效果。</text>
+    <text>本协议规定了某些合法权利。根据您所在国家或地区的法律规定，您可能享有其他权利（包括消费者权利）。如果您所在国家或地区的法律不允许本协议改变这些其他权利，则本协议将不改变这些其他权利。</text>
+    <text><text class="Legal-content-bold Legal-content-margin">12. 保证免责条款。</text></text>
+    <text>本软件按“现状”授予许可。您须自行承担使用本软件的风险。闲座拥有者不提供任何明示保证、保障或条件。在适用法律允许的范围内，闲座拥有者排除所有默示保证。</text>
+    <text class="Legal-content-bold Legal-content-margin">13. 损害赔偿限制和除外情况。</text>
+    <text>如果您具有损害赔偿的请求基础（尽管有前款保证免责条款），但闲座无法为您提供任何形式的赔偿。您不能因其他任何损害获得赔偿，包括后果性损害、利润损失、特殊损害、间接损害或附带损害。</text>
+    <text class="Legal-content-bold">本限制适用于：</text>
+    <text class="Legal-content-bold Legal-content-margin">a) 与第三方互联网站点上的软件、服务、内容（包括代码）或第三方应用程序相关的任何情况；以及</text>
+    <text class="Legal-content-bold Legal-content-margin">b) 在适用的法律允许的范围内，因违约、违反保证、保障或条件、严格责任、过失或其他侵权行为引起的索赔，或任何其他索赔。</text>
+    <text class="Legal-content-bold Legal-content-margin">即使闲座拥有者知道或应当知道可能会出现损害，此项限制也同样适用。</text>
+  </view>
+  <view class='Legal-content'>
+    <text class="Legal-content-top">闲座小程序许可条款</text>
+    <text>闲座</text>
+    <text class="Legal-content-margin">本条款是您与闲座小程序拥有者所订立的协议，适用于闲座与闲座相关的服务或软件更新（但不包括附带有新的或附加条款的服务或更新，此等情况下将适用该附带的其他条款且不改变您或闲座享有的与更新前的软件或服务有关的权利）。</text>
+    <text>一旦使用本软件，则表明您接受本条款。如果您不接受这些条款，请不要使用该软件。</text>
+    <text>如果您遵守这些许可条款，您将拥有下述权利。</text>
+    <text class="Legal-content-title">1. 安装和使用权利。</text>
+    <text>a) <text class="Legal-content-bold">通则。</text>您可以安装和使用闲座小程序。</text>
+    <text>b) <text class="Legal-content-bold">第三方软件/服务。</text>本软件可能包含根据本协议或第三方应用/服务自己的条款许可给您的第三方应用/服务，包括但不限于腾讯微信等。即使此类应用/服务受其他协议约束，下述免责条款以及损害赔偿限制和除外情况仍然在适用法允许的范围内适用。您承认，我们对第三方软件将不承担任何责任。我们对第三方软件造成的任何损害概不负责。</text>
+    <text>c) <text class="Legal-content-bold">闲座服务协议。</text>本软件的功能依赖于微信，提供互联网访问服务。</text>
+    <text class="Legal-content-title">2. 数据收集。</text>
+    <text>本软件可能收集有关您和您对本软件的使用的信息，并将其发送到互联网分享以及闲座小程序的拥有者。闲座的拥有者可使用此信息提供服务和改进闲座的产品和服务。您同意遵守所有适用的闲座隐私声明条款。</text>
+    <text class="Legal-content-title">3. 许可范围。</text>
+    <text>本软件仅供微信或手机帐号许可绑定使用。闲座拥有者保留所有其他权利。除非适用法律给予您更多权利（尽管有此项限制），否则您不得（且无权）：</text>
+    <text>a) 绕过只允许您以特定方式使用的软件中的任何技术限制；</text>
+    <text>b) 对软件进行反向工程、反向编译或反汇编；</text>
+    <text>c) 删除、减少、阻止或修改该软件中的任何信息；</text>
+    <text>d) 以违反法律的任何方式、制造或传播恶意软件的方式使用软件。</text>
+    <text class="Legal-content-title">4. 行为准则。</text>
+    <text>a)<text class="Legal-content-bold">如您接受本条款，您须在使用软件时遵守如下规定</text></text>
+    <text>(i) 不得从事任何非法活动。</text>
+    <text>(ii) 不得从事任何利用、危害或可能危害儿童的活动。</text>
+    <text>(iii) 不得发送垃圾信息。“垃圾信息”是指不需要的或未经请求而发送的车辆、行程或即时消息等与闲座小程序相关的所有信息。</text>
+    <text>(iv) 不得公开展示或利用闲座共享不当内容及材料(如涉及裸体、兽交、色情、暴露画面或犯罪活动)。</text>
+    <text>(v) 不得在闲座小程序中，上传或转发含有不当内容的照片及文档（如涉及裸体、兽交、色情、暴露画面或犯罪活动）。</text>
+    <text>(vi) 不得从事虚假或误导性活动（例如，以欺诈的手段索要现金，使用虚假身份，操纵服务器以增加播放计数或影响排名、评分或评论）。</text>
+    <text>(vii) 不得规避服务的任何访问或可用性限制。</text>
+    <text>(viii) 不要从事对您、服务或其他任何人有害的活动(例如，传播计算机病毒、跟踪、传播仇恨言论或主张对他人使用暴力)。</text>
+    <text>(ix) 不得侵害他人权益（例如，未经授权传播已经获得版权的音乐或其他受版权保护的主体）。</text>
+    <text>(x) 不得侵害他人隐私。</text>
+    <text>(xi) 不得帮助他人违反本条款。</text>
+    <text>b) <text class="Legal-content-bold">强制执行。</text>如您违反这些条款，闲座小程序可能会终止为您继续提供服务。同时，为了保障这些条款的强制力，闲座拥有者还将阻止您与服务的一切通讯，或者出于任何理由移除或拒绝发布您的内容。在对涉嫌违反这些条款的行为进行调查时，闲座拥有者保留对您的内容进行审查以便解决问题的权利。然而，我们仍无法保证对整个服务器的监控，并且也不会尝试这样做。</text>
+    <text class="Legal-content-title">6. 支持服务。</text>
+    <text>a) 闲座拥有者在本协议项下无义务为本软件提供任何支持服务。任何支持按“现状”、“包含所有缺陷”的形式提供，不适用任何形式的保证。</text>
+    <text>b) 对于未登录账户的用户，将无法使用本软件</text>
+    <text class="Legal-content-title">7. 更新。</text>
+    <text>本软件会定期检查更新，为您提供更优质的服务。您仅会从闲座小程序处获得更新。闲座小程序可能需要通过更新服务器程序来为您提供更新。您同意在未经任何额外通知的情况下接收该等自动更新。更新可能不包括或支持所有现有的软件功能、服务或移动设备等。</text>
+    <text class="Legal-content-title">8. 终止。</text>
+    <text>如果您未遵守本协议的任何条款或条件，闲座拥有者可在不损害任何其他权利的情况下终止本协议。</text>
+    <text class="Legal-content-title">9. 完整协议。</text>
+    <text>本协议以及闲座拥有者为补充、更新、或第三方应用提供的任何其他条款，构成本软件的完整协议。</text>
+    <text class="Legal-content-title">10. 适用法律和争议解决地。</text>
+    <text>本协议条款受中华人民共和国法律管辖并依照其进行解释。由本协议引起或与其相关的任何争议（包括其存续、效力、终止的任何问题）将提交至闲座拥有者指定的仲裁机构，并按照届时有效的仲裁规则在北京进行有约束力的仲裁。</text>
+    <text class="Legal-content-title">11. 消费者权利；地区差异；法律效果。</text>
+    <text>本协议规定了某些合法权利。根据您所在国家或地区的法律规定，您可能享有其他权利（包括消费者权利）。如果您所在国家或地区的法律不允许本协议改变这些其他权利，则本协议将不改变这些其他权利。</text>
+    <text class="Legal-content-bold Legal-content-margin">12. 保证免责条款。本软件按“现状”授予许可。您须自行承担使用本软件的风险。闲座拥有者不提供任何明示保证、保障或条件。在适用法律允许的范围内，闲座拥有者排除所有默示保证。</text>
+    <text class="Legal-content-bold Legal-content-margin">13. 损害赔偿限制和除外情况。如果您具有损害赔偿的请求基础（尽管有前款保证免责条款），但闲座无法为您提供任何形式的赔偿。您不能因其他任何损害获得赔偿，包括后果性损害、利润损失、特殊损害、间接损害或附带损害。</text>
+    <text class="Legal-content-bold">本限制适用于：</text>
+    <text class="Legal-content-bold Legal-content-margin">a) 与第三方互联网站点上的软件、服务、内容（包括代码）或第三方应用程序相关的任何情况；以及</text>
+    <text class="Legal-content-bold Legal-content-margin">b) 在适用的法律允许的范围内，因违约、违反保证、保障或条件、严格责任、过失或其他侵权行为引起的索赔，或任何其他索赔。</text>
+    <text class="Legal-content-bold Legal-content-margin">即使闲座拥有者知道或应当知道可能会出现损害，此项限制也同样适用。</text>
+  </view>
+</view>

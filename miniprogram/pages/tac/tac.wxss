@@ -1,0 +1,82 @@
+/* pages/tac/tac.wxss */
+
+/*Legal*/
+
+.Legal-title {
+  font-size: 32rpx;
+  /* text-align: center; */
+  margin-top: 20rpx;
+}
+
+.Legal-view .Legal:active {
+  background: rgba(198, 199, 202, 0.5);
+}
+
+.Legal-content-top {
+  font-size: 44rpx;
+  line-height: 44rpx;
+  font-weight: bold;
+  margin-top: 60rpx;
+}
+
+.Legal-content {
+  /* height: 100%; */
+  font-size: 28rpx;
+  line-height: 44rpx;
+  padding: 0 30rpx 100rpx 30rpx;
+  /* position: fixed;
+  left: 0;
+  top: 0; */
+  overflow: hidden;
+  background: #fff;
+  border-top: 1rpx solid #f0f0f0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.Legal-content-ww {
+  display: none;
+}
+
+/* .Legal-content-top {
+  margin-bottom: 60rpx;
+} */
+
+.Legal-content text {
+  display: block;
+}
+
+.Legal-content-title {
+  font-weight: bold;
+  margin-top: 60rpx;
+}
+
+.Legal-content text.Legal-content-bold {
+  font-weight: bold;
+  display: inherit;
+}
+
+.Legal-content text.Legal-content-margin {
+  margin-top: 60rpx;
+  display: inline-block;
+}
+
+.Legal-content-bottom {
+  margin-bottom: 100rpx;
+  display: inline-block;
+}
+
+.black-dot {
+  height: 10rpx;
+  min-height: 10rpx;
+  min-width: 10rpx;
+  width: 10rpx;
+  border-radius: 50%;
+  background: black;
+  display: inline-block;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+
+.Legal-line {
+  display: flex;
+}

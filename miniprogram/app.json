@@ -10,7 +10,8 @@
     "pages/carMessage/carMessage",
     "pages/commonStroke/commonStroke",
     "pages/commonStrokeSelect/commonStrokeSelect",
-    "pages/addMessage/addMessage"
+    "pages/addMessage/addMessage",
+    "pages/tac/tac"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
