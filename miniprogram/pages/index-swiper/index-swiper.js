@@ -1,9 +1,9 @@
 Page({
   data: {
-    imgUrls: [
-      '../../images/1.jpg',
-      '../../images/1.jpg',
-      '../../images/1.jpg'
+    imgUrls: [{
+      lunbo: '../../images/1.jpg'},
+      { lunbo:'../../images/1.jpg'},
+      { lunbo:'../../images/1.jpg',link:"../index/index"}
     ],
     indicatorDots: true,
     autoplay: true,

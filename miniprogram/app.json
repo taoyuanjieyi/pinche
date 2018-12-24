@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/index-swiper/index-swiper",
     "pages/index/index",
     "pages/me/me",
     "pages/publish/publish",
     "pages/login/login",
     "pages/verification/verification",
     "pages/seat/seat",
-    "pages/index-swiper/index-swiper",
     "pages/carMessage/carMessage",
     "pages/commonStroke/commonStroke",
     "pages/commonStrokeSelect/commonStrokeSelect",

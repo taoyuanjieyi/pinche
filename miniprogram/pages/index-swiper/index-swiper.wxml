@@ -1,7 +1,9 @@
 <swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
     <swiper-item>
-      <image src="{{item}}" class="slide-image" mode='aspectFill' />
+      <navigator open-type="switchTab" url="{{item.link}}" style="width:100%;height:100%;">
+      <image src="{{item.lunbo}}" class="slide-image" mode='aspectFill' />
+      </navigator>
     </swiper-item>
   </block>
 </swiper>
