@@ -17,6 +17,10 @@
     <text class='list-content-title'>常用行程</text>
     <text class='list-content-arrow list-content-arrow-icon'></text>
   </navigator>
+  <navigator class='me-list-content' url="../index-swiper/index-swiper" hover-class="navigator-hover">
+    <text class='list-content-title'>轮播图</text>
+    <text class='list-content-arrow list-content-arrow-icon'></text>
+  </navigator>
   <!-- 
   <view class='me-list-content'>
     <text class='list-content-title'>收款信息</text>
