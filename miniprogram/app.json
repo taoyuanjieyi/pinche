@@ -20,7 +20,7 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "selectedColor": "#d9583a",
+    "selectedColor": "#379ff8",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -31,8 +31,8 @@
       {
         "pagePath": "pages/publish/publish",
         "text": "发布",
-        "iconPath": "images/me_default.png",
-        "selectedIconPath": "images/me_pressed.png"
+        "iconPath": "images/publish.png",
+        "selectedIconPath": "images/pulish-press.png"
       },
       {
         "pagePath": "pages/me/me",

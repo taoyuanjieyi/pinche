@@ -44,6 +44,19 @@
 
 .list-content-phone {
   font-size: 30rpx;
+  color: #379ff8;
+}
+
+.content-phone-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+
+.list-phone-view {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
 }
 
 .list-content-address {
