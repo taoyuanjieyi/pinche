@@ -14,6 +14,7 @@ Page({
     payQrcodeUrl:"",
     isDriver:false,
     isPassenger:false,
+    driverMobileHide:true,
     loginUserId:""
   },
   onLoad: function (options){
@@ -107,6 +108,7 @@ Page({
           if (this.data.isPassenger||this.data.isDriver){
             this.setData({
               driverMobile: res.data.driverRoute.mobile,
+              driverMobileHide:false,
               carInfo: res.data.driverRoute.carInfo,
             })
           }

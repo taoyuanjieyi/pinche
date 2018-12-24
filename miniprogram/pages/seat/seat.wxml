@@ -6,7 +6,7 @@
         <view>
           <view class='list-content-title'>{{driverNickName}}（车主）</view>
           <view class='list-phone-view'>
-            <image class='content-phone-icon' mode='aspectFit' src='/images/phone.png'></image>
+            <image class='content-phone-icon' mode='aspectFit' src='/images/phone.png' hidden='{{driverMobileHide}}'></image>
             <view class='list-content-phone' data-mobile="{{driverMobile}}" bindtap='callTelephone'>{{driverMobile}}</view>
           </view>
           <view>{{carInfo}} </view>
@@ -44,8 +44,8 @@
         <view>
           <view class='list-content-title'>{{item.nickName}}(乘客)</view>
           <view class='list-phone-view'>
-            <image class='content-phone-icon' mode='aspectFit' src='/images/phone.png'></image>
-            <view class='list-content-phone' wx:if="{{isDriver||item.userId===loginUserId}}" bindtap='callTelephone' data-mobile="{{item.mobile}}">{{item.mobile}}</view>
+            <image wx:if="{{item.userId===loginUserId}}" class='content-phone-icon' mode='aspectFit' src='/images/phone.png'></image>
+            <view class='list-content-phone' wx:if="{{item.userId===loginUserId}}" bindtap='callTelephone' data-mobile="{{item.mobile}}">{{item.mobile}}</view>
           </view>
         </view>
         <view class='list-content-right'>
