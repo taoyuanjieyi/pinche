@@ -28,6 +28,10 @@
         </view>
       </picker>
     </view>
+    <view class='publish-list'>
+      <text class='publish-list-title'>行程费用（元）：</text>
+      <textarea class='publish-list-cost' auto-height></textarea>
+    </view>
     <view bindtap='openSelectRoutePage'>
       <navigator class='publish-list publish-list-between'>
         <text class='publish-list-title'>行程内容：</text>
