@@ -9,8 +9,8 @@
       <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="{{index}}">
         <view class="content">
           <view style="display: {{editIndex===index?'none':'block'}};" hidden="{{editIndex===index?true:false}}">{{item.body}}</view>
-          <view class='publish-list-content' hidden="{{editIndex===index?false:true}}">
-          <textarea auto-height minlength="{{min}}" maxlength="{{max}}" bindinput="bind{{index}}" data-index="{{index}}">{{body}}</textarea>
+          <view wx:if="{{editIndex===index}}" class='publish-list-content'>
+          <textarea auto-height minlength="{{min}}" maxlength="{{max}}" bindinput="bind{{index}}" data-index="{{index}}" value='{{body}}'></textarea>
           <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
         </view>
           <image bindtap="{{editIndex===index?'saveClick':'editClick'}}{{index}}" data-index="{{index}}" class="commonStroke-list-{{editIndex===index?'save':'edit'}}" src="../images/{{editIndex===index?'save':'edit'}}.svg"></image>
