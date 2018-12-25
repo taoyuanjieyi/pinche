@@ -14,7 +14,6 @@ Page({
     hasUserInfo: false,
     driverRouteList : [],
     ownerRouteList : [] ,
-    joinRouteList : [],
     pageNumber: 1,
     pageSize: 10,
     totalPages:0,
@@ -35,7 +34,11 @@ Page({
     }, true);
   },
   onShow: function () {
-    
+    var selectedRouteBody = commonUtil.getStorage("index_reload");
+    if (selectedRouteBody){
+      this.queryRouteList()
+      wx.setStorageSync("index_reload", "")
+    }
   },
   // 下拉刷新
   onPullDownRefresh: function () {
@@ -66,20 +69,13 @@ Page({
   viewOwnerRoute: function (e) {
     var index = parseInt(e.currentTarget.dataset.index);
     wx.navigateTo({
-      url: '../seat/seat?isDriver=true&routeId=' + this.data.ownerRouteList[index].routeId
-    })
-  },
-  viewJoinRoute: function (e) {
-    var index = parseInt(e.currentTarget.dataset.index);
-    wx.navigateTo({
-      url: '../seat/seat?isPassenger=true&routeId=' + this.data.joinRouteList[index].routeId
+      url: '../seat/seat?isDriver=' + this.data.ownerRouteList[index].driver +'&routeId=' + this.data.ownerRouteList[index].routeId
     })
   },
   clearPageData:function(){
     this.setData({
       driverRouteList: [],
       ownerRouteList: [],
-      joinRouteList: [],
       pageNumber: 1,
       pageSize: 10,
     })
@@ -108,7 +104,6 @@ Page({
       }
       var driverList = this.data.driverRouteList
       var ownerList = this.data.ownerRouteList
-      var joinList = this.data.joinRouteList
       var totalPages = 0;
       if (res.data.retCode === "success") {
         if (res.data.page.list != null && res.data.page.list !== undefined && res.data.page.list.length>0){
@@ -121,7 +116,6 @@ Page({
       this.setData({
         driverRouteList: driverList,
         ownerRouteList: res.data.ownerRouteList,
-        joinRouteList: res.data.joinRouteList,
         totalPages: totalPages,
       })
       // 隐藏加载框  

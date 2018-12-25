@@ -30,7 +30,7 @@
     </view>
     <view class='publish-list'>
       <text class='publish-list-title'>行程费用（元）：</text>
-      <textarea class='publish-list-cost' auto-height></textarea>
+      <input name='price' class='publish-list-cost' type="digit" placeholder="请输入行程费用（元）" bindinput="bindPriceChange"></input>
     </view>
     <view bindtap='openSelectRoutePage'>
       <navigator class='publish-list publish-list-between'>
@@ -38,7 +38,7 @@
         <text class='publish-list-arrow'>请选择常用行程</text>
       </navigator>
       <view class='publish-list-content'>
-        <textarea name='body' auto-height maxlength='200' placeholder='请输入行程内容' minlength="{{min}}" maxlength="{{max}}" bindinput="bindBodyChange" value='{{body}}'></textarea>
+        <textarea name='body' auto-height maxlength='200' placeholder='请输入行程内容' minlength="{{min}}" maxlength="{{max}}" bindinput="bindBodyChange" value="{{body}}"/>
         <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
       </view>
     </view>

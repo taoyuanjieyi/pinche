@@ -21,24 +21,7 @@
             <text>{{item.nickName}}</text>
             <text class='content-center-message'>({{item.startTime}})</text>
           </view>
-          <view class='content-right-btn content-right-btn-color'>已发布√</view>
-        </view>
-        <view class='content-center-bottom'>{{item.passPoint}}</view>
-      </view>
-    </view>
-
-<!-- 乘客预定的行程 -->
-<view wx:for="{{joinRouteList}}" class='inddex-content inddex-content-current' wx:key="key"bindtap="viewJoinRoute" data-index="{{index}}" >
-      <view class='index-content-left' >
-        <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
-      </view>
-      <view class='index-content-center'>
-        <view class='content-center-top'>
-          <view>
-            <text>{{item.nickName}}</text>
-            <text class='content-center-message'>({{item.startTime}})</text>
-          </view>
-          <view class='content-right-btn content-right-btn-color'>已预订√</view>
+          <view class='content-right-btn content-right-btn-color'>{{item.statusDesc}}√</view>
         </view>
         <view class='content-center-bottom'>{{item.passPoint}}</view>
       </view>

@@ -28,7 +28,7 @@ Page({
       routeId: options.routeId,
       waitingHidden: false,
       isDriver: (options.isDriver === "true" || options.isDriver === true)?true:false,
-      isPassenger: (options.isPassenger === "true" || options.isPassenger === true) ? true : false,
+      isPassenger: (options.isDriver === "false" || options.isDriver === false) ? true : false,
     })
     this.queryRouteDetail()
   },

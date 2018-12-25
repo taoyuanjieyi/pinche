@@ -32,6 +32,7 @@ Page({
     value: [9999, 1, 1],
     array: ['1', '2', '3', '4', '5', '6'],
     body: "",
+    price:0,
     submitBtnDisbled:true,
     /*车辆信息*/
     carInfoList: [],
@@ -53,11 +54,10 @@ Page({
   },
   onShow: function(e){
     var selectedRouteBody = commonUtil.getStorage("selectedRouteBody");
-    var defaultBody = ""
     if (selectedRouteBody !== undefined && selectedRouteBody !== "" && selectedRouteBody !== null) {
       this.setData({
         body: selectedRouteBody,
-        currentWordNumber: parseInt(defaultBody.length) //当前字数  
+        currentWordNumber: parseInt(selectedRouteBody.length) //当前字数  
       })
       wx.setStorageSync("selectedRouteBody", "")
       this.changeSubmitStyle();
@@ -117,6 +117,14 @@ Page({
     })
     this.changeSubmitStyle()
   },
+  bindPriceChange: function (e) {
+    // 获取输入框的内容
+    var value = e.detail.value;
+    this.setData({
+      price: value
+    })
+    this.changeSubmitStyle()
+  },
   bindBodyChange: function(e) {
     // 获取输入框的内容
     var value = e.detail.value;
@@ -130,7 +138,7 @@ Page({
       currentWordNumber: len //当前字数  
     });
     this.setData({
-      body: e.detail.value
+      body: value
     })
     this.changeSubmitStyle()
   },
@@ -144,6 +152,10 @@ Page({
     }
     if (this.data.body === null || this.data.body === '' ||
       this.data.body === undefined) {
+      changeSubmitBtnEnable = false;
+    }
+    if (this.data.price === null || this.data.price === '' ||
+      this.data.price === undefined) {
       changeSubmitBtnEnable = false;
     }
     if (this.data.vacancy === null || this.data.vacancy === '' ||
@@ -200,6 +212,15 @@ Page({
       })
       return;
     }
+    if (e.detail.value.price === null || e.detail.value.price === '' ||
+      e.detail.value.price === undefined) {
+      wx.showToast({
+        icon: 'none',
+        title: '行程费用不能为空！'
+      })
+      return;
+    }
+
     if (this.data.vacancy === null || this.data.vacancy === '' ||
       this.data.vacancy === undefined) {
       wx.showToast({
@@ -225,6 +246,7 @@ Page({
       startTime: this.data.date + " " + this.data.time + ":00",
       vacancy: this.data.array[this.data.vacancy],
       carInfo: this.data.carInfo,
+      price:e.detail.value.price
     }).then((res) => {
       if (res.data.retCode === "need_login") {
         login.checkLogin(function () {
@@ -235,6 +257,7 @@ Page({
           icon: 'none',
           title: '发布成功',
         })
+        wx.setStorageSync("index_reload", true)
         wx.switchTab({
           url: '/pages/index/index'
         })

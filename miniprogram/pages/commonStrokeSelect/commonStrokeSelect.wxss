@@ -51,6 +51,13 @@ page {
   padding: 10rpx;
 }
 
+.commonStroke-list-save {
+  min-width: 40rpx;
+  min-height: 40rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
 .carMessage-view {
   overflow: hidden;
   background: #fff;

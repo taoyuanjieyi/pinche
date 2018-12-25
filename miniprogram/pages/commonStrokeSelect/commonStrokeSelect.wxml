@@ -13,7 +13,7 @@
             <textarea auto-height minlength="{{min}}" maxlength="{{max}}" bindinput="bind{{index}}" data-index="{{index}}">{{body}}</textarea>
             <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
           </view>
-          <image bindtap="{{editIndex===index?'saveClick':'editClick'}}{{index}}" data-index="{{index}}" class='commonStroke-list-edit' src="../images/{{editIndex===index?'save':'edit'}}.svg"></image>
+          <image bindtap="{{editIndex===index?'saveClick':'editClick'}}{{index}}" data-index="{{index}}" class="commonStroke-list-{{editIndex===index?'save':'edit'}}" src="../images/{{editIndex===index?'save':'edit'}}.svg"></image>
         </view>
         <view class="del" catchtap="removeQuickRoute" data-index="{{index}}">删除</view>
       </view>
