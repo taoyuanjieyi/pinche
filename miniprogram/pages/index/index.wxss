@@ -116,7 +116,7 @@ page {
 
 .content-center-message {
   color: #666;
-  margin-left: 20rpx;
+  margin: 0 20rpx;
 }
 
 .content-right-btn {

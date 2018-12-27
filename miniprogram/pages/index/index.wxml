@@ -36,6 +36,7 @@
           <view>
             <text>{{item.nickName}}</text>
             <text class='content-center-message'>({{item.startTime}})</text>
+            <text>25元</text>
           </view>
           <view class='content-right-btn content-right-btn-color'>座位：{{item.vacancy}}</view>
         </view>
