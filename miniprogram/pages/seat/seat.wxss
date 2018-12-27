@@ -67,6 +67,11 @@
   text-align: center;
 }
 
+.seat-list-cost {
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+
 .seat-list-btn, .list-content-seat {
   height: 50rpx;
   padding: 0 10rpx;

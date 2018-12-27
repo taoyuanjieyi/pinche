@@ -12,6 +12,7 @@
           <view>{{carInfo}} </view>
         </view>
         <view>
+          <view class='seat-list-cost'>费用：25元</view>
           <view class='seat-list-btn'>剩余{{driverVacancy}}位</view>
           <view wx:if="{{isDriver}}" class='list-content-cancel'>取消行程</view>
         </view>
