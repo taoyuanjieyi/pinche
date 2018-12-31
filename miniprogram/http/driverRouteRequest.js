@@ -74,10 +74,36 @@ function queryRouteDetail(routeData) {
   });
 }
 
+//取消行程信息接口
+function cancel(driverData) {
+  console.info("取消行程数据：", driverData)
+  var session_id = commonUtil.getStorage("third_Session");
+  console.info("cancel 当前会话ID:", session_id)
+  return new Promise(function (resolve, reject) {
+    wx.request({
+      url: "https://www.i5365.cn/pinche/driver/cancel",
+      data: driverData,
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'sessionid': session_id
+      },
+      success: function (res) {
+        console.info("driver cancel result :", res)
+        resolve(res);
+      },
+      fail: function (res) {
+        console.log("driver cancel fail : ", res);
+      }
+    });
+  });
+}
+
 
 
 module.exports = {
   search: search,
   publish: publish,
-  queryRouteDetail: queryRouteDetail
+  queryRouteDetail: queryRouteDetail,
+  cancel:cancel
 }
