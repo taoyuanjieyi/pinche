@@ -20,7 +20,7 @@
           <view>
             <text>{{item.nickName}}</text>
             <text class='content-center-message'>({{item.startTime}})</text>
-            <text class='conten t-center-message'>({{item.price}})</text>          
+            <text>{{item.price}}元</text>
           </view>
           <view class='content-right-btn content-right-btn-color'>{{item.statusDesc}}√</view>
         </view>
