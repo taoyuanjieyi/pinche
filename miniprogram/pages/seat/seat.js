@@ -2,6 +2,7 @@ var driverRequest = require('../../http/driverRouteRequest.js');
 var passengerRequest = require('../../http/passengerRouteRequest.js');
 var commonUtil = require('../../common/common.js');
 var login = require('../../http/login.js'); 
+var dateUtil = require('../../utils/dateUtil.js');
 
 
 Page({
@@ -15,7 +16,8 @@ Page({
     isDriver:false,
     isPassenger:false,
     driverMobileHide:true,
-    loginUserId:""
+    loginUserId:"",
+    routeIsStart:false,
   },
   onLoad: function (options){
     var userInfo = commonUtil.getStorage("userInfo");
@@ -92,6 +94,7 @@ Page({
           icon: 'none',
           title: '取消成功，请确认所有乘客已同意取消！'
         })
+        wx.setStorageSync("index_reload", true)
         this.reloadPage();
       } else {
         wx.showToast({
@@ -150,6 +153,7 @@ Page({
           icon: 'none',
           title: '取消成功，请确认车主已同意取消！'
         })
+        wx.setStorageSync("index_reload", true)
         this.reloadPage();
       }else {
         wx.showToast({
@@ -196,6 +200,13 @@ Page({
             })
           }
 
+          var currDate = dateUtil.getCurrDateToMinute()+":00";
+          if (currDate > res.data.driverRoute.startTime){
+            this.setData({
+              routeIsStart:true
+            })
+          }
+
           that.setData({
             driverNickName: res.data.driverRoute.nickName,
             driverAvatarUrl: res.data.driverRoute.avatarUrl,
@@ -204,7 +215,9 @@ Page({
             joinRouteUserList: res.data.joinRouteUserList,
             driverRouteId: res.data.driverRoute.routeId,
             seatArray: seats,
-            noCancel: !routeCanceled,
+            price: res.data.driverRoute.price,
+            routeCanceled: routeCanceled,
+            routeIsStart: this.data.routeIsStart,
             payQrcodeUrl: "https://www.i5365.cn" + qrcodeUrl
           })
           var loginUserJoinRouteCount = 0

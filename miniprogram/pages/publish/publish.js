@@ -61,12 +61,13 @@ Page({
       })
       wx.setStorageSync("selectedRouteBody", "")
       this.changeSubmitStyle();
-    }else{
-      this.setData({
-        body: "",
-        currentWordNumber: 0 //当前字数  
-      })
     }
+    // else{
+    //   this.setData({
+    //     body: "",
+    //     currentWordNumber: 0 //当前字数  
+    //   })
+    // }
     
     // 获取所有车辆信息
     var userInfo = commonUtil.getStorage("userInfo");

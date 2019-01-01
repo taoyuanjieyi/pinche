@@ -12,10 +12,11 @@
           <view>{{carInfo}} </view>
         </view>
         <view>
-          <view class='seat-list-cost'>费用：25元</view>
+          <view class='seat-list-cost'>费用：{{price}}元</view>
           <view class='seat-list-btn'>剩余{{driverVacancy}}位</view>
-          <view wx:if="{{!noCancel}}" class='list-content-cancel'>已取消</view>
-          <view bindtap='openDriverCancelConfirm' data-routeId="{{driverRouteId}}" wx:if="{{isDriver&&noCancel}}" class='list-content-cancel'>取消行程</view>
+          <view wx:if="{{routeIsStart}}" class='list-content-cancel'>行程已开始</view>
+          <view wx:if="{{routeCanceled}}" class='list-content-cancel'>已取消</view>
+          <view bindtap='openDriverCancelConfirm' data-routeId="{{driverRouteId}}" wx:if="{{isDriver&&!routeCanceled&&!routeIsStart}}" class='list-content-cancel'>取消行程</view>
         </view>
 
       </view>
@@ -52,7 +53,7 @@
         </view>
         <view class='list-content-right'>
           <view class='seat-list-btn seat-list-btn-color'>已预定{{item.seats}}位</view>
-          <view bindtap='openPassengerCancelConfirm' data-routeId="{{item.passengerRouteId}}" wx:if="{{item.userId===loginUserId}}" class='list-content-cancel'>取消预定</view>
+          <view bindtap='openPassengerCancelConfirm' data-routeId="{{item.passengerRouteId}}" wx:if="{{item.userId===loginUserId&&!routeIsStart}}" class='list-content-cancel'>取消预定</view>
         </view>
 
       </view>

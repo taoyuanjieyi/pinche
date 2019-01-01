@@ -32,8 +32,8 @@
       <text class='publish-list-title'>行程费用（元）：</text>
       <input name='price' class='publish-list-cost' type="digit" placeholder="请输入行程费用（元）" bindinput="bindPriceChange"></input>
     </view>
-    <view bindtap='openSelectRoutePage'>
-      <navigator class='publish-list publish-list-between'>
+    <view>
+      <navigator class='publish-list publish-list-between' bindtap='openSelectRoutePage'>
         <text class='publish-list-title'>行程内容：</text>
         <text class='publish-list-arrow'>请选择常用行程</text>
       </navigator>
