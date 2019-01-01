@@ -149,7 +149,6 @@ var pageObject = {
   },
   addRoute: function (route) {
     this.data.items.push(route);
-    this.data.items.sort(this.compare("orderBy"));
     console.info("行程列表数据：", this.data.items);
   },
   submitQuickRoute: function () {
@@ -162,6 +161,7 @@ var pageObject = {
         }
       }
     }
+    this.data.items.sort(this.compare("orderBy"));
     userRequest.updateQuickRoute({
       quickRouteJson: JSON.stringify(this.data.items)
     }).then((res) => {
