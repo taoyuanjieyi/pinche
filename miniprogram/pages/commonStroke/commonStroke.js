@@ -144,6 +144,14 @@ var pageObject = {
   },
   submitQuickRoute:function (){
     var that = this;
+    //删除空行
+    if (!commonUtil.isBlank(this.data.items) && this.data.items.length>0){
+      for (var i = 0; i < this.data.items.length; i++){
+        if (commonUtil.isBlank(this.data.items[i].body)){
+          this.data.items.splice(i,1);
+        }
+      }
+    }
     userRequest.updateQuickRoute({
       quickRouteJson: JSON.stringify(this.data.items)
     }).then((res) => {
