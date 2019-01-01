@@ -278,7 +278,19 @@ for (var i = 0; i < bindInputList.length; i++) {
           currentWordNumber: this.data.items[idx].body.length,
           isEdit: true,
           editIndex: idx,
-        })
+          addBtnShow: false,
+      })
+      //删除空行
+      if (!commonUtil.isBlank(this.data.items) && this.data.items.length > 0) {
+        for (var i = 0; i < this.data.items.length; i++) {
+          if (commonUtil.isBlank(this.data.items[i].body)) {
+            this.data.items.splice(i, 1);
+            this.setData({
+              items: this.data.items
+            })
+          }
+        }
+      }
       },
       pageObject['saveClick' + item.id] = function (e) {
         this.saveQuickRoute()
