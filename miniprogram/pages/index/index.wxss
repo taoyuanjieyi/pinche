@@ -114,9 +114,18 @@ page {
   padding: 20rpx 10rpx 20rpx 10rpx;
 }
 
+.center-top-left {
+  display: flex;
+}
+
 .content-center-message {
   color: #666;
   margin: 0 20rpx;
+}
+
+.center-top-money {
+  width: 24rpx;
+  height: 24rpx;
 }
 
 .content-right-btn {

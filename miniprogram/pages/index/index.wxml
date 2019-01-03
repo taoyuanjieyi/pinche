@@ -4,14 +4,14 @@
     <!-- <image class='index-top-back' mode='aspectFit' src='../images/back-white.svg'></image> -->
     <!-- <view class='index-release' bindtap="onAdd">发布拼车</view> -->
     <view class='search'>
-      <input class='index-search' placeholder='search' bindinput="bindSearchChange" ></input>
+      <input class='index-search' placeholder='search' bindinput="bindSearchChange"></input>
       <image class='search-icon' src='/images/search.png'></image>
     </view>
 
   </view>
   <view class='inddex-view'>
-<!-- 车主发布的行程 -->
-<view wx:for="{{ownerRouteList}}" class='inddex-content inddex-content-current' wx:key="key"bindtap="viewOwnerRoute" data-index="{{index}}" >
+    <!-- 车主发布的行程 -->
+    <view wx:for="{{ownerRouteList}}" class='inddex-content inddex-content-current' wx:key="key" bindtap="viewOwnerRoute" data-index="{{index}}">
       <view class='index-content-left'>
         <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
       </view>
@@ -28,16 +28,19 @@
       </view>
     </view>
 
-    <view wx:for="{{driverRouteList}}" class='inddex-content' wx:key="key" bindtap="viewDriverRoute" data-index="{{index}}" >
+    <view wx:for="{{driverRouteList}}" class='inddex-content' wx:key="key" bindtap="viewDriverRoute" data-index="{{index}}">
       <view class='index-content-left'>
         <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
       </view>
       <view class='index-content-center'>
         <view class='content-center-top'>
-          <view>
+          <view class='center-top-left'>
             <text>{{item.nickName}}</text>
             <text class='content-center-message'>({{item.startTime}})</text>
-            <text>{{item.price}}元</text>
+            <view>
+              <image class='center-top-money' mode='aspectFit' src='../../images/money.png'></image>
+              {{item.price}}元
+            </view>
           </view>
           <view class='content-right-btn content-right-btn-color'>座位：{{item.vacancy}}</view>
         </view>
@@ -47,5 +50,3 @@
   </view>
 </view>
 <view class='index-no'>暂无更多行程</view>
-
-
