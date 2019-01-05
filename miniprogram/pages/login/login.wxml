@@ -16,11 +16,3 @@
 
 <view wx:else>请升级微信版本</view>
 
-<view class='login-tac'>
-  <checkbox-group bindchange="checkboxChange">
-    <label class="checkbox">
-      <checkbox class='login-tac-checkbox' value="checked" />我已详细阅读并同意
-    </label>
-  </checkbox-group>
-  <navigator class='login-tac-link' url="../tac/tac" >闲座用户协议</navigator>
-</view>

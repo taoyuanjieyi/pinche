@@ -37,25 +37,3 @@
   margin: 70rpx 50rpx;
   font-size: 28rpx;
 }
-
-.login-tac {
-  font-size: 26rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-tac-checkbox {
-  transform: scale(0.8);
-  margin-right: 10rpx;
-}
-
-.checkbox {
-  display: flex;
-  align-items: center;
-  margin-right: 10rpx;
-}
-.login-tac-link {
-  color: #3b9ff7;
-  border-bottom: 1rpx solid #3b9ff7;
-}
