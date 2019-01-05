@@ -24,6 +24,15 @@ function getCurrDateToMinute(){
   return nowDate + " " +nowTime;
 }
 
+function getCurrDateToDate() {
+  const date = new Date()
+  const nowYear = date.getFullYear()
+  const nowMonth = date.getMonth() + 1
+  const nowDay = date.getDate()
+  const nowDate = nowYear + (nowMonth < 10 ? "0" : "") + nowMonth + (nowDay < 10 ? "0" : "") + nowDay;
+  return nowDate;
+}
+
 function formatNumber(n) {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -57,5 +66,6 @@ function formatTimeTwo(number, format) {
 module.exports = {
   formatTime: formatTime,
   formatTimeTwo: formatTimeTwo,
-  getCurrDateToMinute: getCurrDateToMinute
+  getCurrDateToMinute: getCurrDateToMinute,
+  getCurrDateToDate: getCurrDateToDate
 }

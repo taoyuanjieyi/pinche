@@ -7,4 +7,4 @@
     </swiper-item>
   </block>
 </swiper>
-<view class='time'>3秒 跳过</view>
+<view class='time' bindtap='jumpto'>{{count}}秒 跳过</view>
