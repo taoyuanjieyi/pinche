@@ -21,7 +21,6 @@ Page({
     isShare:false,
   },
   onLoad: function (options){
-    wx.showShareMenu()
     var that  = this
     var userInfo = commonUtil.getStorage("userInfo");
     if (!commonUtil.isBlank(userInfo)){
@@ -270,12 +269,9 @@ Page({
       phoneNumber: mobile,
     })
   },
-  onShareAppMessage:function() {
-    var that  = this;
-    that.setData({
-      isShare:true,
+  gotoShare:function() {
+    wx.navigateTo({
+      url: '../shareRoute/shareRoute?routeId='+this.data.routeId,
     })
-    var shareUserId = that.data.loginUserId;
-    return { title: '行程分享', path: "/pages/seat/seat?routeId=" + this.data.routeId + "&shareUserId=" + shareUserId}
   }
 })

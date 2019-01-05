@@ -1,0 +1,35 @@
+<view class='seat'>
+  <view class='seat-list'>
+    <image class='seat-list-avatar' mode='aspectFill' src='{{driverAvatarUrl}}'></image>
+    <view class='seat-list-content'>
+      <view>
+        <view>
+          <view class='list-content-title'>{{driverNickName}}（车主）</view>
+          <view>{{carInfo}} </view>
+        </view>
+        <view>
+          <view class='seat-list-cost'>费用：{{price}}元</view>
+          <view class='seat-list-btn'>剩余{{driverVacancy}}位</view>
+        </view>
+
+      </view>
+      <view class='list-content-address'>{{driverPassPoint}}</view>
+    </view>
+
+  </view>
+  
+  <view class='seat-list seat-list-center' wx:for="{{joinRouteUserList}}" wx:key="key">
+    <image class='seat-list-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
+    <view class='seat-list-content seat-list-content-center'>
+      <view>
+        <view>
+          <view class='list-content-title'>{{item.nickName}}(乘客)</view>
+        </view>
+        <view class='list-content-right'>
+          <view class='seat-list-btn seat-list-btn-color'>已预定{{item.seats}}位</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<button open-type='share'>分享</button>

@@ -60,7 +60,7 @@
     </view>
   </view>
 </view>
-<button open-type='share' hidden='{{isShare}}'>分享</button>
+<button bindtap='gotoShare'>去分享</button>
 <view class='seat-toast' hidden='{{okHidden}}'>
   <view class='seat-toast-content'>
     <view class='seat-toast-title'>信息确认</view>
