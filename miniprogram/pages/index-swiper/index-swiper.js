@@ -3,7 +3,7 @@ var dateUtil = require('../../utils/dateUtil.js');
 Page({
   data: {
     imgUrls: [{
-      lunbo: '../../images/1.jpg', link: ""}
+      lunbo: '', link: ""}
     ],
     startUpImageUrl:"https://www.i5365.cn/static/startup/",
     indicatorDots: false,
