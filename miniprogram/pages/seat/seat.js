@@ -18,21 +18,30 @@ Page({
     driverMobileHide:true,
     loginUserId:"",
     routeIsStart:false,
+    isShare:false,
   },
   onLoad: function (options){
+    wx.showShareMenu()
+    var that  = this
     var userInfo = commonUtil.getStorage("userInfo");
     if (!commonUtil.isBlank(userInfo)){
       this.setData({
         loginUserId:userInfo.userId
       })
     }
+    console.info("进入行程页面，页面参数为：",options)
+    if (!commonUtil.isBlank(options.shareUserId)){
+      var shareMessage = { "shareUserId": options.shareUserId, "routeId": options.routeId}
+      console.info("分享参数存入缓存：", shareMessage)
+      wx.setStorageSync("shareMessage", shareMessage);
+    }
     this.setData({
       routeId: options.routeId,
       waitingHidden: false,
-      isDriver: (options.isDriver === "true" || options.isDriver === true)?true:false,
-      isPassenger: (options.isDriver === "false" || options.isDriver === false) ? true : false,
     })
-    this.queryRouteDetail()
+    login.checkLogin(function () {
+      that.queryRouteDetail()
+    }, true);
   },
   cancelButton: function (e) {
     this.setData({
@@ -56,7 +65,6 @@ Page({
         })
         this.setData({
           okHidden: true,
-          isPassenger: true 
         })
         this.reloadPage();
       }else{
@@ -192,6 +200,17 @@ Page({
           if (payQrcode !== null && payQrcode !== "" && payQrcode !== undefined) {
             qrcodeUrl = payQrcode.qrcodeUrl;
           }
+          if (this.data.loginUserId === res.data.driverRoute.userId){
+            this.setData({
+              isPassenger:false,
+              isDriver:true,
+            })
+          }else{
+            this.setData({
+              isPassenger: true,
+              isDriver: false,
+            })
+          }
           if (this.data.isPassenger||this.data.isDriver){
             this.setData({
               driverMobile: res.data.driverRoute.mobile,
@@ -221,10 +240,12 @@ Page({
             payQrcodeUrl: "https://www.i5365.cn" + qrcodeUrl
           })
           var loginUserJoinRouteCount = 0
-          for (var i = 0; i < res.data.joinRouteUserList.length;i++){
-            var joinRoute = res.data.joinRouteUserList[i]
-            if (joinRoute.userId === that.data.loginUserId){
-              loginUserJoinRouteCount ++;
+          if (!commonUtil.isBlank(res.data.joinRouteUserList)){
+            for (var i = 0; i < res.data.joinRouteUserList.length;i++){
+              var joinRoute = res.data.joinRouteUserList[i]
+              if (joinRoute.userId === that.data.loginUserId){
+                loginUserJoinRouteCount ++;
+              }
             }
           }
 
@@ -249,9 +270,12 @@ Page({
       phoneNumber: mobile,
     })
   },
-  tel:function(){
-    wx.makePhoneCall({
-      phoneNumber: '138108572570',
+  onShareAppMessage:function() {
+    var that  = this;
+    that.setData({
+      isShare:true,
     })
+    var shareUserId = that.data.loginUserId;
+    return { title: '行程分享', path: "/pages/seat/seat?routeId=" + this.data.routeId + "&shareUserId=" + shareUserId}
   }
 })

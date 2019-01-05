@@ -39,7 +39,7 @@ Page({
     var that  = this;
     var dateStr = dateUtil.getCurrDateToDate()
     wx.request({
-      url: that.data.startUpImageUrl,
+      url: that.data.startUpImageUrl + dateStr + ".jpg",
       data: {},
       success: function (res) {
         that.data.imgUrls[0].lunbo = that.data.startUpImageUrl + dateStr + ".jpg";

@@ -7,7 +7,7 @@
           <view class='list-content-title'>{{driverNickName}}（车主）</view>
           <view class='list-phone-view'>
             <image class='content-phone-icon' mode='aspectFit' src='/images/phone.png' hidden='{{driverMobileHide}}'></image>
-            <view class='list-content-phone' data-mobile="{{driverMobile}}" bindtap='callTelephone'>{{driverMobile}}</view>
+            <view class='list-content-phone' data-mobile="{{driverMobile}}" bindtap='callTelephone' hidden='{{driverMobileHide}}'>{{driverMobile}}</view>
           </view>
           <view>{{carInfo}} </view>
         </view>
@@ -47,20 +47,20 @@
         <view>
           <view class='list-content-title'>{{item.nickName}}(乘客)</view>
           <view class='list-phone-view'>
-            <image wx:if="{{item.userId===loginUserId}}" class='content-phone-icon' mode='aspectFit' src='/images/phone.png'></image>
-            <view class='list-content-phone' wx:if="{{isDriver||item.userId===loginUserId}}" bindtap='callTelephone' data-mobile="{{item.mobile}}">{{item.mobile}}</view>
+            <image hidden='{{isShare}}' wx:if="{{item.userId===loginUserId}}" class='content-phone-icon' mode='aspectFit' src='/images/phone.png'></image>
+            <view class='list-content-phone' wx:if="{{isDriver||item.userId===loginUserId}}" bindtap='callTelephone' hidden='{{isShare}}' data-mobile="{{item.mobile}}">{{item.mobile}}</view>
           </view>
         </view>
         <view class='list-content-right'>
           <view class='seat-list-btn seat-list-btn-color'>已预定{{item.seats}}位</view>
-          <view bindtap='openPassengerCancelConfirm' data-routeId="{{item.passengerRouteId}}" wx:if="{{item.userId===loginUserId&&!routeIsStart}}" class='list-content-cancel'>取消预定</view>
+          <view hidden='{{isShare}}'  bindtap='openPassengerCancelConfirm' data-routeId="{{item.passengerRouteId}}" wx:if="{{item.userId===loginUserId&&!routeIsStart}}" class='list-content-cancel'>取消预定</view>
         </view>
 
       </view>
     </view>
   </view>
 </view>
-
+<button open-type='share' hidden='{{isShare}}'>分享</button>
 <view class='seat-toast' hidden='{{okHidden}}'>
   <view class='seat-toast-content'>
     <view class='seat-toast-title'>信息确认</view>
@@ -71,8 +71,3 @@
     </view>
   </view>
 </view>
-<!-- 
-<view class='me-list-img' bindtap='previewImage'>
-        <image class='list-content-img' mode='aspectFill' src='{{payQrcodeUrl}}'></image>
-      </view>
--->

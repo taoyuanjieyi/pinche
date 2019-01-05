@@ -11,7 +11,8 @@ Page({
     currentTime: 61, //倒计时
     disabled: false, //按钮是否禁用
     smsCode: '',
-    mobile: '' //获取到的手机栏中的值
+    mobile: '', //获取到的手机栏中的值
+    getUserInfoBtnDisable: true
 
   },
 
@@ -121,12 +122,19 @@ Page({
             }, true)
           }
         })
-        wx.switchTab({
-          url: '/pages/index/index'
-        })
-        wx.redirectTo({
-          url: '/pages/index/index'
-        })
+        var shareMessage = commonUtil.getStorage("shareMessage");
+        console.info("注册已完成，分享信息:",shareMessage);
+        if (!commonUtil.isBlank(shareMessage)){
+          console.info("跳转至分享行程页:", shareMessage);
+          wx.redirectTo({
+            url: '/pages/seat/seat?routeId=' + shareMessage.routeId + "&shareUserId=" + shareMessage.shareUserId,
+          })
+        }else{
+          console.info("跳转至首页:", shareMessage);
+          wx.switchTab({
+            url: '/pages/index/index'
+          })
+        }
       }
     })
     
@@ -199,6 +207,19 @@ Page({
       return;
 
     };
-  }
+  },
+  checkboxChange: function (e) {
+    var check = true
+    if (e.detail.value == '') {
+      check = true
+    }
+    else {
+      check = false
+    }
+    this.setData({
+      getUserInfoBtnDisable: check
+    })
+
+  },
 
 })

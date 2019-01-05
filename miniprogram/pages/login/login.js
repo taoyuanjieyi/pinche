@@ -5,23 +5,9 @@ Page({
   data: {
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    getUserInfoBtnDisable:true
   },
   onLoad: function() {
    
-  },
-  checkboxChange:function(e){
-    var check = true
-    if (e.detail.value == '') {
-      check = true
-    }
-    else {
-      check = false
-    }
-    this.setData({
-      getUserInfoBtnDisable:check
-    })
-
   },
   bindGetUserInfo: function(e) {
     console.info("微信授权用户信息：",e.detail.userInfo);
