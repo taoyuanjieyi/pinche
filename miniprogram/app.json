@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index-swiper/index-swiper",
     "pages/index/index",
     "pages/me/me",
     "pages/publish/publish",
@@ -10,7 +11,6 @@
     "pages/commonStroke/commonStroke",
     "pages/commonStrokeSelect/commonStrokeSelect",
     "pages/addMessage/addMessage",
-    "pages/index-swiper/index-swiper",
     "pages/tac/tac"
   ],
   "window": {
