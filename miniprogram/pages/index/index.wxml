@@ -1,4 +1,14 @@
 <!--index.wxml-->
+<swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <navigator open-type="switchTab" url="{{item.link}}" style="width:100%;height:100%;">
+        <image src="{{item.lunbo}}" class="slide-image" mode='aspectFill' />
+      </navigator>
+    </swiper-item>
+  </block>
+</swiper>
+<view class='time'>3秒 跳过</view>
 <view class='index'>
   <view class='index-top'>
     <!-- <image class='index-top-back' mode='aspectFit' src='../images/back-white.svg'></image> -->
