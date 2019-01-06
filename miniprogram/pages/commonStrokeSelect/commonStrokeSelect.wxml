@@ -7,7 +7,7 @@
     <view class="container">
       <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="{{index}}">
         <view class="content">
-          <radio class='carMessage-radio' data-aindex="{{aindex}}" value="{{index}}" color='#379ff8'></radio>
+          <radio class='carMessage-radio' data-aindex="{{aindex}}" value="{{index}}" color='#379ff8' disabled='{{editIndex===index?true:false}}'></radio>
           <view hidden="{{editIndex===index?true:false}}">{{item.body}}</view>
           <view wx:if="{{editIndex===index}}" class='publish-list-content'>
             <textarea auto-height minlength="{{min}}" maxlength="{{max}}" bindinput="bind{{index}}" data-index="{{index}}" value='{{body}}'></textarea>

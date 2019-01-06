@@ -66,6 +66,7 @@ Page({
           okHidden: true,
         })
         this.reloadPage();
+        wx.setStorageSync("index_reload", true)
       }else{
         wx.showToast({
           icon: 'none',
@@ -188,6 +189,10 @@ Page({
           if (routeCanceled || res.data.driverRoute.vacancy < 1 || res.data.driverRoute.userId === userInfo.userId){
             this.setData({
               waitingHidden: true
+            })
+          }else{
+            this.setData({
+              waitingHidden: false
             })
           }
           for (let i = 0; i < res.data.driverRoute.vacancy;i++){

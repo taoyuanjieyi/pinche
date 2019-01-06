@@ -42,14 +42,22 @@ Page({
       url: that.data.startUpImageUrl + dateStr + ".jpg",
       data: {},
       success: function (res) {
+        if(res.statusCode!==200){
+          that.data.imgUrls[0].lunbo = that.data.startUpImageUrl + "default.jpg";
+          that.setData({
+            imgUrls: that.data.imgUrls
+          })
+        }else{
+          that.data.imgUrls[0].lunbo = that.data.startUpImageUrl + dateStr + ".jpg";
+          that.setData({
+            imgUrls: that.data.imgUrls
+          })
+        }
+      },
+      fail: function (res) {
         that.data.imgUrls[0].lunbo = that.data.startUpImageUrl + dateStr + ".jpg";
         that.setData({
           imgUrls: that.data.imgUrls
-        })
-      },
-      fail: function (res) {
-        that.setData({
-          image: this.data.startUpImageUrl + "default.jpg",
         })
       }
     })
