@@ -1,11 +1,11 @@
 var dateUtil = require('../../utils/dateUtil.js');
-
+var app = getApp()
 Page({
   data: {
     imgUrls: [{
       lunbo: '', link: ""}
     ],
-    startUpImageUrl:"https://www.i5365.cn/static/startup/",
+    startUpImageUrl: app.getServerHost()+"/static/"+ app.getEnv()+"/startup/",
     indicatorDots: false,
     autoplay: false,
     interval: 2000,

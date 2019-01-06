@@ -16,13 +16,16 @@ App({
   getEnv: function(){
     return "pre"
   },
+  getServerHost: function(){
+    return "https://www.i5365.cn"
+  },
   getServerAppUrl: function () {
     if ("pre" === this.getEnv() ){
-      return "https://www.i5365.cn/pinche_pre";
+      return this.getServerHost()+"/pinche_pre";
     } else if ("prod" === this.getEnv() ){
-    return "https://www.i5365.cn/pinche";
+      return this.getServerHost() +"/pinche";
     }else{
-      return "https://www.i5365.cn/pinche_dev";
+      return this.getServerHost() +"/pinche_dev";
     }
   },
 })
