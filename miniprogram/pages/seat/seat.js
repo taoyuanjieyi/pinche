@@ -274,9 +274,17 @@ Page({
       phoneNumber: mobile,
     })
   },
-  gotoShare:function() {
-    wx.navigateTo({
-      url: '../shareRoute/shareRoute?routeId='+this.data.routeId,
+  onShareAppMessage: function () {
+    var that = this;
+    that.setData({
+      isShare: true,
+    })
+    var shareUserId = that.data.loginUserId;
+    return { title: '行程分享', path: "/pages/seat/seat?routeId=" + this.data.routeId + "&shareUserId=" + shareUserId }
+  },
+  jumpPage: function () {
+    wx.switchTab({
+      url: '../index/index',
     })
   }
 })
