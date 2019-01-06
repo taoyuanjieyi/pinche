@@ -12,7 +12,6 @@ Page({
     seatArrayIndex: 0,
     okHidden:true,
     waitingHidden:false,
-    payQrcodeUrl:"",
     isDriver:false,
     isPassenger:false,
     driverMobileHide:true,
@@ -198,12 +197,6 @@ Page({
           for (let i = 0; i < res.data.driverRoute.vacancy;i++){
             seats[i] = i+1;
           }
-
-          var payQrcode = JSON.parse(res.data.driverRoute.payQrcode)
-          var qrcodeUrl = "";
-          if (payQrcode !== null && payQrcode !== "" && payQrcode !== undefined) {
-            qrcodeUrl = payQrcode.qrcodeUrl;
-          }
           if (this.data.loginUserId === res.data.driverRoute.userId){
             this.setData({
               isPassenger:false,
@@ -241,7 +234,6 @@ Page({
             price: res.data.driverRoute.price,
             routeCanceled: routeCanceled,
             routeIsStart: this.data.routeIsStart,
-            payQrcodeUrl: "https://www.i5365.cn" + qrcodeUrl
           })
           var loginUserJoinRouteCount = 0
           if (!commonUtil.isBlank(res.data.joinRouteUserList)){
@@ -260,12 +252,6 @@ Page({
 
       }
       
-    })
-  },
-  previewImage: function(e){
-    wx.previewImage({
-      current: this.data.payQrcodeUrl, // 当前显示图片的http链接
-      urls: [this.data.payQrcodeUrl] // 需要预览的图片http链接列表
     })
   },
   callTelephone:function(e){

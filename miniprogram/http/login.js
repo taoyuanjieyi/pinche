@@ -2,7 +2,7 @@ var commonUtil = require('../common/common.js');
 var userRequest = require('./userRequest.js');
 var wxPromise = require('../plugins/wxPromise.js');
 const wxRequest = wxPromise.wxPromisify(wx.request);
-
+var app = getApp()
 //用户登陆
 function checkLogin(callback, sessionInvalid) {
   //检查微信会话
@@ -62,7 +62,7 @@ function getPlatformSession(loginCode) {
   return new Promise(function (resolve, reject) {
     //发起网络请求
     wx.request({
-      url: 'https://www.i5365.cn/pinche/user/login',
+      url: app.getServerAppUrl() + '/user/login',
       data: {
         code: loginCode
       },

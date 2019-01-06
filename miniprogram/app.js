@@ -4,7 +4,6 @@ App({
    */
   onLaunch: function () {
     var that = this;
-    
   },
 
   /**
@@ -12,5 +11,18 @@ App({
    */
   globalData: {
     openid: 0
-  }
+  },
+
+  getEnv: function(){
+    return "pre"
+  },
+  getServerAppUrl: function () {
+    if ("pre" === this.getEnv() ){
+      return "https://www.i5365.cn/pinche_pre";
+    } else if ("prod" === this.getEnv() ){
+    return "https://www.i5365.cn/pinche";
+    }else{
+      return "https://www.i5365.cn/pinche_dev";
+    }
+  },
 })

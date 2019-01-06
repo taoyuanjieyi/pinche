@@ -12,7 +12,6 @@ Page({
     seatArrayIndex: 0,
     okHidden: true,
     waitingHidden: false,
-    payQrcodeUrl: "",
     isDriver: false,
     isPassenger: false,
     driverMobileHide: true,
@@ -111,7 +110,6 @@ Page({
             price: res.data.driverRoute.price,
             routeCanceled: routeCanceled,
             routeIsStart: this.data.routeIsStart,
-            payQrcodeUrl: "https://www.i5365.cn" + qrcodeUrl
           })
           var loginUserJoinRouteCount = 0
           if (!commonUtil.isBlank(res.data.joinRouteUserList)) {

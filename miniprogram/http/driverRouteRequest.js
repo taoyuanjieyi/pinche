@@ -1,5 +1,5 @@
 var commonUtil = require('../common/common.js');
-
+const app = getApp()
 //发布行程信息接口
 function publish(driverData) {
   console.info("发布行程数据：", driverData)
@@ -7,7 +7,7 @@ function publish(driverData) {
   console.info("publish 当前会话ID:", session_id)
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "https://www.i5365.cn/pinche/driver/publish",
+      url: app.getServerAppUrl() + "/driver/publish",
       data: driverData,
       method: "POST",
       header: {
@@ -32,7 +32,7 @@ function search(searchData){
   console.info("search 当前会话ID:", session_id)
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "https://www.i5365.cn/pinche/driver/search",
+      url: app.getServerAppUrl() + "/driver/search",
       data: searchData,
       method: "POST",
       header: {
@@ -56,7 +56,7 @@ function queryRouteDetail(routeData) {
   console.info("queryRouteDetail 当前会话ID:", session_id)
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "https://www.i5365.cn/pinche/driver/queryDriverRoute",
+      url: app.getServerAppUrl() + "/driver/queryDriverRoute",
       data: routeData,
       method: "GET",
       header: {
@@ -81,7 +81,7 @@ function cancel(driverData) {
   console.info("cancel 当前会话ID:", session_id)
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "https://www.i5365.cn/pinche/driver/cancel",
+      url: app.getServerAppUrl() + "/driver/cancel",
       data: driverData,
       method: "POST",
       header: {
