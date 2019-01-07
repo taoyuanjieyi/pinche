@@ -124,8 +124,8 @@ page {
 }
 
 .center-top-money {
-  width: 24rpx;
-  height: 24rpx;
+  width: 20rpx;
+  height: 20rpx;
 }
 
 .content-right-btn {

@@ -85,6 +85,14 @@
   white-space: nowrap;
 }
 
+.seat-list-btn-height {
+  width: 90%;
+  height: 80rpx;
+  font-size: 30rpx;
+  margin: 24rpx 5% 0 5%;
+  border-radius: 10rpx;
+}
+
 .seat-list-btn-color {
   background: #eb6100;
 }

@@ -13,8 +13,8 @@ swiper {
 }
 
 .time {
-  font-size: 32rpx;
-  padding: 16rpx 24rpx;
+  font-size: 30rpx;
+  padding: 8rpx 24rpx;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -22,6 +22,6 @@ swiper {
   position: fixed;
   top: 50rpx;
   right: 20rpx;
-  border-radius: 30rpx;
+  border-radius: 50rpx;
   background: rgba(0,0,0,0.3);
 }

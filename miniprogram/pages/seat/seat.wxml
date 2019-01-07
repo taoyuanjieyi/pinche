@@ -60,8 +60,8 @@
     </view>
   </view>
 </view>
-<button class='seat-list-btn'  open-type='share'>分享</button>
-<button class='seat-list-btn' bindtap='jumpPage'>返回</button>
+<button class='seat-list-btn seat-list-btn-height'  open-type='share'>分享</button>
+<button class='seat-list-btn seat-list-btn-height' bindtap='jumpPage'>返回</button>
 <view class='seat-toast' hidden='{{okHidden}}'>
   <view class='seat-toast-content'>
     <view class='seat-toast-title'>信息确认</view>
