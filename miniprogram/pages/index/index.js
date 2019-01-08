@@ -36,6 +36,7 @@ Page({
   onShow: function () {
     var selectedRouteBody = commonUtil.getStorage("index_reload");
     if (selectedRouteBody){
+      this.clearPageData()
       this.queryRouteList()
       wx.setStorageSync("index_reload", "")
     }
