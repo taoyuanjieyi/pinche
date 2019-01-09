@@ -19,6 +19,7 @@ Page({
     totalPages:0,
     keyword: "",
     timeText:"明天",
+    isTomrrow:0,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
@@ -60,6 +61,7 @@ Page({
       pageNumber: this.data.pageNumber,
       pageSize: this.data.pageSize,
       keyword: this.data.keyword,
+      isTomorrow: this.data.isTomrrow,
     });
   },
   viewDriverRoute : function(e){
@@ -79,12 +81,14 @@ Page({
     if (this.data.timeText==="明天"){
       isTomrrow=1;
       this.setData({
-        timeText:"今天"
+        timeText:"今天",
+        isTomrrow:1,
       })
     }else{
       isTomrrow = 0;
       this.setData({
-        timeText: "明天"
+        timeText: "明天",
+        isTomrrow: 0
       })
     }
     this.clearPageData()
@@ -112,7 +116,8 @@ Page({
     this.queryDriverRouteList({
       pageNumber: this.data.pageNumber,
       pageSize: this.data.pageSize,
-      keyword:value
+      keyword:value,
+      isTomorrow:this.data.isTomrrow,
     });
   },
   queryDriverRouteList:function(searchData){
