@@ -18,6 +18,7 @@ Page({
     pageSize: 10,
     totalPages:0,
     keyword: "",
+    timeText:"明天",
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
@@ -73,6 +74,27 @@ Page({
       url: '../seat/seat?isDriver=' + this.data.ownerRouteList[index].driver +'&routeId=' + this.data.ownerRouteList[index].routeId
     })
   },
+  searchByTime:function(){
+    var isTomrrow = 0;
+    if (this.data.timeText==="明天"){
+      isTomrrow=1;
+      this.setData({
+        timeText:"今天"
+      })
+    }else{
+      isTomrrow = 0;
+      this.setData({
+        timeText: "明天"
+      })
+    }
+    this.clearPageData()
+    this.queryDriverRouteList({
+      pageNumber: this.data.pageNumber,
+      pageSize: this.data.pageSize,
+      keyword: this.data.keyword,
+      isTomorrow: isTomrrow,
+    });
+  },
   clearPageData:function(){
     this.setData({
       driverRouteList: [],
@@ -87,7 +109,6 @@ Page({
     this.setData({
       keyword: value,
     })
-    var len = parseInt(value.length);
     this.queryDriverRouteList({
       pageNumber: this.data.pageNumber,
       pageSize: this.data.pageSize,
