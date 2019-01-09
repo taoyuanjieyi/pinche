@@ -8,12 +8,12 @@ Page({
    */
   data: {
     text: '获取验证码', //按钮文字
-    currentTime: 61, //倒计时
-    disabled: false, //按钮是否禁用
+    currentTime: 60, //倒计时
+    btnDisabled: false, //按钮是否禁用
     smsCode: '',
     mobile: '', //获取到的手机栏中的值
-    getUserInfoBtnDisable: true
-
+    getUserInfoBtnDisable: true,
+    getSmsBtnText:'获取验证码'
   },
 
   /**
@@ -145,8 +145,7 @@ Page({
     var that = this;
 
     that.setData({
-      disabled: true, //只要点击了按钮就让按钮禁用 （避免正常情况下多次触发定时器事件）
-      color: '#ccc',
+      btnDisabled: true, //只要点击了按钮就让按钮禁用 （避免正常情况下多次触发定时器事件）
     })
     console.info(e);
     var mobile = that.data.mobile;
@@ -169,20 +168,18 @@ Page({
           var interval = setInterval(function() {
             currentTime--; //每执行一次让倒计时秒数减一
             that.setData({
-              text: currentTime + 's', //按钮文字变成倒计时对应秒数
-
+              getSmsBtnText: currentTime + 's', //按钮文字变成倒计时对应秒数
             })
             //如果当秒数小于等于0时 停止计时器 且按钮文字变成重新发送 且按钮变成可用状态 倒计时的秒数也要恢复成默认秒数 即让获取验证码的按钮恢复到初始化状态只改变按钮文字
             if (currentTime <= 0) { 
               clearInterval(interval)
               that.setData({
-                text: '重新发送',
-                currentTime: 61,
-                disabled: false,
-                color: '#929fff'
+                getSmsBtnText: '重新发送',
+                currentTime: 60,
+                btnDisabled: false,
               })
             }
-          }, 100);
+          }, 1000);
         }else{
           wx.showToast({
             icon: 'none',
@@ -201,8 +198,7 @@ Page({
       })
 
       that.setData({
-        disabled: false,
-        color: '#929fff'
+        btnDisabled: false,
       })
       return;
 

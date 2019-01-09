@@ -10,7 +10,7 @@
     </view>
     <view class='verification-number'>
       <input class='verification-number-verification' type='number' name='smscode' bindinput="smsCodeInput"placeholder="请输入验证码" />
-      <text  class='verification-number-text' bindtap="getSmsCode">获取验证码</text>
+      <text  class='verification-number-text' disabled='{{btnDisabled}}' bindtap="getSmsCode">{{getSmsBtnText}}</text>
     </view>
     <button class='verification-btn' formType="submit"  disabled='{{getUserInfoBtnDisable}}'>绑定</button>
   </view>
