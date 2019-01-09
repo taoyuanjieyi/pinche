@@ -9,7 +9,7 @@ Page({
   data: {
     text: '获取验证码', //按钮文字
     currentTime: 60, //倒计时
-    btnDisabled: false, //按钮是否禁用
+    bindGetSmsEvent: "getSmsCode",
     smsCode: '',
     mobile: '', //获取到的手机栏中的值
     getUserInfoBtnDisable: true,
@@ -145,7 +145,7 @@ Page({
     var that = this;
 
     that.setData({
-      btnDisabled: true, //只要点击了按钮就让按钮禁用 （避免正常情况下多次触发定时器事件）
+      bindGetSmsEvent: "", 
     })
     console.info(e);
     var mobile = that.data.mobile;
@@ -176,7 +176,7 @@ Page({
               that.setData({
                 getSmsBtnText: '重新发送',
                 currentTime: 60,
-                btnDisabled: false,
+                bindGetSmsEvent: "getSmsCode",
               })
             }
           }, 1000);
@@ -198,7 +198,7 @@ Page({
       })
 
       that.setData({
-        btnDisabled: false,
+        bindGetSmsEvent: "getSmsCode",
       })
       return;
 
