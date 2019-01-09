@@ -29,6 +29,16 @@ page {
   background: #379ff8;
 }
 
+.index-top-time {
+  font-size: 30rpx;
+  color: #379ff8;
+  padding: 8rpx 16rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  margin-right: 30rpx;
+  white-space: nowrap;
+}
+
 .index-top-back {
   width: 36rpx;
   height: 36rpx;
@@ -38,7 +48,7 @@ page {
   width: 100%;
   position: relative;
   background: #fff;
-  border-radius: 30rpx;
+  border-radius: 10rpx;
 }
 
 .index-search {

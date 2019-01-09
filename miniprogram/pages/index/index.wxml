@@ -3,6 +3,7 @@
   <view class='index-top'>
     <!-- <image class='index-top-back' mode='aspectFit' src='../images/back-white.svg'></image> -->
     <!-- <view class='index-release' bindtap="onAdd">发布拼车</view> -->
+    <view class='index-top-time'>今天</view>
     <view class='search'>
       <input class='index-search' placeholder='search' bindinput="bindSearchChange"></input>
       <image class='search-icon' src='/images/search.png'></image>
