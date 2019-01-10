@@ -205,13 +205,13 @@ Page({
           }else{
             this.setData({
               isPassenger: true,
+              driverMobileHide: false,
               isDriver: false,
             })
           }
           if (this.data.isPassenger||this.data.isDriver){
             this.setData({
               driverMobile: res.data.driverRoute.mobile,
-              driverMobileHide:false,
               carInfo: res.data.driverRoute.carInfo,
             })
           }

@@ -11,6 +11,7 @@ Page({
     interval: 2000,
     duration: 1000,
     count:5,
+    inter:"",
   },
   onLoad:function(){
     // 设置图片
@@ -28,9 +29,13 @@ Page({
           that.jumpto()
         }
      }, 1000)
+    that.setData({
+      inter: inter,
+    })
   },
   
   jumpto:function(){
+    clearInterval(this.data.inter);
     wx.switchTab({
       url: '../index/index',
     })

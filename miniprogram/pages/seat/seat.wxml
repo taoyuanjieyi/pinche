@@ -46,7 +46,7 @@
       <view>
         <view>
           <view class='list-content-title'>{{item.nickName}}(乘客)</view>
-          <view class='list-phone-view' wx:if="{{isDriver||item.userId===loginUserId}}" >
+          <view class='list-phone-view' wx:if="{{isDriver}}" >
             <image class='content-phone-icon' mode='aspectFit' src='/images/phone.png'></image>
             <view class='list-content-phone' bindtap='callTelephone'data-mobile="{{item.mobile}}">联系乘客</view>
           </view>
