@@ -14,7 +14,7 @@ App({
   },
 
   getEnv: function(){
-    return "pre"
+    return "prod"
   },
   getServerHost: function(){
     return "https://www.i5365.cn"
