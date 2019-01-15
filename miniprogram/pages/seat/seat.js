@@ -268,6 +268,19 @@ Page({
     var shareUserId = that.data.loginUserId;
     return { title: '行程分享', path: "/pages/seat/seat?routeId=" + this.data.routeId + "&shareUserId=" + shareUserId }
   },
+  /**
+ * 生命周期函数--监听页面隐藏
+ */
+  onHide: function () {
+    wx.removeStorageSync("shareMessage")
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    wx.removeStorageSync("shareMessage")
+  },
   jumpPage: function () {
     wx.switchTab({
       url: '../index/index',
