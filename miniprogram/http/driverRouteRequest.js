@@ -50,6 +50,30 @@ function search(searchData){
   });
 }
 
+function history(searchData) {
+  console.info("查询历史行程数据：", searchData)
+  var session_id = commonUtil.getStorage("third_Session");
+  console.info("search 当前会话ID:", session_id)
+  return new Promise(function (resolve, reject) {
+    wx.request({
+      url: app.getServerAppUrl() + "/driver/getOwnerRoutes",
+      data: searchData,
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'sessionid': session_id
+      },
+      success: function (res) {
+        console.info("历史行程数据查询结果：", searchData)
+        resolve(res);
+      },
+      fail: function (res) {
+        console.log("driver history fail : ", res);
+      }
+    });
+  });
+}
+
 function queryRouteDetail(routeData) {
   console.info("查询行程详情数据：", routeData)
   var session_id = commonUtil.getStorage("third_Session");
@@ -105,5 +129,6 @@ module.exports = {
   search: search,
   publish: publish,
   queryRouteDetail: queryRouteDetail,
-  cancel:cancel
+  cancel:cancel,
+  history: history
 }

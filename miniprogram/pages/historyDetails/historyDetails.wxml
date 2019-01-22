@@ -5,40 +5,21 @@
       <view>
         <view>
           <view class='list-content-title'>{{driverNickName}}（车主）</view>
-          <view class='list-phone-view' wx:if="{{!driverMobileHide}}" >
+          <view class='list-phone-view'>
             <image class='content-phone-icon' mode='aspectFit' src='/images/phone.png'></image>
-            <view class='list-content-phone' data-mobile="{{driverMobile}}" bindtap='callTelephone'>联系车主</view>
+            <view class='list-content-phone' data-mobile="{{driverMobile}}" bindtap='callTelephone'>{{driverMobile}}</view>
           </view>
           <view>{{carInfo}} </view>
         </view>
         <view>
           <view class='seat-list-cost'>费用：{{price}}元</view>
           <view class='seat-list-btn'>剩余{{driverVacancy}}位</view>
-          <view wx:if="{{routeIsStart}}" class='list-content-cancel'>行程已开始</view>
-          <view wx:if="{{routeCanceled}}" class='list-content-cancel'>已取消</view>
-          <view bindtap='openDriverCancelConfirm' data-routeId="{{driverRouteId}}" wx:if="{{isDriver&&!routeCanceled&&!routeIsStart}}" class='list-content-cancel'>取消行程</view>
         </view>
 
       </view>
       <view class='list-content-address'>{{driverPassPoint}}</view>
     </view>
 
-  </view>
-  <view class='seat-list seat-list-center' hidden='{{waitingHidden}}'>
-    <image class='seat-list-avatar' mode='aspectFill' src='/images/logo.png'></image>
-    <view class='seat-list-content seat-list-content-center'>
-      <view>
-        <view>
-          <view class='list-content-title'>待定</view>
-        </view>
-        <picker class='list-content-seat' bindchange="bindPickerChange" value="{{seatArrayIndex}}" range="{{seatArray}}">
-          <view class="picker">
-            预订
-            <!-- 预定{{seatArray[seatArray.length-1]}}位 -->
-          </view>
-        </picker>
-      </view>
-    </view>
   </view>
   <view class='seat-list seat-list-center' wx:for="{{joinRouteUserList}}" wx:key="key">
     <image class='seat-list-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>

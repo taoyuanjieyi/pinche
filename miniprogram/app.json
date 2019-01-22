@@ -3,6 +3,8 @@
     "pages/index-swiper/index-swiper",
     "pages/index/index",
     "pages/me/me",
+    "pages/historyRoute/historyRoute",
+    "pages/historyDetails/historyDetails",
     "pages/publish/publish",
     "pages/login/login",
     "pages/verification/verification",
