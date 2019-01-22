@@ -18,6 +18,7 @@ Page({
   onLoad: function () {
   },
   onShow: function () {
+    this.clearPageData()
     this.queryRouteListCall()
   },
   clearPageData: function () {
