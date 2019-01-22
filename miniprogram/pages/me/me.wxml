@@ -9,6 +9,10 @@
   </view>
 </view>
 <view class='me-list'>
+  <navigator class='me-list-content' url="../historyRoute/historyRoute" hover-class="navigator-hover">
+    <text class='list-content-title'>我的行程</text>
+    <text class='list-content-arrow list-content-arrow-icon'></text>
+  </navigator>
   <navigator class='me-list-content' url="../carMessage/carMessage" hover-class="navigator-hover">
     <text class='list-content-title'>我的车辆</text>
     <text class='list-content-arrow list-content-arrow-icon'></text>
@@ -17,6 +21,7 @@
     <text class='list-content-title'>常用行程</text>
     <text class='list-content-arrow list-content-arrow-icon'></text>
   </navigator>
+
   <!-- 
   <view class='me-list-content'>
     <text class='list-content-title'>收款信息</text>

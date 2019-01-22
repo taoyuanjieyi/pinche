@@ -1,0 +1,90 @@
+/* miniprogram/pages/historyRoute/historyRoute.wxss */
+
+page {
+  background: #eaeaea;
+}
+
+.historyRoute {
+  width: 90%;
+  padding: 20rpx 5%;
+  font-size: 30rpx;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #379ff8;
+}
+
+.inddex-content {
+  width: 94%;
+  margin: 30rpx auto;
+  box-sizing: border-box;
+  display: flex;
+  background: #fff;
+  position: relative;
+}
+
+.inddex-content-current {
+  border: 2rpx solid #379ff8;
+}
+
+.index-content-left {
+  position: absolute;
+  left: -16rpx;
+  top: -18rpx;
+}
+
+.content-left-avatar {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  border: 6rpx solid #fff;
+}
+
+.index-content-center {
+  flex: 1;
+  font-size: 32rpx;
+  margin: 0 20rpx;
+}
+
+.content-center-top {
+  margin: 0 10rpx 0 80rpx;
+  padding: 10rpx 0;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx dashed #d2d2d2;
+}
+
+.content-center-bottom {
+  font-size: 26rpx;
+  color: #585858;
+  padding: 20rpx 10rpx 20rpx 10rpx;
+}
+
+.center-top-left {
+  display: flex;
+}
+
+.content-center-message {
+  color: #666;
+  margin: 0 20rpx;
+}
+
+.center-top-money {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.content-right-btn {
+  border-radius: 4rpx;
+  padding: 6rpx;
+  margin-bottom: 10rpx;
+}
+
+.content-right-btn-color {
+  color: #fff;
+  background: #379ff8;
+}

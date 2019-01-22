@@ -1,0 +1,164 @@
+.seat-list {
+  padding: 20rpx 5%;
+  display: flex;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.seat-list-center {
+  align-items: center;
+}
+
+.seat-list-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  min-width: 100rpx;
+  min-height: 100rpx;
+  border-radius: 50%;
+  border: 1rpx solid #eaeaea;
+}
+
+.seat-list-content {
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  flex: 1;
+}
+
+.me-list-img {
+  text-align: center;
+}
+
+.list-content-img {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.seat-list-content>view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-content-title {
+  font-size: 32rpx;
+}
+
+.list-content-phone {
+  font-size: 30rpx;
+  color: #379ff8;
+}
+
+.content-phone-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+
+.list-phone-view {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.list-content-address {
+  font-size: 28rpx;
+}
+
+.list-content-right {
+  text-align: center;
+}
+
+.seat-list-cost {
+  white-space: nowrap;
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+
+.seat-list-btn, .list-content-seat {
+  height: 50rpx;
+  padding: 0 10rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #379ff8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6rpx;
+  white-space: nowrap;
+}
+
+.seat-list-btn-height {
+  width: 90%;
+  height: 80rpx;
+  font-size: 30rpx;
+  margin: 24rpx 5% 0 5%;
+  border-radius: 10rpx;
+}
+
+.seat-list-btn-color {
+  background: #eb6100;
+}
+
+.list-content-cancel {
+  margin-top: 20rpx;
+  height: 50rpx;
+  padding: 0 10rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #379ff8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6rpx;
+  white-space: nowrap;
+}
+
+.seat-toast {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.seat-toast-content {
+  width: 500rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  background: #fff;
+}
+
+.seat-toast-title {
+  font-size: 34rpx;
+  color: #333;
+  padding: 40rpx 0 20rpx;
+}
+
+.seat-toast-detail {
+  font-size: 30rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.seta-toast-bottom {
+  font-size: 34rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1rpx solid #f9f9f9;
+}
+
+.seta-toast-bottom>view {
+  height: 80rpx;
+  line-height: 80rpx;
+  flex: 1;
+  text-align: center;
+}
+
+.seta-toast-bottom>view:last-child {
+  color: #379ff8;
+  border-left: 1rpx solid #f9f9f9;
+}
