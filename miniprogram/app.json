@@ -12,7 +12,9 @@
     "pages/commonStroke/commonStroke",
     "pages/commonStrokeSelect/commonStrokeSelect",
     "pages/addMessage/addMessage",
-    "pages/tac/tac"
+    "pages/tac/tac",
+    "pages/historyRoute/historyRoute",
+    "pages/historyDetails/historyDetails"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
