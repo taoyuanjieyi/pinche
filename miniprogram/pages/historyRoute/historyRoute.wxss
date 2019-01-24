@@ -10,9 +10,19 @@ page {
   font-size: 30rpx;
   color: #fff;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   background: #379ff8;
+}
+
+.index-top-time {
+  font-size: 30rpx;
+  color: #379ff8;
+  padding: 8rpx 16rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  margin-right: 60rpx;
+  white-space: nowrap;
 }
 
 .inddex-content {
