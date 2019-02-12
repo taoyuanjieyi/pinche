@@ -1,4 +1,8 @@
 <!--index.wxml-->
+<view class='index-template'>
+  <image class='index-template-img' mode='aspectFill' src='/images/index.jpg'></image>
+  <view class='index-template-text'>通勤族必备工具，没有之一</view>
+</view>
 <view class='index'>
   <view class='index-top'>
     <!-- <image class='index-top-back' mode='aspectFit' src='../images/back-white.svg'></image> -->
@@ -8,7 +12,6 @@
       <input class='index-search' placeholder='search' bindinput="bindSearchChange"></input>
       <image class='search-icon' src='/images/search.png'></image>
     </view>
-
   </view>
   <view class='inddex-view'>
     <!-- 车主发布的行程 -->
