@@ -29,6 +29,32 @@ page {
   background: #379ff8;
 }
 
+.index-template {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.index-template-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.index-template-text {
+  width: 100%;
+  font-size: 50rpx;
+  text-align: center;
+  color: #666;
+  position: absolute;
+  left: 0;
+  bottom: 200rpx;
+}
+
 .index-top-time {
   font-size: 30rpx;
   color: #379ff8;

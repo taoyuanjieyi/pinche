@@ -1,4 +1,9 @@
 <view class="historyRoute">
+  <view>
+    <text>我是：</text>
+    <text class='index-top-time'>乘客</text>
+  </view>
+
   <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
     <view class="picker">
       历史行程：{{array[index]}}
@@ -6,7 +11,7 @@
   </picker>
 </view>
 
-<view wx:for="{{historyRouteList}}" class='inddex-content' wx:key="key" data-index="{{index}}" bindtap="viewOwnerRoute" >
+<view wx:for="{{historyRouteList}}" class='inddex-content' wx:key="key" data-index="{{index}}" bindtap="viewOwnerRoute">
   <view class='index-content-left'>
     <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
   </view>

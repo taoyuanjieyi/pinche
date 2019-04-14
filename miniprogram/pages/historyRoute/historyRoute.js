@@ -2,7 +2,7 @@ var login = require('../../http/login.js');
 var driverRequest = require('../../http/driverRouteRequest.js');
 Page({
   data: {
-    array: ['七天内历史行程', '一个月历史行程', '三个月历史行程', '六个月历史行程'],
+    array: ['近7天行程', '近1个月历史行程', '近3个月历史行程', '近6个月历史行程'],
     index: 0,
     historyRouteList: [],
     pageNumber: 1,
