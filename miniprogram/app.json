@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/index-swiper/index-swiper",
     "pages/index/index",
     "pages/me/me",
     "pages/historyRoute/historyRoute",
     "pages/historyDetails/historyDetails",
     "pages/publish/publish",
+    "pages/miniPublish/miniPublish",
+    "pages/systemPublish/systemPublish",
     "pages/login/login",
     "pages/verification/verification",
     "pages/seat/seat",
@@ -14,7 +15,8 @@
     "pages/commonStroke/commonStroke",
     "pages/commonStrokeSelect/commonStrokeSelect",
     "pages/addMessage/addMessage",
-    "pages/tac/tac"
+    "pages/tac/tac",
+    "pages/index-swiper/index-swiper"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -33,7 +35,7 @@
         "selectedIconPath": "images/home_pressed.png"
       },
       {
-        "pagePath": "pages/publish/publish",
+        "pagePath": "pages/miniPublish/miniPublish",
         "text": "发布",
         "iconPath": "images/publish.png",
         "selectedIconPath": "images/pulish-press.png"

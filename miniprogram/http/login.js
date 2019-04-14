@@ -19,11 +19,11 @@ function checkLogin(callback, sessionInvalid) {
     if (commonUtil.isBlank(userInfo)){
       console.info("当前登录用户信息为空，查询用户信息")
       queryUserInfo(callback);
-    } else if (!userInfo.bindMobile) {
-      console.info("用户手机信息为空，跳转至绑定手机页面！")
-      wx.redirectTo({
-        url: '/pages/verification/verification'
-      })
+    // } else if (!userInfo.bindMobile) {
+    //   console.info("用户手机信息为空，跳转至绑定手机页面！")
+    //   wx.redirectTo({
+    //     url: '/pages/verification/verification'
+    //   })
     }else{
       callback()
     }
@@ -102,11 +102,11 @@ function queryUserInfo(callback){
         url: '/pages/login/login'
       })
 
-    } else if (!res.data.data.bindMobile) {
-      console.info("用户手机信息为空，跳转至绑定手机页面！")
-      wx.redirectTo({
-        url: '/pages/verification/verification'
-      })
+    // } else if (!res.data.data.bindMobile) {
+    //   console.info("用户手机信息为空，跳转至绑定手机页面！")
+    //   wx.redirectTo({
+    //     url: '/pages/verification/verification'
+    //   })
     } else {
       callback(res.data.data)
     }

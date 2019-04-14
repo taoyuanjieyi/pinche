@@ -25,6 +25,56 @@ function publish(driverData) {
   });
 }
 
+//mini发布行程信息接口
+function miniPublish(driverData) {
+  console.info("mini发布行程数据：", driverData)
+  var session_id = commonUtil.getStorage("third_Session");
+  console.info("miniPublish 当前会话ID:", session_id)
+  return new Promise(function (resolve, reject) {
+    wx.request({
+      url: app.getServerAppUrl() + "/driver/miniPublish",
+      data: driverData,
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'sessionid': session_id
+      },
+      success: function (res) {
+        console.info("driver miniPublish result :", res)
+        resolve(res);
+      },
+      fail: function (res) {
+        console.log("driver miniPublish fail : ", res);
+      }
+    });
+  });
+}
+
+//system发布行程信息接口
+function systemPublish(driverData) {
+  console.info("system发布行程数据：", driverData)
+  var session_id = commonUtil.getStorage("third_Session");
+  console.info("systemPublish 当前会话ID:", session_id)
+  return new Promise(function (resolve, reject) {
+    wx.request({
+      url: app.getServerAppUrl() + "/driver/systemPublish",
+      data: driverData,
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'sessionid': session_id
+      },
+      success: function (res) {
+        console.info("driver systemPublish result :", res)
+        resolve(res);
+      },
+      fail: function (res) {
+        console.log("driver systemPublish fail : ", res);
+      }
+    });
+  });
+}
+
 
 function search(searchData){
   console.info("查询行程数据：", searchData)
@@ -128,6 +178,8 @@ function cancel(driverData) {
 module.exports = {
   search: search,
   publish: publish,
+  miniPublish: miniPublish,
+  systemPublish: systemPublish,
   queryRouteDetail: queryRouteDetail,
   cancel:cancel,
   history: history

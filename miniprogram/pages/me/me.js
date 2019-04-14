@@ -14,11 +14,11 @@ Page({
       login.queryUserInfo(function(userInfo){
         that.setPageInfo(userInfo)
       });
-    } else if (!userInfo.bindMobile) {
-      console.info("用户手机信息为空，跳转至绑定手机页面！")
-      wx.redirectTo({
-        url: '/pages/verification/verification'
-      })
+    // } else if (!userInfo.bindMobile) {
+    //   console.info("用户手机信息为空，跳转至绑定手机页面！")
+    //   wx.redirectTo({
+    //     url: '/pages/verification/verification'
+    //   })
     } else {
       that.setPageInfo(userInfo)
     }
@@ -33,7 +33,8 @@ Page({
     this.setData({
       nickName: userInfo.nickName,
       avatarUrl: userInfo.avatarUrl,
-      mobile: userInfo.mobile,
+      userId : userInfo.userId,
+      mobile: commonUtil.isBlank(userInfo.mobile) ? "未绑定":userInfo.mobile,
     })
   },
   chooseImage: function() {

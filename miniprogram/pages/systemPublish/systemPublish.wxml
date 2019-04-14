@@ -1,0 +1,15 @@
+<form bindsubmit="formBindsubmit">
+  <view class='publish'>
+    <view>
+      <navigator class='publish-list publish-list-between' bindtap='openSelectRoutePage'>
+        <text class='publish-list-title'>行程内容：</text>
+        <text class='publish-list-arrow'>请选择常用行程</text>
+      </navigator>
+      <view class='publish-list-content'>
+        <textarea name='body' height="20000" maxlength='200' placeholder='请输入行程内容' minlength="{{min}}" maxlength="{{max}}" bindinput="bindBodyChange" value="{{body}}"/>
+        <text class="list-content-number">{{currentWordNumber|0}}/{{max}}</text>
+      </view>
+    </view>
+    <button class='{{submitBtnClass}}' formType="submit" disabled="{{submitBtnDisbled}}">发布</button>
+  </view>
+</form>

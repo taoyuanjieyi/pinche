@@ -12,7 +12,7 @@
   </view>
   <view class='inddex-view'>
     <!-- 车主发布的行程 -->
-    <view wx:for="{{ownerRouteList}}" class='inddex-content inddex-content-current' wx:key="key" bindtap="viewOwnerRoute" data-index="{{index}}">
+    <view wx:for="{{ownerRouteList}}" class='inddex-content inddex-content-current' wx:key="key" bindtap="{{item.status !== '-9'?'viewOwnerRoute':''}}" data-index="{{index}}">
       <view class='index-content-left'>
         <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
       </view>
@@ -20,8 +20,9 @@
         <view class='content-center-top'>
           <view>
             <text>{{item.nickName}}</text>
-            <text class='content-center-message'>({{item.startTime}})</text>
-            <text>¥ {{item.price}}元</text>
+            <text wx:if="{{item.status === '-9'}}" class='content-center-message'>({{item.gmtCreated}})</text>
+            <text wx:if="{{item.status !== '-9'}}" class='content-center-message'>({{item.startTime}})</text>
+            <text wx:if="{{item.status !== '-9'}}">¥ {{item.price}}元</text>
           </view>
           <view class='content-right-btn content-right-btn-color'>{{item.statusDesc}}√</view>
         </view>
@@ -29,7 +30,7 @@
       </view>
     </view>
 
-    <view wx:for="{{driverRouteList}}" class='inddex-content' wx:key="key" bindtap="viewDriverRoute" data-index="{{index}}">
+    <view wx:for="{{driverRouteList}}" class='inddex-content' wx:key="key" bindtap="{{item.status !== '-9'?'viewDriverRoute':''}}" data-index="{{index}}">
       <view class='index-content-left'>
         <image class='content-left-avatar' mode='aspectFill' src='{{item.avatarUrl}}'></image>
       </view>
@@ -37,11 +38,12 @@
         <view class='content-center-top'>
           <view class='center-top-left'>
             <text>{{item.nickName}}</text>
-            <text class='content-center-message'>({{item.startTime}})</text>
-            <text>¥ {{item.price}}元
+            <text wx:if="{{item.status === '-9'}}" class='content-center-message'>({{item.gmtCreated}})</text>
+            <text wx:if="{{item.status !== '-9'}}" class='content-center-message'>({{item.startTime}})</text>
+            <text wx:if="{{item.status !== '-9'}}" >¥ {{item.price}}元
             </text>
           </view>
-          <view class='content-right-btn content-right-btn-color'>座位：{{item.vacancy}}</view>
+          <view wx:if="{{item.status !== '-9'}}" class='content-right-btn content-right-btn-color'>座位：{{item.vacancy}}</view>
         </view>
         <view class='content-center-bottom'>{{item.passPoint}}</view>
       </view>

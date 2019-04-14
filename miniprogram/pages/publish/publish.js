@@ -75,13 +75,24 @@ Page({
       return;
     } else if (userInfo.carList !== null || userInfo.carList !== "" || userInfo.carList !== undefined) {
       var carList = JSON.parse(userInfo.carList);
-      for(var i=0;i<carList.length;i++){
-        var carInfo = carList[i];
-        carInfo.contentLabel = carInfo.brand + " " + carInfo.color + " " + carInfo.area+carInfo.areaLetter+carInfo.carNumber;
+      if(!commonUtil.isBlank(carList)){
+      
+        for(var i=0;i<carList.length;i++){
+          var carInfo = carList[i];
+          carInfo.contentLabel = carInfo.brand + " " + carInfo.color + " " + carInfo.area+carInfo.areaLetter+carInfo.carNumber;
+        
+          if(carList.length == 1){
+            this.setData({
+              carInfo: carList[0].contentLabel
+            })
+          }
+        }
+
+        this.setData({
+          carInfoList: carList
+        })
       }
-      this.setData({
-        carInfoList: carList
-      })
+      
     }
     
   },

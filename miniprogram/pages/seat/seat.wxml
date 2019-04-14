@@ -53,7 +53,7 @@
         </view>
         <view class='list-content-right'>
           <view class='seat-list-btn seat-list-btn-color'>已预定{{item.seats}}位</view>
-          <view hidden='{{isShare}}'  bindtap='openPassengerCancelConfirm' data-routeId="{{item.passengerRouteId}}" wx:if="{{item.userId===loginUserId&&!routeIsStart}}" class='list-content-cancel'>取消预定</view>
+          <view hidden='{{isShare}}'  bindtap='openPassengerCancelConfirm' data-routeId="{{item.passengerRouteId}}" wx:if="{{item.userId===loginUserId}}" class='list-content-cancel'>取消预定</view>
         </view>
 
       </view>

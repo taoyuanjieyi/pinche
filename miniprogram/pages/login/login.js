@@ -17,7 +17,7 @@ Page({
       userRequest.saveUser(e.detail.userInfo).then((res) => {
         if (res.data.retCode === 'success'){
           wx.redirectTo({
-            url: '/pages/verification/verification'
+            url: '/pages/index/index'
           })
         }else{
           console.info("保存用户信息失败！")

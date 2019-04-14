@@ -9,16 +9,23 @@
   </view>
 </view>
 <view class='me-list'>
+<!--
   <navigator class='me-list-content' url="../historyRoute/historyRoute" hover-class="navigator-hover">
     <text class='list-content-title'>我的行程</text>
     <text class='list-content-arrow list-content-arrow-icon'></text>
   </navigator>
+  -->
   <navigator class='me-list-content' url="../carMessage/carMessage" hover-class="navigator-hover">
     <text class='list-content-title'>我的车辆</text>
     <text class='list-content-arrow list-content-arrow-icon'></text>
   </navigator>
   <navigator class='me-list-content' url="../commonStroke/commonStroke" hover-class="navigator-hover">
     <text class='list-content-title'>常用行程</text>
+    <text class='list-content-arrow list-content-arrow-icon'></text>
+  </navigator>
+
+    <navigator wx:if="{{userId==='20190414204407067051061000200997' || userId ==='20190217134212777051061000301305'}}" class='me-list-content' url="../systemPublish/systemPublish" hover-class="navigator-hover">
+    <text class='list-content-title'>系统行程发布</text>
     <text class='list-content-arrow list-content-arrow-icon'></text>
   </navigator>
 
