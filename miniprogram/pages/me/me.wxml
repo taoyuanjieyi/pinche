@@ -24,7 +24,7 @@
     <text class='list-content-arrow list-content-arrow-icon'></text>
   </navigator>
 
-    <navigator wx:if="{{userId==='20190414204407067051061000200997' || userId ==='20190217134212777051061000301305'}}" class='me-list-content' url="../systemPublish/systemPublish" hover-class="navigator-hover">
+    <navigator wx:if="{{userId==='20190414204407067051061000200997' || userId ==='20190422005924105051061000000841'}}" class='me-list-content' url="../systemPublish/systemPublish" hover-class="navigator-hover">
     <text class='list-content-title'>系统行程发布</text>
     <text class='list-content-arrow list-content-arrow-icon'></text>
   </navigator>

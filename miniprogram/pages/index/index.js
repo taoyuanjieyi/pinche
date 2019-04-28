@@ -56,6 +56,12 @@ Page({
     // 停止下拉动作
     wx.stopPullDownRefresh();
   },
+  callTelephone: function (e) {
+    var mobile = e.currentTarget.dataset.mobile;
+    wx.makePhoneCall({
+      phoneNumber: mobile,
+    })
+  },
   queryRouteList: function () {
     this.queryDriverRouteList({
       pageNumber: this.data.pageNumber,

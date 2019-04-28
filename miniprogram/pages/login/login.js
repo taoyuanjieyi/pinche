@@ -16,7 +16,7 @@ Page({
       //插入登录的用户的相关信息到数据库
       userRequest.saveUser(e.detail.userInfo).then((res) => {
         if (res.data.retCode === 'success'){
-          wx.redirectTo({
+          wx.switchTab({
             url: '/pages/index/index'
           })
         }else{
